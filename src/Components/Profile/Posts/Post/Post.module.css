@@ -1,0 +1,11 @@
+.postItem {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    align-items: center;
+    border: 2px solid lightslategrey;
+    margin-bottom: 20px;
+}
+
+.postAvatar {
+    width: 100px;
+}
