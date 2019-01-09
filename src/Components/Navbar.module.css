@@ -1,0 +1,31 @@
+.nav {
+    background-color: #EDEEF0;
+    grid-area: nav;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    display: block;
+    text-decoration: none;
+    color: #285473;
+    padding: 10px 10px 10px 20px;
+}
+
+.link:hover {
+    background-color: #E1E5EB;
+}
+
+.activeLink {
+    background-color: rgba(74, 118, 168, 0.27);
+}
+
+.activeLink:hover {
+    background-color: rgba(74, 118, 168, 0.27);
+}
+
+
