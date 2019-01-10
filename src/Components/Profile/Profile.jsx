@@ -6,7 +6,7 @@ import Posts from "./Posts/Posts";
 
 const Profile = (props) => {
     return (
-        <main className={s.profile}>
+        <main>
             <Cover/>
             <PersonalInfo/>
             <Posts/>

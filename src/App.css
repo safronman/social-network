@@ -1,9 +1,17 @@
 .app-wrapper {
-    width: 1280px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-areas: "header header" "nav main-content";
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
+  display: grid;
+  width: 1280px;
+  margin: 0 auto;
+
+  grid-gap: 10px;
+  grid-template-areas: "header header" "nav main-content";
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 100px 1fr;
+}
+
+.app-wrapper__content {
+  padding: 0 20px;
+  background-color: #edeef0;
+
+  grid-area: main-content;
 }
