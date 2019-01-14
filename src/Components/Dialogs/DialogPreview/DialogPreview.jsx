@@ -1,8 +1,8 @@
 import React from 'react';
-import s from './DialogFirstInfo.module.css';
+import s from './DialogPreview.module.css';
 import {NavLink} from "react-router-dom";
 
-const DialogFirstInfo = (props) => {
+const DialogPreview = (props) => {
     const mainPath = "/dialogs/";
     return (
         <li className={s.dialogsItem}>
@@ -19,4 +19,4 @@ const DialogFirstInfo = (props) => {
     );
 };
 
-export default DialogFirstInfo;
+export default DialogPreview;
