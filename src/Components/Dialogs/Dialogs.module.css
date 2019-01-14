@@ -1,0 +1,22 @@
+.dialogs {
+    display: grid;
+
+    grid-gap: 10px;
+    grid-template-columns: 3fr 9fr;
+}
+
+.dialogsPeople {
+    background-color: white;
+    border-right: 1px solid #EDEEF0;
+}
+
+.dialogsList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dialogsListContent {
+    background-color: white;
+}
+
