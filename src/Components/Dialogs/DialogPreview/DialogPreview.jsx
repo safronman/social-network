@@ -6,7 +6,7 @@ const DialogPreview = (props) => {
     const mainPath = "/dialogs/";
     return (
         <li className={s.dialogsItem}>
-            <NavLink to={`${mainPath}${props.pathId}`}
+            <NavLink to={`${mainPath}${props.id}`}
                      className={`${s.dialogsLink}`}
                      activeClassName={s.dialogsLinkActive}>
                 <img className={s.dialogsPhoto}
