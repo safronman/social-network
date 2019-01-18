@@ -1,6 +1,7 @@
 .info {
     display: grid;
     grid-template-columns: 3fr 9fr;
+    grid-gap: 10px;
     align-items: center;
 }
 
@@ -21,4 +22,30 @@
 .item {
     color: #285473;
     margin-bottom: 10px;
+}
+
+.btn {
+    margin-bottom: 20px;
+    padding: 10px 80px;
+    color: #55677d;
+    border: none;
+    background-color: #dfe6ed;
+    font-size: 14px;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #d3dae1;
+}
+
+.fullList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    grid-column-start: 2;
+
 }

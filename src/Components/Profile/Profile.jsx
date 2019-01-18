@@ -8,7 +8,8 @@ const Profile = (props) => {
     return (
         <main>
             <Cover/>
-            <PersonalInfo/>
+            <PersonalInfo fullInfoEnable={props.fullInfoEnable}
+                          toggleFullInfo={props.toggleFullInfo}/>
             <Posts/>
         </main>
     );
