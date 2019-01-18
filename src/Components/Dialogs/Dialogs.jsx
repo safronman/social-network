@@ -13,8 +13,7 @@ let messagesData = [
     {id: 1, message: "Good morning"},
     {id: 2, message: "Hello"},
     {id: 3, message: "How are you?"},
-    {id: 4, message: "I'm fine, thanks"},
-
+    {id: 4, message: "I'm fine, thanks"}
 ];
 
 const Dialogs = (props) => {
@@ -23,19 +22,19 @@ const Dialogs = (props) => {
             <div className={s.dialogsPeople}>
                 <ul className={s.dialogsList}>
                     {
-                        dialogsData.map((item) => {
-                            return <DialogPreview id={item.id} name={item.name}/>
+                        dialogsData.map(item => {
+                            return <DialogPreview key={item.id} id={item.id} name={item.name}/>
                         })
                     }
                 </ul>
             </div>
 
             <div className={s.dialogsListContent}>
-                <DialogMainContent message={messagesData[0].message}/>
-                <DialogMainContent message={messagesData[1].message}/>
-                <DialogMainContent message={messagesData[2].message}/>
-                <DialogMainContent message={messagesData[3].message}/>
-
+                {
+                    messagesData.map(item => {
+                        return <DialogMainContent key={item.id} id={item.id} message={item.message}/>
+                    })
+                }
             </div>
         </div>
     );
