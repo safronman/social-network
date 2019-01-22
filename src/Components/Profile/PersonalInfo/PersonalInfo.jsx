@@ -2,14 +2,13 @@ import React from 'react';
 import s from './PersonalInfo.module.css';
 
 const PersonalInfo = (props) => {
-
     let onFullInfoButton = () => {
         props.toggleFullInfo();
     };
 
     let fullInfo = null;
 
-    if (props.fullInfoEnable) {
+    if (props.state.enableFullInfoBtn) {
         fullInfo = (
             <ul className={s.fullList}>
                 <li className={s.item}>Relationship status: married</li>

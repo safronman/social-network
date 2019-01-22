@@ -17,9 +17,12 @@ const App = (props) => {
                 <Navbar/>
                 <div className="app-wrapper__content">
                     <Route path='/profile'
-                           render={() => <Profile toggleFullInfo={props.toggleFullInfo}
-                                                  fullInfoEnable={props.fullInfoEnable}/>}/>
-                    <Route path='/dialogs' component={Dialogs}/>
+                           render={() => <Profile state={props.state}
+                                                  toggleFullInfo={props.toggleFullInfo}
+                                                  addPost={props.addPost}
+                                                  changeWritingMessage={props.changeWritingMessage}/>}/>
+                    <Route path='/dialogs'
+                           render={() => <Dialogs state={props.state.dialogs}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>

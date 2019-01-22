@@ -5,12 +5,16 @@ import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Posts from "./Posts/Posts";
 
 const Profile = (props) => {
+    // debugger
     return (
         <main>
             <Cover/>
-            <PersonalInfo fullInfoEnable={props.fullInfoEnable}
+            <PersonalInfo state={props.state.profile}
                           toggleFullInfo={props.toggleFullInfo}/>
-            <Posts/>
+
+            <Posts state={props.state.profile}
+                   addPost={props.addPost}
+                   changeWritingMessage={props.changeWritingMessage}/>
         </main>
     );
 };
