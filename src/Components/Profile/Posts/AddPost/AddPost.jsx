@@ -2,7 +2,6 @@ import React from 'react';
 import s from './AddPost.module.css';
 
 const AddPost = (props) => {
-
     let onMessageChange = (e) => {
         props.changeWritingMessage(e.currentTarget.value);
     };

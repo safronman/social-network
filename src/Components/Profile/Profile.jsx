@@ -9,10 +9,10 @@ const Profile = (props) => {
     return (
         <main>
             <Cover/>
-            <PersonalInfo state={props.state.profile}
+            <PersonalInfo state={props.state}
                           toggleFullInfo={props.toggleFullInfo}/>
 
-            <Posts state={props.state.profile}
+            <Posts state={props.state}
                    addPost={props.addPost}
                    changeWritingMessage={props.changeWritingMessage}/>
         </main>

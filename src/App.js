@@ -10,6 +10,7 @@ import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 
 const App = (props) => {
+    // debugger
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -17,7 +18,7 @@ const App = (props) => {
                 <Navbar/>
                 <div className="app-wrapper__content">
                     <Route path='/profile'
-                           render={() => <Profile state={props.state}
+                           render={() => <Profile state={props.state.profile}
                                                   toggleFullInfo={props.toggleFullInfo}
                                                   addPost={props.addPost}
                                                   changeWritingMessage={props.changeWritingMessage}/>}/>
