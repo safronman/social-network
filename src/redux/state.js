@@ -1,7 +1,7 @@
 import renderPage from "../renderPage";
 
 let state = {
-    profile: {
+    profilePage: {
         postsData: [
             {
                 id: 1,
@@ -17,7 +17,7 @@ let state = {
         enableFullInfoBtn: false,
         currentWritingMessage: ''
     },
-    dialogs: {
+    dialogsPage: {
         dialogsData: [
             {id: 1, name: "James"},
             {id: 2, name: "Bill"},
@@ -29,28 +29,35 @@ let state = {
             {id: 3, message: "How are you?"},
             {id: 4, message: "I'm fine, thanks"}
         ]
+    },
+    sidebar: {
+        friends: [
+            {id: 1, name: "James"},
+            {id: 2, name: "Bill"},
+            {id: 3, name: "David"}
+        ]
     }
 };
 
 // ACTIONS
 // profile actions
 export let toggleFullInfo = () => {
-    state.profile.enableFullInfoBtn = !state.profile.enableFullInfoBtn;
+    state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
     renderPage();
 };
 
 // dialogs actions
 export let changeWritingMessage = (message) => {
-    state.profile.currentWritingMessage = message;
+    state.profilePage.currentWritingMessage = message;
     renderPage();
 };
 
 export let addPost = () => {
-    state.profile.postsData = [{
+    state.profilePage.postsData = [{
         id: 3,
-        message: state.profile.currentWritingMessage,
+        message: state.profilePage.currentWritingMessage,
         likes: 0
-    }, ...state.profile.postsData];
+    }, ...state.profilePage.postsData];
     renderPage();
 };
 
