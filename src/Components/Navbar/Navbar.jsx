@@ -1,25 +1,25 @@
 import React from 'react';
-import s from './Navbar.module.css';
+import styles from './Navbar.module.css';
 import NavLink from "react-router-dom/es/NavLink";
 
 const Navbar = (props) => {
     return (
-        <nav className={s.nav}>
-            <ul className={s.list}>
-                <li className={s.item}>
-                    <NavLink to='/profile' className={`${s.link}`} activeClassName={s.activeLink}>Profile</NavLink>
+        <nav className={styles.nav}>
+            <ul className={styles.list}>
+                <li className={styles.item}>
+                    <NavLink to='/profile' className={`${styles.link}`} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
-                <li className={s.item}>
-                    <NavLink to='/dialogs' className={s.link} activeClassName={s.activeLink}>Dialogs</NavLink>
+                <li className={styles.item}>
+                    <NavLink to='/dialogs' className={styles.link} activeClassName={styles.activeLink}>Dialogs</NavLink>
                 </li>
-                <li className={s.item}>
-                    <NavLink to='/news' className={s.link} activeClassName={s.activeLink}>News</NavLink>
+                <li className={styles.item}>
+                    <NavLink to='/news' className={styles.link} activeClassName={styles.activeLink}>News</NavLink>
                 </li>
-                <li className={s.item}>
-                    <NavLink to='/music' className={s.link} activeClassName={s.activeLink}>Music</NavLink>
+                <li className={styles.item}>
+                    <NavLink to='/music' className={styles.link} activeClassName={styles.activeLink}>Music</NavLink>
                 </li>
-                <li className={s.item}>
-                    <NavLink to='/settings' className={s.link} activeClassName={s.activeLink}>Settings</NavLink>
+                <li className={styles.item}>
+                    <NavLink to='/settings' className={styles.link} activeClassName={styles.activeLink}>Settings</NavLink>
                 </li>
             </ul>
         </nav>
