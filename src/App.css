@@ -5,12 +5,11 @@
 
   grid-gap: 10px;
   grid-template-areas: "header header" "sidebar main-content";
-  grid-template-columns: 2fr 10fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 80px 1fr;
 }
 
 .app-wrapper__content {
-  padding: 0 20px;
   background-color: #edeef0;
 
   grid-area: main-content;

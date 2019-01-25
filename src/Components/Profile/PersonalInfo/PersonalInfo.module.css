@@ -1,12 +1,5 @@
 .info {
-    display: grid;
-    grid-template-columns: 3fr 9fr;
-    grid-gap: 10px;
-    align-items: center;
-}
-
-.avatar {
-    width: 200px;
+    padding: 20px;
 }
 
 .desc {
@@ -16,7 +9,7 @@
 .list {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 10px;
 }
 
 .item {
@@ -25,16 +18,13 @@
 }
 
 .btn {
+    width: 100%;
     margin-bottom: 20px;
     padding: 10px 80px;
     color: #55677d;
     border: none;
     background-color: #dfe6ed;
     font-size: 14px;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 3;
 }
 
 .btn:hover {

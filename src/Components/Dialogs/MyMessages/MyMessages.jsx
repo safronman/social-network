@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./DialogMainContent.module.css";
+import styles from "./MyMessages.module.css";
 
-const DialogMainContent = (props) => {
+const MyMessages = (props) => {
     // debugger
     return (
         <div className={styles.wrapper}>
@@ -11,4 +11,4 @@ const DialogMainContent = (props) => {
     )
 };
 
-export default DialogMainContent;
+export default MyMessages;

@@ -4,7 +4,7 @@ import Friend from "./Friend/Friend";
 
 const Friends = (props) => {
     // debugger
-    let friends = props.state.friends.map(item => <Friend key={item.id} name={item.name} id={item.id}/>);
+    let friends = props.state.friends.map(item => <Friend key={item.id} name={item.name} id={item.id} img={item.img}/>);
 
     return (
         <div>
