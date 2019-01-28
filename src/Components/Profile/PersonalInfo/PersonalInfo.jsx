@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './PersonalInfo.module.css';
+import PropTypes from "prop-types";
 
 const PersonalInfo = (props) => {
     // debugger
+
     let onFullInfoButton = () => {
         props.toggleFullInfo();
     };
@@ -31,6 +33,10 @@ const PersonalInfo = (props) => {
             {fullInfo}
         </div>
     );
+};
+
+PersonalInfo.propTypes = {
+    enableFullInfoBtn: PropTypes.bool
 };
 
 export default PersonalInfo;

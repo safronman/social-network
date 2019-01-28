@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './DialogPreview.module.css';
 import {NavLink} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const DialogPreview = (props) => {
     // debugger
@@ -19,6 +20,12 @@ const DialogPreview = (props) => {
             </NavLink>
         </li>
     );
+};
+
+DialogPreview.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    img: PropTypes.string
 };
 
 export default DialogPreview;

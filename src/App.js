@@ -9,9 +9,11 @@ import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import Friends from "./Components/Friends/Friends";
+import PropTypes from "prop-types";
 
 const App = (props) => {
     // debugger
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -35,6 +37,16 @@ const App = (props) => {
             </div>
         </BrowserRouter>
     );
+};
+
+
+App.propTypes = {
+    state: PropTypes.shape({
+        profilePage: PropTypes.object,
+        dialogsPage: PropTypes.object,
+        sidebar: PropTypes.object
+
+    })
 };
 
 export default App;

@@ -3,6 +3,7 @@ import React from 'react';
 import Cover from "./Cover/Cover";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Posts from "./Posts/Posts";
+import PropTypes from "prop-types";
 
 const Profile = (props) => {
     // debugger
@@ -17,6 +18,14 @@ const Profile = (props) => {
                    changeWritingMessage={props.changeWritingMessage}/>
         </main>
     );
+};
+
+Profile.propTypes = {
+    state: PropTypes.shape({
+        postsData: PropTypes.array,
+        enableFullInfoBtn: PropTypes.bool,
+        currentWritingMessage: PropTypes.string
+    })
 };
 
 export default Profile;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Post.module.css';
 import avatar from '../../../../img/avatar.png'
+import PropTypes from 'prop-types';
 
 const Post = (props) => {
     return (
@@ -16,6 +17,12 @@ const Post = (props) => {
             </div>
         </div>
     );
+};
+
+Post.propTypes = {
+    id: PropTypes.number,
+    message: PropTypes.string,
+    likes: PropTypes.number
 };
 
 export default Post;

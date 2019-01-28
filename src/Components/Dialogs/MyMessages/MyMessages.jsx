@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./MyMessages.module.css";
+import PropTypes from "prop-types";
 
 const MyMessages = (props) => {
     // debugger
@@ -9,6 +10,12 @@ const MyMessages = (props) => {
             <p className={styles.message}>{props.message}</p>
         </div>
     )
+};
+
+MyMessages.propTypes = {
+    id: PropTypes.number,
+    message: PropTypes.string,
+    img: PropTypes.string
 };
 
 export default MyMessages;

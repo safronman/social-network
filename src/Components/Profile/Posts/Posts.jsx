@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Posts.module.css';
 import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
+import PropTypes from "prop-types";
 
 const Posts = (props) => {
     // debugger
@@ -17,6 +18,14 @@ const Posts = (props) => {
             {posts}
         </div>
     );
+};
+
+Posts.propTypes = {
+    state: PropTypes.shape({
+        postsData: PropTypes.array,
+        enableFullInfoBtn: PropTypes.bool,
+        currentWritingMessage: PropTypes.string
+    })
 };
 
 export default Posts;
