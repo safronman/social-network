@@ -1,4 +1,3 @@
-import renderPage from "../renderPage";
 import avatar from '../img/avatar.png';
 import avatar1 from '../img/avatar-1.svg';
 import avatar2 from '../img/avatar-2.svg';
@@ -24,8 +23,7 @@ let state = {
                 likes: 232
             }
         ],
-        enableFullInfoBtn: false,
-        currentWritingMessage: ''
+        enableFullInfoBtn: false
     },
     dialogsPage: {
         dialogsData: [
@@ -54,26 +52,30 @@ let state = {
     }
 };
 
+
+
 // ACTIONS
 // profile actions
 export let toggleFullInfo = () => {
     state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
-    renderPage();
+    refresh();
 };
 
 // dialogs actions
-export let changeWritingMessage = (message) => {
-    state.profilePage.currentWritingMessage = message;
-    renderPage();
+let refresh = () => {};
+
+export let addPost = (text) => {
+    let newPost = {
+        id: 4,
+        message: text,
+        likes: 222
+    };
+    state.profilePage.postsData.push(newPost);
+    refresh();
 };
 
-export let addPost = () => {
-    state.profilePage.postsData = [{
-        id: 3,
-        message: state.profilePage.currentWritingMessage,
-        likes: 0
-    }, ...state.profilePage.postsData];
-    renderPage();
+export let setRefreshFunction = (functionFromOuterWorld) => {
+    refresh = functionFromOuterWorld;
 };
 
 export default state;

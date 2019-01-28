@@ -14,8 +14,7 @@ const Profile = (props) => {
                           toggleFullInfo={props.toggleFullInfo}/>
 
             <Posts state={props.state}
-                   addPost={props.addPost}
-                   changeWritingMessage={props.changeWritingMessage}/>
+                   addPost={props.addPost}/>
         </main>
     );
 };
@@ -24,7 +23,6 @@ Profile.propTypes = {
     state: PropTypes.shape({
         postsData: PropTypes.array,
         enableFullInfoBtn: PropTypes.bool,
-        currentWritingMessage: PropTypes.string
     })
 };
 

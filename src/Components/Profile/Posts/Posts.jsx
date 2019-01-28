@@ -13,8 +13,7 @@ const Posts = (props) => {
 
     return (
         <div className={styles.postList}>
-            <AddPost addPost={props.addPost}
-                     changeWritingMessage={props.changeWritingMessage}/>
+            <AddPost addPost={props.addPost}/>
             {posts}
         </div>
     );
@@ -24,7 +23,6 @@ Posts.propTypes = {
     state: PropTypes.shape({
         postsData: PropTypes.array,
         enableFullInfoBtn: PropTypes.bool,
-        currentWritingMessage: PropTypes.string
     })
 };
 
