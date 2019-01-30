@@ -8,7 +8,6 @@ import avatar6 from '../img/avatar-6.svg';
 import avatar7 from '../img/avatar-7.svg';
 import avatar8 from '../img/avatar-8.svg';
 import avatar9 from '../img/avatar-9.svg';
-import renderPage from "../index";
 
 let state = {
     profilePage: {
@@ -24,7 +23,8 @@ let state = {
                 likes: 232
             }
         ],
-        enableFullInfoBtn: false
+        enableFullInfoBtn: false,
+        currentMessage: ''
     },
     dialogsPage: {
         dialogsData: [
@@ -34,11 +34,11 @@ let state = {
         ],
         myMessages: [
             {id: 1, message: "Good morning", img: avatar},
-            {id: 3, message: "How are you?", img: avatar},
+            {id: 2, message: "How are you?", img: avatar}
         ],
         friendsMessagesData: [
-            {id: 2, message: "Hello", img: avatar1},
-            {id: 4, message: "I'm fine, thanks", img: avatar1}
+            {id: 1, message: "Hello", img: avatar1},
+            {id: 2, message: "I'm fine, thanks", img: avatar1}
         ]
     },
     sidebar: {
@@ -54,19 +54,29 @@ let state = {
 };
 
 // ACTIONS
-// profile actions
-export let toggleFullInfo = () => {
-    state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
-    // refresh();
+
+export let addCurrentMessageInState = (message) => {
+    state.profilePage.currentMessage = message;
 };
 
 export let addPostInState = (message) => {
     let newPost = {
         id: 4,
         message: message,
-        likes: 222
+        likes: 0
     };
     state.profilePage.postsData.push(newPost);
+    state.profilePage.currentMessage = '';
+};
+
+
+
+
+
+// profile actions
+export let toggleFullInfo = () => {
+    state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
+    // refresh();
 };
 
 export default state;

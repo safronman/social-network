@@ -10,8 +10,6 @@
 }
 
 .app-wrapper__content {
-  background-color: #edeef0;
-
   grid-area: main-content;
 }
 

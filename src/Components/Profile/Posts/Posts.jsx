@@ -13,7 +13,9 @@ const Posts = (props) => {
 
     return (
         <div className={styles.postList}>
-            <AddPost addPostOnPage={props.addPostOnPage}/>
+            <AddPost currentMessage={props.state.currentMessage}
+                     addPostOnPage={props.addPostOnPage}
+                     addCurrentMessageOnPage={props.addCurrentMessageOnPage}/>
             {posts}
         </div>
     );

@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state, {addPostInState, toggleFullInfo} from "./redux/state";
+import state, {addCurrentMessageInState, addPostInState, toggleFullInfo} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
+
+let addCurrentMessageOnPage = (message) => {
+    addCurrentMessageInState(message);
+    renderPage();
+};
 
 let addPostOnPage = (message) => {
     addPostInState(message);
@@ -15,8 +20,9 @@ let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={state}
-                 toggleFullInfo={toggleFullInfo}
-                 addPostOnPage={addPostOnPage}/>
+                 addCurrentMessageOnPage={addCurrentMessageOnPage}
+                 addPostOnPage={addPostOnPage}
+                 toggleFullInfo={toggleFullInfo}/>
         </BrowserRouter>,
         document.getElementById('root'));
 };

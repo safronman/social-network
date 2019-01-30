@@ -3,19 +3,24 @@ import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
 
 const AddPost = (props) => {
-    // debugger
-    let textareaEl = React.createRef();
+
+    let onTextareaChange = (e) => {
+        props.addCurrentMessageOnPage(e.currentTarget.value)
+    };
 
     let onAddPostClick = () => {
-        props.addPostOnPage(textareaEl.current.value);
-        textareaEl.current.value = '';
+        props.addPostOnPage(props.currentMessage);
     };
 
     return (
         <div className={styles.newPost}>
             <h2>My posts</h2>
-            <textarea className={styles.newPostTextarea} ref={textareaEl} placeholder="Add text"></textarea>
-            <button className={styles.newPostBtn} onClick={onAddPostClick}>Add post</button>
+            <textarea className={styles.newPostTextarea}
+                      onChange={onTextareaChange}
+                      value={props.currentMessage}
+                      placeholder="Add text"></textarea>
+            <button className={styles.newPostBtn}
+                    onClick={onAddPostClick}>Add post</button>
         </div>
     );
 };

@@ -35,10 +35,14 @@ const Dialogs = (props) => {
             <div className={styles.dialogsPeople}>
                 <ul className={styles.dialogsList}>{dialogsPreview}</ul>
             </div>
-
             <div>
                 <div className={styles.dialogsListContent}>{dialogsMessagesFromMe}</div>
                 <div className={styles.dialogsListContent}>{dialogsMessagesFromFriends}</div>
+            </div>
+
+            <div className={styles.addMessages}>
+                <textarea className={styles.textarea} placeholder="add message"></textarea>
+                <button className={styles.btn}>Add message</button>
             </div>
         </div>
     );
