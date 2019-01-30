@@ -22,9 +22,9 @@ const App = (props) => {
                 <Friends state={props.state.sidebar}/>
             </div>
             <div className="app-wrapper__content">
-                <Route path='/profile'
+                <Route exact path='/'
                        render={() => <Profile state={props.state.profilePage}
-                                              addPost={props.addPost}
+                                              addPostOnPage={props.addPostOnPage}
                                               toggleFullInfo={props.toggleFullInfo}/>}/>
                 <Route path='/dialogs'
                        render={() => <Dialogs state={props.state.dialogsPage}/>}/>
@@ -35,7 +35,6 @@ const App = (props) => {
         </div>
     );
 };
-
 
 App.propTypes = {
     state: PropTypes.shape({

@@ -3,20 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state, {addPost, setRefreshFunction, toggleFullInfo} from "./redux/state";
+import state, {addPostInState, toggleFullInfo} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
+
+let addPostOnPage = (message) => {
+    addPostInState(message);
+    renderPage();
+};
 
 let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={state}
                  toggleFullInfo={toggleFullInfo}
-                 addPost={addPost}/>
+                 addPostOnPage={addPostOnPage}/>
         </BrowserRouter>,
         document.getElementById('root'));
 };
 
-setRefreshFunction(renderPage);
 renderPage();
 
 export default renderPage;

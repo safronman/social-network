@@ -14,7 +14,7 @@ const Profile = (props) => {
                           toggleFullInfo={props.toggleFullInfo}/>
 
             <Posts state={props.state}
-                   addPost={props.addPost}/>
+                   addPostOnPage={props.addPostOnPage}/>
         </main>
     );
 };

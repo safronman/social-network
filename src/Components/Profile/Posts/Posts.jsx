@@ -13,7 +13,7 @@ const Posts = (props) => {
 
     return (
         <div className={styles.postList}>
-            <AddPost addPost={props.addPost}/>
+            <AddPost addPostOnPage={props.addPostOnPage}/>
             {posts}
         </div>
     );

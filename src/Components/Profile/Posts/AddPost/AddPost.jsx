@@ -4,13 +4,10 @@ import PropTypes from "prop-types";
 
 const AddPost = (props) => {
     // debugger
-
     let textareaEl = React.createRef();
 
     let onAddPostClick = () => {
-        // debugger
-        let value = textareaEl.current.value;
-        props.addPost(value);
+        props.addPostOnPage(textareaEl.current.value);
         textareaEl.current.value = '';
     };
 

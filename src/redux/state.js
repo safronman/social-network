@@ -8,6 +8,7 @@ import avatar6 from '../img/avatar-6.svg';
 import avatar7 from '../img/avatar-7.svg';
 import avatar8 from '../img/avatar-8.svg';
 import avatar9 from '../img/avatar-9.svg';
+import renderPage from "../index";
 
 let state = {
     profilePage: {
@@ -52,30 +53,20 @@ let state = {
     }
 };
 
-
-
 // ACTIONS
 // profile actions
 export let toggleFullInfo = () => {
     state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
-    refresh();
+    // refresh();
 };
 
-// dialogs actions
-let refresh = () => {};
-
-export let addPost = (text) => {
+export let addPostInState = (message) => {
     let newPost = {
         id: 4,
-        message: text,
+        message: message,
         likes: 222
     };
     state.profilePage.postsData.push(newPost);
-    refresh();
-};
-
-export let setRefreshFunction = (functionFromOuterWorld) => {
-    refresh = functionFromOuterWorld;
 };
 
 export default state;

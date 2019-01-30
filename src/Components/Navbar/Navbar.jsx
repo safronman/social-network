@@ -7,7 +7,7 @@ const Navbar = (props) => {
         <nav className={styles.nav}>
             <ul className={styles.list}>
                 <li className={styles.item}>
-                    <NavLink to='/profile' className={`${styles.link}`} activeClassName={styles.activeLink}>Profile</NavLink>
+                    <NavLink exact to='/' className={`${styles.link}`} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
                 <li className={styles.item}>
                     <NavLink to='/dialogs' className={styles.link} activeClassName={styles.activeLink}>Dialogs</NavLink>
