@@ -1,0 +1,26 @@
+.addMessages {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+}
+
+.textarea {
+    box-sizing: border-box;
+    margin-right: 20px;
+    height: 52px;
+    padding: 15px;
+    border: 2px solid #285473;
+    font-size: 14px;
+}
+
+.btn {
+    color: #55677d;
+    border: none;
+    background-color: #dfe6ed;
+    font-size: 14px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #d3dae1;
+}

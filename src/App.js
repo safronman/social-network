@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route} from "react-router-dom";
 import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
@@ -7,9 +8,10 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import {Route} from "react-router-dom";
 import Friends from "./Components/Friends/Friends";
+import Messages from "./Components/Messages/Messages";
 import PropTypes from "prop-types";
+
 
 const App = (props) => {
     // debugger
@@ -29,6 +31,8 @@ const App = (props) => {
                                               toggleFullInfo={props.toggleFullInfo}/>}/>
                 <Route path='/dialogs'
                        render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                <Route path='/messages'
+                       render={() => <Messages messagesPage={props.state.messagesPage}/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>

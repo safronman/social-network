@@ -26,6 +26,7 @@ let state = {
         enableFullInfoBtn: false,
         currentMessage: ''
     },
+
     dialogsPage: {
         dialogsData: [
             {id: 1, name: "Mikhail", img: avatar1},
@@ -39,6 +40,67 @@ let state = {
         friendsMessagesData: [
             {id: 1, message: "Hello", img: avatar1},
             {id: 2, message: "I'm fine, thanks", img: avatar1}
+        ]
+    },
+
+
+    messagesPage: {
+        chats: [
+            {
+                chatsId: 1,
+                name: 'Mikhail',
+                avatar: avatar1,
+                messages: [
+                    {
+                        messageId: 1,
+                        author: {
+                            authorId: 1,
+                            name: 'Margarita',
+                            avatar: avatar,
+                        },
+                        content: 'Good morning'
+                    },
+                    {
+                        messageId: 2,
+                        author: {
+                            authorId: 2,
+                            name: 'Mikhail',
+                            avatar: avatar1,
+                        },
+                        content: 'Hello'
+                    },
+                    {
+                        messageId: 3,
+                        author: {
+                            authorId: 1,
+                            name: 'Margarita',
+                            avatar: avatar,
+                        },
+                        content: 'How are you?'
+                    },
+                    {
+                        messageId: 4,
+                        author: {
+                            authorId: 2,
+                            name: 'Mikhail',
+                            avatar: avatar1,
+                        },
+                        content: 'I am fine, thanks'
+                    }
+                ]
+            },
+            {
+                chatsId: 2,
+                name: 'Anastasia',
+                avatar: avatar2,
+                messages: []
+            },
+            {
+                chatsId: 3,
+                name: 'Dmitry',
+                avatar: avatar3,
+                messages: []
+            }
         ]
     },
     sidebar: {
@@ -68,9 +130,6 @@ export let addPostInState = (message) => {
     state.profilePage.postsData.push(newPost);
     state.profilePage.currentMessage = '';
 };
-
-
-
 
 
 // profile actions

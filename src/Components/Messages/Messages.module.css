@@ -1,0 +1,25 @@
+.wrapper {
+    display: grid;
+
+    grid-template-columns: 3fr 9fr;
+    border: 1px solid lightskyblue;
+}
+
+.dialogsPreviewWrapper {
+    border-right: 1px solid #EDEEF0;
+    /*border: 1px solid red;*/
+}
+
+.dialogsPreview {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*border: 1px solid darkolivegreen;*/
+}
+
+
+/*.dialogsMessages {*/
+    /*background-color: lightyellow;*/
+/*}*/
+
+
