@@ -135,10 +135,12 @@ export let addMessageInMessagesPageState = (text) => {
     state.messagesPage.currentMessage = '';
 };
 
-// profile actions
-// export let toggleFullInfo = () => {
-//     state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
-//     // refresh();
-// };
+
+
+
+// Show and hide full information on Profile Page
+export let toggleFullInfoInState = () => {
+    state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
+};
 
 export default state;

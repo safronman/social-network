@@ -27,7 +27,6 @@ Posts.propTypes = {
     profilePage: PropTypes.shape({
         postsData: PropTypes.array,
         currentMessage: PropTypes.string
-        // enableFullInfoBtn: PropTypes.bool
     })
 };
 

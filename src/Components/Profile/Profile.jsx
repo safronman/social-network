@@ -5,15 +5,13 @@ import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Posts from "./Posts/Posts";
 import PropTypes from "prop-types";
 
-const Profile = ({profilePage, addPostOnProfilePage, addCurrentMessageOnProfilePage}) => {
+const Profile = ({profilePage, addPostOnProfilePage, addCurrentMessageOnProfilePage, toggleFullInfo}) => {
     // debugger
     return (
         <main>
             <Cover/>
-            {/*<PersonalInfo*/}
-            {/*enableFullInfoBtn={props.state.enableFullInfoBtn}*/}
-            {/*toggleFullInfo={props.toggleFullInfo}/>*/}
-            <PersonalInfo/>
+            <PersonalInfo profilePage={profilePage}
+                          toggleFullInfo={toggleFullInfo}/>
 
             <Posts profilePage={profilePage}
                    addPostOnProfilePage={addPostOnProfilePage}
@@ -23,8 +21,8 @@ const Profile = ({profilePage, addPostOnProfilePage, addCurrentMessageOnProfileP
 };
 
 Profile.propTypes = {
-    addPostOnProfilePage:PropTypes.func,
-    addCurrentMessageOnProfilePage:PropTypes.func,
+    addPostOnProfilePage: PropTypes.func,
+    addCurrentMessageOnProfilePage: PropTypes.func,
     profilePage: PropTypes.object
 };
 

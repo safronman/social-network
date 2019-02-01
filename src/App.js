@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 
 const App = ({state:{profilePage, messagesPage, sidebar},
-                 addCurrentMessageOnProfilePage, addCurrentMessageOnMessagesPage, addPostOnProfilePage, addMessageOnMessagesPage}) => {
+                 addCurrentMessageOnProfilePage, addCurrentMessageOnMessagesPage, addPostOnProfilePage, addMessageOnMessagesPage, toggleFullInfo}) => {
     // debugger
 
     return (
@@ -26,7 +26,7 @@ const App = ({state:{profilePage, messagesPage, sidebar},
             <div className="app-wrapper__content">
                 <Route exact path='/'
                        render={() => <Profile profilePage={profilePage}
-                                              // toggleFullInfo={props.toggleFullInfo}
+                                              toggleFullInfo={toggleFullInfo}
                                               addPostOnProfilePage={addPostOnProfilePage}
                                               addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}/>}/>
                 <Route path='/messages'
