@@ -10,6 +10,7 @@ const PersonalInfo = ({toggleFullInfo, profilePage: {enableFullInfoBtn}}) => {
     };
 
     let fullInfo = null;
+    let btnName = 'Show full information';
 
     if (enableFullInfoBtn) {
         fullInfo = (
@@ -19,6 +20,7 @@ const PersonalInfo = ({toggleFullInfo, profilePage: {enableFullInfoBtn}}) => {
                 <li className={styles.item}>Relationship status: married</li>
             </ul>
         );
+        btnName = 'Hide full information';
     }
 
     return (
@@ -29,7 +31,7 @@ const PersonalInfo = ({toggleFullInfo, profilePage: {enableFullInfoBtn}}) => {
                 <li className={styles.item}>Current city: Minsk</li>
             </ul>
             <button className={styles.btn}
-                    onClick={onFullInfoButtonClick}>Show full information</button>
+                    onClick={onFullInfoButtonClick}>{btnName}</button>
             {fullInfo}
         </div>
     );
