@@ -3,24 +3,24 @@ import styles from './Post.module.css';
 import avatar from '../../../../img/avatar.png'
 import PropTypes from 'prop-types';
 
-const Post = (props) => {
+const Post = ({message, likes}) => {
+    // debugger
     return (
         <div className={styles.postItem}>
             <div className={styles.postContent}>
                 <img className={styles.postAvatar}
                      src={avatar}
                      alt="avatar"/>
-                <p className={styles.postDesc}>{props.message}</p>
+                <p className={styles.postDesc}>{message}</p>
             </div>
             <div className={styles.postActions}>
-                <div>like: {props.likes}</div>
+                <div>like: {likes}</div>
             </div>
         </div>
     );
 };
 
 Post.propTypes = {
-    id: PropTypes.number,
     message: PropTypes.string,
     likes: PropTypes.number
 };

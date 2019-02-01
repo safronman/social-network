@@ -4,27 +4,30 @@ import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
 import PropTypes from "prop-types";
 
-const Posts = (props) => {
+const Posts = ({profilePage:{postsData, currentMessage}, addPostOnProfilePage, addCurrentMessageOnProfilePage}) => {
     // debugger
 
-    let posts = props.state.postsData.map(item => {
+    let posts = postsData.map(item => {
         return <Post key={item.id} message={item.message} likes={item.likes}/>
     });
 
     return (
         <div className={styles.postList}>
-            <AddPost currentMessage={props.state.currentMessage}
-                     addPostOnProfilePage={props.addPostOnProfilePage}
-                     addCurrentMessageOnProfilePage={props.addCurrentMessageOnProfilePage}/>
+            <AddPost currentMessage={currentMessage}
+                     addPostOnProfilePage={addPostOnProfilePage}
+                     addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}/>
             {posts}
         </div>
     );
 };
 
 Posts.propTypes = {
-    state: PropTypes.shape({
+    addPostOnProfilePage:PropTypes.func,
+    addCurrentMessageOnProfilePage:PropTypes.func,
+    profilePage: PropTypes.shape({
         postsData: PropTypes.array,
-        enableFullInfoBtn: PropTypes.bool,
+        currentMessage: PropTypes.string
+        // enableFullInfoBtn: PropTypes.bool
     })
 };
 

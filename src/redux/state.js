@@ -136,9 +136,9 @@ export let addMessageInMessagesPageState = (text) => {
 };
 
 // profile actions
-export let toggleFullInfo = () => {
-    state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
-    // refresh();
-};
+// export let toggleFullInfo = () => {
+//     state.profilePage.enableFullInfoBtn = !state.profilePage.enableFullInfoBtn;
+//     // refresh();
+// };
 
 export default state;

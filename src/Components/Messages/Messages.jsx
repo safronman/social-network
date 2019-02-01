@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './Messages.module.css';
-import DialogPreview from "./DialogPreview/DialogPreview";
+import DialogsPreview from "./DialogsPreview/DialogsPreview";
 import DialogsMessages from "./DialogsMessages/DialogsMessages";
 import AddMessage from "./DialogsMessages/AddMessage/AddMessage";
+import PropTypes from "prop-types";
 
-const Messages = (props) => {
+const Messages = ({messagesPage: {chats, currentMessage}, addCurrentMessageOnMessagesPage, addMessageOnMessagesPage}) => {
     // debugger
 
-    let dialogsPreview = props.messagesPage.chats.map(item => {
-        return <DialogPreview key={item.chatsId}
+    let dialogsPreview = chats.map(item => {
+        return <DialogsPreview key={item.chatsId}
                                chatsId={item.chatsId}
                                name={item.name}
-                               avatar={item.avatar}
-                               messages={item.messages}/>
+                               avatar={item.avatar}/>
     });
 
-    let dialogsMessages = props.messagesPage.chats[0].messages.map(item => {
+    let dialogsMessages = chats[0].messages.map(item => {
         return <DialogsMessages key={item.messageId}
                                 messageId={item.messageId}
                                 author={item.author}
@@ -29,12 +29,21 @@ const Messages = (props) => {
             </div>
             <div>
                 <div className={styles.dialogsMessages}>{dialogsMessages}</div>
-                <AddMessage currentMessage ={props.messagesPage.currentMessage}
-                            addCurrentMessageOnMessagesPage={props.addCurrentMessageOnMessagesPage}
-                            addMessageOnMessagesPage={props.addMessageOnMessagesPage}/>
+                <AddMessage currentMessage={currentMessage}
+                            addCurrentMessageOnMessagesPage={addCurrentMessageOnMessagesPage}
+                            addMessageOnMessagesPage={addMessageOnMessagesPage}/>
             </div>
         </div>
     );
+};
+
+Messages.propTypes = {
+    addCurrentMessageOnProfilePage: PropTypes.func,
+    addCurrentMessageOnMessagesPage: PropTypes.func,
+    messagesPage: PropTypes.shape({
+        chats: PropTypes.array,
+        currentMessage: PropTypes.string
+    })
 };
 
 export default Messages;

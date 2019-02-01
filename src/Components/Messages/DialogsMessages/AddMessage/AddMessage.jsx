@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "./AddMessage.module.css";
+import PropTypes from "prop-types";
 
-const AddMessage = (props) => {
+const AddMessage = ({addCurrentMessageOnMessagesPage, addMessageOnMessagesPage, currentMessage}) => {
     // debugger
     let onTextareaValueChange = (e) => {
-        props.addCurrentMessageOnMessagesPage(e.currentTarget.value)
+        addCurrentMessageOnMessagesPage(e.currentTarget.value)
     };
 
     let onSendButtonClick = () => {
-        props.addMessageOnMessagesPage(props.currentMessage);
+        addMessageOnMessagesPage(currentMessage);
     };
 
     return (
@@ -16,12 +17,18 @@ const AddMessage = (props) => {
             <textarea className={styles.textarea}
                       onChange={onTextareaValueChange}
                       placeholder="Write a message"
-                      value={props.currentMessage}></textarea>
+                      value={currentMessage}></textarea>
             <button className={styles.btn}
                     onClick={onSendButtonClick}>Send
             </button>
         </div>
     )
+};
+
+AddMessage.propTypes = {
+    addCurrentMessageOnMessagesPage: PropTypes.func,
+    addMessageOnMessagesPage: PropTypes.func,
+    currentMessage: PropTypes.string
 };
 
 export default AddMessage;

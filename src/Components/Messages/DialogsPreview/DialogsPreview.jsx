@@ -1,34 +1,33 @@
 import React from 'react';
-import styles from './DialogPreview.module.css';
+import styles from './DialogsPreview.module.css';
 import {NavLink} from "react-router-dom";
 import PropTypes from 'prop-types';
 
-const DialogPreview = (props) => {
+const DialogsPreview = ({chatsId, name, avatar}) => {
     // debugger
-
     const mainPath = "/messages/";
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.dialogsItem}>
-                <NavLink to={`${mainPath}${props.chatsId}`}
+                <NavLink to={`${mainPath}${chatsId}`}
                          className={`${styles.dialogsLink}`}
                          activeClassName={styles.dialogsLinkActive}>
                     <img className={styles.dialogsPhoto}
-                         src={props.avatar}
+                         src={avatar}
                          alt="Avatar photo"
                          width="50px"/>
-                    <p>{props.name}</p>
+                    <p>{name}</p>
                 </NavLink>
             </div>
         </div>
     );
 };
 
-DialogPreview.propTypes = {
+DialogsPreview.propTypes = {
     chatsId: PropTypes.number,
     name: PropTypes.string,
     avatar: PropTypes.string
 };
 
-export default DialogPreview;
+export default DialogsPreview;

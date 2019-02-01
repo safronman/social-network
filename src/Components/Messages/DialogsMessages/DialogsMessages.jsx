@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./DialogsMessages.module.css";
 import PropTypes from "prop-types";
 
-const DialogsMessages = (props) => {
+const DialogsMessages = ({content, messageId, author:{avatar}}) => {
     // debugger
 
     return (
         <div className={styles.wrapper}>
-            <img className={styles.img} src={props.author.avatar} alt="avatar"/>
-            <p className={styles.message}>{props.content}</p>
+            <img className={styles.img} src={avatar} alt="avatar"/>
+            <p className={styles.message}>{content}</p>
         </div>
     )
 };
