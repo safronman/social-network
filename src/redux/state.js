@@ -26,25 +26,8 @@ let state = {
         enableFullInfoBtn: false,
         currentMessage: ''
     },
-
-    dialogsPage: {
-        dialogsData: [
-            {id: 1, name: "Mikhail", img: avatar1},
-            {id: 2, name: "Anastasia", img: avatar2},
-            {id: 3, name: "Dmitry", img: avatar3}
-        ],
-        myMessages: [
-            {id: 1, message: "Good morning", img: avatar},
-            {id: 2, message: "How are you?", img: avatar}
-        ],
-        friendsMessagesData: [
-            {id: 1, message: "Hello", img: avatar1},
-            {id: 2, message: "I'm fine, thanks", img: avatar1}
-        ]
-    },
-
-
     messagesPage: {
+        currentMessage: '',
         chats: [
             {
                 chatsId: 1,
@@ -87,7 +70,7 @@ let state = {
                         },
                         content: 'I am fine, thanks'
                     }
-                ]
+                ],
             },
             {
                 chatsId: 2,
@@ -117,11 +100,12 @@ let state = {
 
 // ACTIONS
 
-export let addCurrentMessageInState = (message) => {
+// Add post to Profile Page
+export let addCurrentMessageInProfilePageState = (message) => {
     state.profilePage.currentMessage = message;
 };
 
-export let addPostInState = (message) => {
+export let addPostInProfilePageState = (message) => {
     let newPost = {
         id: 4,
         message: message,
@@ -131,6 +115,25 @@ export let addPostInState = (message) => {
     state.profilePage.currentMessage = '';
 };
 
+
+// Add message to Messages Page
+export let addCurrentMessageInMessagesPageState = (text) => {
+    state.messagesPage.currentMessage = text;
+};
+
+export let addMessageInMessagesPageState = (text) => {
+    let newMessage = {
+        messageId: 5,
+        author: {
+            authorId: 1,
+            name: 'Margarita',
+            avatar: avatar,
+        },
+        content: text
+    };
+    state.messagesPage.chats[0].messages.push(newMessage);
+    state.messagesPage.currentMessage = '';
+};
 
 // profile actions
 export let toggleFullInfo = () => {

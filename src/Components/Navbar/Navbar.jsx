@@ -10,9 +10,6 @@ const Navbar = (props) => {
                     <NavLink exact to='/' className={`${styles.link}`} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to='/dialogs' className={styles.link} activeClassName={styles.activeLink}>Dialogs</NavLink>
-                </li>
-                <li className={styles.item}>
                     <NavLink to='/messages' className={styles.link} activeClassName={styles.activeLink}>Messages</NavLink>
                 </li>
                 <li className={styles.item}>

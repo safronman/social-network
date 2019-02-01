@@ -1,18 +1,10 @@
 import React from 'react';
-import styles from './DialogPreview2.module.css';
+import styles from './DialogPreview.module.css';
 import {NavLink} from "react-router-dom";
 import PropTypes from 'prop-types';
-// import AddMessage from "../AddMessage/AddMessage";
 
-const DialogPreview2 = (props) => {
+const DialogPreview = (props) => {
     // debugger
-
-    // let dialogsMessages = props.messages.map(item => {
-    //     return <AddMessage key={item.messageId}
-    //                             messageId={item.messageId}
-    //                             content={item.content}
-    //                             author={item.author}/>
-    // });
 
     const mainPath = "/messages/";
 
@@ -33,10 +25,10 @@ const DialogPreview2 = (props) => {
     );
 };
 
-DialogPreview2.propTypes = {
+DialogPreview.propTypes = {
     chatsId: PropTypes.number,
     name: PropTypes.string,
     avatar: PropTypes.string
 };
 
-export default DialogPreview2;
+export default DialogPreview;

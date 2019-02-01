@@ -3,13 +3,12 @@ import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
 
 const AddPost = (props) => {
-
     let onTextareaChange = (e) => {
-        props.addCurrentMessageOnPage(e.currentTarget.value)
+        props.addCurrentMessageOnProfilePage(e.currentTarget.value)
     };
 
     let onAddPostClick = () => {
-        props.addPostOnPage(props.currentMessage);
+        props.addPostOnProfilePage(props.currentMessage);
     };
 
     return (

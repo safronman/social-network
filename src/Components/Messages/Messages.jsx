@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Messages.module.css';
-import DialogPreview2 from "./DialogPreview2/DialogPreview2";
+import DialogPreview from "./DialogPreview/DialogPreview";
 import DialogsMessages from "./DialogsMessages/DialogsMessages";
 import AddMessage from "./DialogsMessages/AddMessage/AddMessage";
 
 const Messages = (props) => {
     // debugger
 
-    let dialogsPreview2 = props.messagesPage.chats.map(item => {
-        return <DialogPreview2 key={item.chatsId}
+    let dialogsPreview = props.messagesPage.chats.map(item => {
+        return <DialogPreview key={item.chatsId}
                                chatsId={item.chatsId}
                                name={item.name}
                                avatar={item.avatar}
@@ -25,11 +25,13 @@ const Messages = (props) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.dialogsPreviewWrapper}>
-                <ul className={styles.dialogsPreview}>{dialogsPreview2}</ul>
+                <ul className={styles.dialogsPreview}>{dialogsPreview}</ul>
             </div>
-            <div className={styles.dialogsMessages}>
-                {dialogsMessages}
-                <AddMessage />
+            <div>
+                <div className={styles.dialogsMessages}>{dialogsMessages}</div>
+                <AddMessage currentMessage ={props.messagesPage.currentMessage}
+                            addCurrentMessageOnMessagesPage={props.addCurrentMessageOnMessagesPage}
+                            addMessageOnMessagesPage={props.addMessageOnMessagesPage}/>
             </div>
         </div>
     );

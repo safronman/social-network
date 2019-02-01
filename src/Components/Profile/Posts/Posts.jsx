@@ -14,8 +14,8 @@ const Posts = (props) => {
     return (
         <div className={styles.postList}>
             <AddPost currentMessage={props.state.currentMessage}
-                     addPostOnPage={props.addPostOnPage}
-                     addCurrentMessageOnPage={props.addCurrentMessageOnPage}/>
+                     addPostOnProfilePage={props.addPostOnProfilePage}
+                     addCurrentMessageOnProfilePage={props.addCurrentMessageOnProfilePage}/>
             {posts}
         </div>
     );

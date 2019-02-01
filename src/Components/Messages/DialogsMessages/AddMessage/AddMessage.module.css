@@ -1,7 +1,7 @@
-.addMessages {
+.wrapper {
     grid-column-start: 2;
     display: grid;
-    grid-template-columns: 9fr 3fr;
+    grid-template-columns: 10fr 2fr;
 }
 
 .textarea {
@@ -9,7 +9,7 @@
     margin-right: 20px;
     height: 52px;
     padding: 15px;
-    border: 2px solid #285473;
+    border: 2px solid #d3dae1;
     font-size: 14px;
 }
 
@@ -18,6 +18,7 @@
     border: none;
     background-color: #dfe6ed;
     font-size: 14px;
+    border-radius: 10px;
 }
 
 .btn:hover {

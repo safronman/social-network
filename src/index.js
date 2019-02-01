@@ -3,16 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state, {addCurrentMessageInState, addPostInState, toggleFullInfo} from "./redux/state";
+import state, {
+    addCurrentMessageInMessagesPageState,
+    addCurrentMessageInProfilePageState,
+    addMessageInMessagesPageState,
+    addPostInProfilePageState,
+    toggleFullInfo
+} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
-let addCurrentMessageOnPage = (message) => {
-    addCurrentMessageInState(message);
+// Add post to Profile Page
+let addCurrentMessageOnProfilePage = (message) => {
+    addCurrentMessageInProfilePageState(message);
     renderPage();
 };
 
-let addPostOnPage = (message) => {
-    addPostInState(message);
+let addPostOnProfilePage = (message) => {
+    addPostInProfilePageState(message);
+    renderPage();
+};
+
+
+// Add message to Messages Page
+let addCurrentMessageOnMessagesPage = (text) => {
+    addCurrentMessageInMessagesPageState(text);
+    renderPage();
+};
+
+let addMessageOnMessagesPage = (message) => {
+    addMessageInMessagesPageState(message);
     renderPage();
 };
 
@@ -20,8 +39,10 @@ let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={state}
-                 addCurrentMessageOnPage={addCurrentMessageOnPage}
-                 addPostOnPage={addPostOnPage}
+                 addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}
+                 addCurrentMessageOnMessagesPage={addCurrentMessageOnMessagesPage}
+                 addPostOnProfilePage={addPostOnProfilePage}
+                 addMessageOnMessagesPage={addMessageOnMessagesPage}
                  toggleFullInfo={toggleFullInfo}/>
         </BrowserRouter>,
         document.getElementById('root'));

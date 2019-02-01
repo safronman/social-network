@@ -1,24 +1,27 @@
 import React from "react";
 import styles from "./AddMessage.module.css";
-// import PropTypes from "prop-types";
 
 const AddMessage = (props) => {
     // debugger
+    let onTextareaValueChange = (e) => {
+        props.addCurrentMessageOnMessagesPage(e.currentTarget.value)
+    };
+
+    let onSendButtonClick = () => {
+        props.addMessageOnMessagesPage(props.currentMessage);
+    };
 
     return (
-        <div className={styles.addMessages}>
-            <textarea className={styles.textarea} placeholder="add message"></textarea>
-            <button className={styles.btn}>Add message</button>
+        <div className={styles.wrapper}>
+            <textarea className={styles.textarea}
+                      onChange={onTextareaValueChange}
+                      placeholder="Write a message"
+                      value={props.currentMessage}></textarea>
+            <button className={styles.btn}
+                    onClick={onSendButtonClick}>Send
+            </button>
         </div>
     )
 };
-
-// AddMessage.propTypes = {
-//     messageId: PropTypes.number,
-//     content: PropTypes.string,
-//     author: PropTypes.shape({
-//         avatar: PropTypes.string
-//     })
-// };
 
 export default AddMessage;
