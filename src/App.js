@@ -12,8 +12,7 @@ import Messages from "./Components/Messages/Messages";
 import PropTypes from "prop-types";
 
 
-const App = ({state:{profilePage, messagesPage, sidebar},
-                 addCurrentMessageOnProfilePage, addCurrentMessageOnMessagesPage, addPostOnProfilePage, addMessageOnMessagesPage, toggleFullInfo}) => {
+const App = ({store: {state: {profilePage, messagesPage, sidebar}}, addCurrentMessageOnProfilePage, addCurrentMessageOnMessagesPage, addPostOnProfilePage, addMessageOnMessagesPage, toggleFullInfo}) => {
     // debugger
 
     return (
@@ -42,14 +41,17 @@ const App = ({state:{profilePage, messagesPage, sidebar},
 };
 
 App.propTypes = {
-    addCurrentMessageOnProfilePage: PropTypes.func,
-    addCurrentMessageOnMessagesPage: PropTypes.func,
-    addPostOnProfilePage: PropTypes.func,
-    addMessageOnMessagesPage: PropTypes.func,
-    state: PropTypes.shape({
-        profilePage: PropTypes.object,
-        dialogsPage: PropTypes.object,
-        sidebar: PropTypes.object
+    store: PropTypes.shape({
+        state: PropTypes.shape({
+            profilePage: PropTypes.object,
+            dialogsPage: PropTypes.object,
+            sidebar: PropTypes.object
+        }),
+        addCurrentMessageOnProfilePage: PropTypes.func,
+        addCurrentMessageOnMessagesPage: PropTypes.func,
+        addPostOnProfilePage: PropTypes.func,
+        addMessageOnMessagesPage: PropTypes.func,
+        toggleFullInfo: PropTypes.func
     })
 };
 

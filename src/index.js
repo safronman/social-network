@@ -3,42 +3,36 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state, {
-    addCurrentMessageInMessagesPageState,
-    addCurrentMessageInProfilePageState,
-    addMessageInMessagesPageState,
-    addPostInProfilePageState,
-    toggleFullInfoInState
-} from "./redux/state";
+import store from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
 // Add post to Profile Page
-let addCurrentMessageOnProfilePage = (message) => {
-    addCurrentMessageInProfilePageState(message);
-    renderPage();
-};
+// let addCurrentMessageOnProfilePage = (message) => {
+//     store.addCurrentMessageInProfilePageState(message);
+//     renderPage();
+// };
 
 let addPostOnProfilePage = (message) => {
-    addPostInProfilePageState(message);
+    store.addPostInProfilePageState(message);
     renderPage();
 };
 
 
 // Add message to Messages Page
 let addCurrentMessageOnMessagesPage = (text) => {
-    addCurrentMessageInMessagesPageState(text);
+    store.addCurrentMessageInMessagesPageState(text);
     renderPage();
 };
 
 let addMessageOnMessagesPage = (message) => {
-    addMessageInMessagesPageState(message);
+    store.addMessageInMessagesPageState(message);
     renderPage();
 };
 
 
 // Show and hide full information on Profile Page
 let toggleFullInfo = () => {
-    toggleFullInfoInState();
+    store.toggleFullInfoInState();
     renderPage();
 };
 
@@ -46,7 +40,7 @@ let toggleFullInfo = () => {
 let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state}
+            <App store={store}
                  toggleFullInfo={toggleFullInfo}
                  addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}
                  addCurrentMessageOnMessagesPage={addCurrentMessageOnMessagesPage}
