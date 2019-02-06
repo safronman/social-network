@@ -7,10 +7,10 @@ import store from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
 // Add post to Profile Page
-// let addCurrentMessageOnProfilePage = (message) => {
-//     store.addCurrentMessageInProfilePageState(message);
-//     renderPage();
-// };
+let addCurrentMessageOnProfilePage = (message) => {
+    store.addCurrentMessageInProfilePageState(message);
+    renderPage();
+};
 
 let addPostOnProfilePage = (message) => {
     store.addPostInProfilePageState(message);
