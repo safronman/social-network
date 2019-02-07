@@ -2,15 +2,18 @@ import React from 'react';
 import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
 
-const AddPost = ({currentMessage, addPostOnProfilePage, addCurrentMessageOnProfilePage}) => {
+const AddPost = ({currentMessage, addCurrentMessageToProfilePage, addPostToProfilePage}) => {
     // debugger
 
+    // {currentMessage, addPostOnProfilePage, addCurrentMessageOnProfilePage}
+
     let onTextareaChange = (e) => {
-        addCurrentMessageOnProfilePage(e.currentTarget.value)
+        // debugger
+        addCurrentMessageToProfilePage(e.currentTarget.value)
     };
 
     let onAddPostClick = () => {
-        addPostOnProfilePage(currentMessage);
+        addPostToProfilePage(currentMessage);
     };
 
     return (
@@ -19,7 +22,7 @@ const AddPost = ({currentMessage, addPostOnProfilePage, addCurrentMessageOnProfi
             <textarea className={styles.newPostTextarea}
                       onChange={onTextareaChange}
                       value={currentMessage}
-                      placeholder="Add text"></textarea>
+                      placeholder="Add text"/>
             <button className={styles.newPostBtn}
                     onClick={onAddPostClick}>Add post
             </button>

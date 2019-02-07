@@ -12,7 +12,7 @@ import Messages from "./Components/Messages/Messages";
 import PropTypes from "prop-types";
 
 
-const App = ({store: {state: {profilePage, messagesPage, sidebar}}, addCurrentMessageOnProfilePage, addCurrentMessageOnMessagesPage, addPostOnProfilePage, addMessageOnMessagesPage, toggleFullInfo}) => {
+const App = ({state: {profilePage, messagesPage, sidebar}, store}) => {
     // debugger
 
     return (
@@ -25,13 +25,14 @@ const App = ({store: {state: {profilePage, messagesPage, sidebar}}, addCurrentMe
             <div className="app-wrapper__content">
                 <Route exact path='/'
                        render={() => <Profile profilePage={profilePage}
-                                              toggleFullInfo={toggleFullInfo}
-                                              addPostOnProfilePage={addPostOnProfilePage}
-                                              addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}/>}/>
+                                              toggleFullInfoOnProfilePage={store.toggleFullInfoOnProfilePage.bind(store)}
+                                              addCurrentMessageToProfilePage={store.addCurrentMessageToProfilePage.bind(store)}
+                                              addPostToProfilePage={store.addPostToProfilePage.bind(store)}
+                       />}/>
                 <Route path='/messages'
                        render={() => <Messages messagesPage={messagesPage}
-                                               addCurrentMessageOnMessagesPage={addCurrentMessageOnMessagesPage}
-                                               addMessageOnMessagesPage={addMessageOnMessagesPage}/>}/>
+                                               addCurrentMessageToMessagesPage={store.addCurrentMessageToMessagesPage.bind(store)}
+                                               addMessageToMessagesPage={store.addMessageToMessagesPage.bind(store)}/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>

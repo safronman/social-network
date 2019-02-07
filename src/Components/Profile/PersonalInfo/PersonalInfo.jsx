@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './PersonalInfo.module.css';
 import PropTypes from "prop-types";
 
-const PersonalInfo = ({toggleFullInfo, profilePage: {enableFullInfoBtn}}) => {
+const PersonalInfo = ({toggleFullInfoOnProfilePage, profilePage: {enableFullInfoBtn}}) => {
     // debugger
 
     let onFullInfoButtonClick = () => {
-        toggleFullInfo();
+        toggleFullInfoOnProfilePage();
     };
 
     let fullInfo = null;

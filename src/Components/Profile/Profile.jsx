@@ -5,17 +5,17 @@ import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Posts from "./Posts/Posts";
 import PropTypes from "prop-types";
 
-const Profile = ({profilePage, addPostOnProfilePage, addCurrentMessageOnProfilePage, toggleFullInfo}) => {
+const Profile = ({profilePage, addCurrentMessageToProfilePage, addPostToProfilePage, toggleFullInfoOnProfilePage}) => {
     // debugger
     return (
         <main>
             <Cover/>
             <PersonalInfo profilePage={profilePage}
-                          toggleFullInfo={toggleFullInfo}/>
+                          toggleFullInfoOnProfilePage={toggleFullInfoOnProfilePage}/>
 
             <Posts profilePage={profilePage}
-                   addPostOnProfilePage={addPostOnProfilePage}
-                   addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}/>
+                   addCurrentMessageToProfilePage={addCurrentMessageToProfilePage}
+                   addPostToProfilePage={addPostToProfilePage}/>
         </main>
     );
 };

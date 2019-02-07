@@ -2,14 +2,17 @@ import React from "react";
 import styles from "./AddMessage.module.css";
 import PropTypes from "prop-types";
 
-const AddMessage = ({addCurrentMessageOnMessagesPage, addMessageOnMessagesPage, currentMessage}) => {
+const AddMessage = ({currentMessage, addCurrentMessageToMessagesPage, addMessageToMessagesPage}) => {
     // debugger
+
     let onTextareaValueChange = (e) => {
-        addCurrentMessageOnMessagesPage(e.currentTarget.value)
+        // debugger
+        addCurrentMessageToMessagesPage(e.currentTarget.value)
     };
 
     let onSendButtonClick = () => {
-        addMessageOnMessagesPage(currentMessage);
+        // debugger
+        addMessageToMessagesPage(currentMessage);
     };
 
     return (

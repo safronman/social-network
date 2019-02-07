@@ -4,8 +4,10 @@ import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
 import PropTypes from "prop-types";
 
-const Posts = ({profilePage:{postsData, currentMessage}, addPostOnProfilePage, addCurrentMessageOnProfilePage}) => {
+const Posts = ({profilePage: {postsData, currentMessage}, addCurrentMessageToProfilePage, addPostToProfilePage}) => {
     // debugger
+
+    // {profilePage:{postsData, currentMessage}, addPostOnProfilePage, addCurrentMessageOnProfilePage}
 
     let posts = postsData.map(item => {
         return <Post key={item.id} message={item.message} likes={item.likes}/>
@@ -14,8 +16,9 @@ const Posts = ({profilePage:{postsData, currentMessage}, addPostOnProfilePage, a
     return (
         <div className={styles.postList}>
             <AddPost currentMessage={currentMessage}
-                     addPostOnProfilePage={addPostOnProfilePage}
-                     addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}/>
+                     addCurrentMessageToProfilePage={addCurrentMessageToProfilePage}
+                     addPostToProfilePage={addPostToProfilePage}
+            />
             {posts}
         </div>
     );

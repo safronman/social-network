@@ -6,46 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import store from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
-// Add post to Profile Page
-let addCurrentMessageOnProfilePage = (message) => {
-    store.addCurrentMessageInProfilePageState(message);
+store.subscribe(() => {
     renderPage();
-};
-
-let addPostOnProfilePage = (message) => {
-    store.addPostInProfilePageState(message);
-    renderPage();
-};
-
-
-// Add message to Messages Page
-let addCurrentMessageOnMessagesPage = (text) => {
-    store.addCurrentMessageInMessagesPageState(text);
-    renderPage();
-};
-
-let addMessageOnMessagesPage = (message) => {
-    store.addMessageInMessagesPageState(message);
-    renderPage();
-};
-
-
-// Show and hide full information on Profile Page
-let toggleFullInfo = () => {
-    store.toggleFullInfoInState();
-    renderPage();
-};
-
+});
 
 let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App store={store}
-                 toggleFullInfo={toggleFullInfo}
-                 addCurrentMessageOnProfilePage={addCurrentMessageOnProfilePage}
-                 addCurrentMessageOnMessagesPage={addCurrentMessageOnMessagesPage}
-                 addPostOnProfilePage={addPostOnProfilePage}
-                 addMessageOnMessagesPage={addMessageOnMessagesPage}/>
+            <App store={store} state={store.getState()}/>
         </BrowserRouter>,
         document.getElementById('root'));
 };
