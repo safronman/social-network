@@ -6,10 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import store from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 
-store.subscribe(() => {
-    renderPage();
-});
-
 let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
@@ -19,6 +15,10 @@ let renderPage = () => {
 };
 
 renderPage();
+
+store.subscribe(() => {
+    renderPage();
+});
 
 export default renderPage;
 

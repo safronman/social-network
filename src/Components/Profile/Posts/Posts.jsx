@@ -7,8 +7,6 @@ import PropTypes from "prop-types";
 const Posts = ({profilePage: {postsData, currentMessage}, addCurrentMessageToProfilePage, addPostToProfilePage}) => {
     // debugger
 
-    // {profilePage:{postsData, currentMessage}, addPostOnProfilePage, addCurrentMessageOnProfilePage}
-
     let posts = postsData.map(item => {
         return <Post key={item.id} message={item.message} likes={item.likes}/>
     });
@@ -17,16 +15,15 @@ const Posts = ({profilePage: {postsData, currentMessage}, addCurrentMessageToPro
         <div className={styles.postList}>
             <AddPost currentMessage={currentMessage}
                      addCurrentMessageToProfilePage={addCurrentMessageToProfilePage}
-                     addPostToProfilePage={addPostToProfilePage}
-            />
+                     addPostToProfilePage={addPostToProfilePage}/>
             {posts}
         </div>
     );
 };
 
 Posts.propTypes = {
-    addPostOnProfilePage:PropTypes.func,
-    addCurrentMessageOnProfilePage:PropTypes.func,
+    addPostOnProfilePage: PropTypes.func,
+    addCurrentMessageOnProfilePage: PropTypes.func,
     profilePage: PropTypes.shape({
         postsData: PropTypes.array,
         currentMessage: PropTypes.string

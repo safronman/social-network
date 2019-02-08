@@ -100,7 +100,7 @@ let store = {
     },
     addCurrentMessageToProfilePage(message) {
         this._state.profilePage.currentMessage = message;
-        this._subscriber();
+        this._callback();
     },
     addPostToProfilePage(message) {
         let newPost = {
@@ -110,11 +110,11 @@ let store = {
         };
         this._state.profilePage.postsData.push(newPost);
         this._state.profilePage.currentMessage = '';
-        this._subscriber();
+        this._callback();
     },
     addCurrentMessageToMessagesPage(text) {
         this._state.messagesPage.currentMessage = text;
-        this._subscriber();
+        this._callback();
     },
     addMessageToMessagesPage(text) {
         let newMessage = {
@@ -128,20 +128,19 @@ let store = {
         };
         this._state.messagesPage.chats[0].messages.push(newMessage);
         this._state.messagesPage.currentMessage = '';
-        // debugger
-        this._subscriber();
+        this._callback();
     },
     toggleFullInfoOnProfilePage() {
         this._state.profilePage.enableFullInfoBtn = !this._state.profilePage.enableFullInfoBtn;
-        this._subscriber();
+        this._callback();
     },
     getState() {
         return this._state;
     },
-    _subscriber() {
+    _callback() {
     },
     subscribe(func) {
-        this._subscriber = func;
+        this._callback = func;
     }
 };
 

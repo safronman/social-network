@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 const AddPost = ({currentMessage, addCurrentMessageToProfilePage, addPostToProfilePage}) => {
     // debugger
 
-    // {currentMessage, addPostOnProfilePage, addCurrentMessageOnProfilePage}
-
     let onTextareaChange = (e) => {
         // debugger
         addCurrentMessageToProfilePage(e.currentTarget.value)
