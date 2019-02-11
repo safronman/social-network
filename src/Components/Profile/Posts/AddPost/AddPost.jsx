@@ -2,16 +2,21 @@ import React from 'react';
 import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
 
-const AddPost = ({currentMessage, addCurrentMessageToProfilePage, addPostToProfilePage}) => {
+const AddPost = ({currentMessage, dispatch}) => {
     // debugger
 
     let onTextareaChange = (e) => {
-        // debugger
-        addCurrentMessageToProfilePage(e.currentTarget.value)
+        dispatch({
+            type: "ADD-CURRENT-MESSAGE-TO-PROFILE-PAGE",
+            message: e.currentTarget.value
+        });
     };
 
     let onAddPostClick = () => {
-        addPostToProfilePage(currentMessage);
+        dispatch({
+            type: "ADD-POST-TO-PROFILE-PAGE",
+            message: currentMessage
+        });
     };
 
     return (

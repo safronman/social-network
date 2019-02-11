@@ -24,15 +24,9 @@ const App = ({state: {profilePage, messagesPage, sidebar}, store}) => {
             </div>
             <div className="app-wrapper__content">
                 <Route exact path='/'
-                       render={() => <Profile profilePage={profilePage}
-                                              toggleFullInfoOnProfilePage={store.toggleFullInfoOnProfilePage.bind(store)}
-                                              addCurrentMessageToProfilePage={store.addCurrentMessageToProfilePage.bind(store)}
-                                              addPostToProfilePage={store.addPostToProfilePage.bind(store)}
-                       />}/>
+                       render={() => <Profile profilePage={profilePage} dispatch={store.dispatch.bind(store)}/>}/>
                 <Route path='/messages'
-                       render={() => <Messages messagesPage={messagesPage}
-                                               addCurrentMessageToMessagesPage={store.addCurrentMessageToMessagesPage.bind(store)}
-                                               addMessageToMessagesPage={store.addMessageToMessagesPage.bind(store)}/>}/>
+                       render={() => <Messages messagesPage={messagesPage} dispatch={store.dispatch.bind(store)}/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>
@@ -47,12 +41,7 @@ App.propTypes = {
             profilePage: PropTypes.object,
             dialogsPage: PropTypes.object,
             sidebar: PropTypes.object
-        }),
-        addCurrentMessageOnProfilePage: PropTypes.func,
-        addCurrentMessageOnMessagesPage: PropTypes.func,
-        addPostOnProfilePage: PropTypes.func,
-        addMessageOnMessagesPage: PropTypes.func,
-        toggleFullInfo: PropTypes.func
+        })
     })
 };
 

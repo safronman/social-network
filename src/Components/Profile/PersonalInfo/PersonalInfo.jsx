@@ -2,11 +2,13 @@ import React from 'react';
 import styles from './PersonalInfo.module.css';
 import PropTypes from "prop-types";
 
-const PersonalInfo = ({toggleFullInfoOnProfilePage, profilePage: {enableFullInfoBtn}}) => {
+const PersonalInfo = ({profilePage: {enableFullInfoBtn}, dispatch}) => {
     // debugger
 
     let onFullInfoButtonClick = () => {
-        toggleFullInfoOnProfilePage();
+        dispatch({
+            type: "TOGGLE-FULL-INFO-ON-PROFILE-PAGE"
+        });
     };
 
     let fullInfo = null;
@@ -38,7 +40,7 @@ const PersonalInfo = ({toggleFullInfoOnProfilePage, profilePage: {enableFullInfo
 };
 
 PersonalInfo.propTypes = {
-    toggleFullInfo: PropTypes.func,
+    dispatch: PropTypes.func,
     profilePage: PropTypes.shape({
         enableFullInfoBtn: PropTypes.bool
     })

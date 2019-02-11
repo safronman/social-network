@@ -98,46 +98,55 @@ let store = {
             ]
         }
     },
-    addCurrentMessageToProfilePage(message) {
-        this._state.profilePage.currentMessage = message;
-        this._callback();
-    },
-    addPostToProfilePage(message) {
-        let newPost = {
-            id: 4,
-            message: message,
-            likes: 0
-        };
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.currentMessage = '';
-        this._callback();
-    },
-    addCurrentMessageToMessagesPage(text) {
-        this._state.messagesPage.currentMessage = text;
-        this._callback();
-    },
-    addMessageToMessagesPage(text) {
-        let newMessage = {
-            messageId: 5,
-            author: {
-                authorId: 1,
-                name: 'Margarita',
-                avatar: avatar,
-            },
-            content: text
-        };
-        this._state.messagesPage.chats[0].messages.push(newMessage);
-        this._state.messagesPage.currentMessage = '';
-        this._callback();
-    },
-    toggleFullInfoOnProfilePage() {
-        this._state.profilePage.enableFullInfoBtn = !this._state.profilePage.enableFullInfoBtn;
-        this._callback();
+    dispatch(action) {
+        switch (action.type) {
+            case "ADD-CURRENT-MESSAGE-TO-PROFILE-PAGE":
+                this._state.profilePage.currentMessage = action.message;
+                this._callback();
+                break;
+
+            case "ADD-POST-TO-PROFILE-PAGE":
+                let newPost = {
+                    id: 4,
+                    message: action.message,
+                    likes: 0
+                };
+                this._state.profilePage.postsData.push(newPost);
+                this._state.profilePage.currentMessage = '';
+                this._callback();
+                break;
+
+            case "ADD-CURRENT-MESSAGE-TO-MESSAGES-PAGE":
+                this._state.messagesPage.currentMessage = action.text;
+                this._callback();
+                break;
+
+            case "ADD-MESSAGE-TO-MESSAGES-PAGE":
+                let newMessage = {
+                    messageId: 5,
+                    author: {
+                        authorId: 1,
+                        name: 'Margarita',
+                        avatar: avatar,
+                    },
+                    content: action.text
+                };
+                this._state.messagesPage.chats[0].messages.push(newMessage);
+                this._state.messagesPage.currentMessage = '';
+                this._callback();
+                break;
+
+            case "TOGGLE-FULL-INFO-ON-PROFILE-PAGE":
+                this._state.profilePage.enableFullInfoBtn = !this._state.profilePage.enableFullInfoBtn;
+                this._callback();
+                break;
+        }
     },
     getState() {
         return this._state;
     },
     _callback() {
+        console.log('changed state');
     },
     subscribe(func) {
         this._callback = func;

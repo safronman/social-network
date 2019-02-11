@@ -9,7 +9,7 @@ import {BrowserRouter} from "react-router-dom";
 let renderPage = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App store={store} state={store.getState()}/>
+            <App state={store.getState()} store={store}/>
         </BrowserRouter>,
         document.getElementById('root'));
 };

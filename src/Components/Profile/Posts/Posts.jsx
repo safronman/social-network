@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
 import PropTypes from "prop-types";
 
-const Posts = ({profilePage: {postsData, currentMessage}, addCurrentMessageToProfilePage, addPostToProfilePage}) => {
+const Posts = ({profilePage: {postsData, currentMessage}, dispatch}) => {
     // debugger
 
     let posts = postsData.map(item => {
@@ -13,17 +13,14 @@ const Posts = ({profilePage: {postsData, currentMessage}, addCurrentMessageToPro
 
     return (
         <div className={styles.postList}>
-            <AddPost currentMessage={currentMessage}
-                     addCurrentMessageToProfilePage={addCurrentMessageToProfilePage}
-                     addPostToProfilePage={addPostToProfilePage}/>
+            <AddPost currentMessage={currentMessage} dispatch={dispatch}/>
             {posts}
         </div>
     );
 };
 
 Posts.propTypes = {
-    addPostOnProfilePage: PropTypes.func,
-    addCurrentMessageOnProfilePage: PropTypes.func,
+    dispatch: PropTypes.func,
     profilePage: PropTypes.shape({
         postsData: PropTypes.array,
         currentMessage: PropTypes.string

@@ -5,7 +5,7 @@ import DialogsMessages from "./DialogsMessages/DialogsMessages";
 import AddMessage from "./DialogsMessages/AddMessage/AddMessage";
 import PropTypes from "prop-types";
 
-const Messages = ({messagesPage: {chats, currentMessage}, addCurrentMessageToMessagesPage, addMessageToMessagesPage}) => {
+const Messages = ({messagesPage: {chats, currentMessage}, dispatch}) => {
     // debugger
 
     let dialogsPreview = chats.map(item => {
@@ -29,17 +29,14 @@ const Messages = ({messagesPage: {chats, currentMessage}, addCurrentMessageToMes
             </div>
             <div>
                 <div className={styles.dialogsMessages}>{dialogsMessages}</div>
-                <AddMessage currentMessage={currentMessage}
-                            addCurrentMessageToMessagesPage={addCurrentMessageToMessagesPage}
-                            addMessageToMessagesPage={addMessageToMessagesPage}/>
+                <AddMessage currentMessage={currentMessage} dispatch={dispatch}/>
             </div>
         </div>
     );
 };
 
 Messages.propTypes = {
-    addCurrentMessageOnProfilePage: PropTypes.func,
-    addCurrentMessageOnMessagesPage: PropTypes.func,
+    dispatch: PropTypes.func,
     messagesPage: PropTypes.shape({
         chats: PropTypes.array,
         currentMessage: PropTypes.string
