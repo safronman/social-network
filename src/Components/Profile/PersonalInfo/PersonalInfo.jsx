@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './PersonalInfo.module.css';
 import PropTypes from "prop-types";
+import {toggleFullInfoActionCreator} from "../../../redux/profilePageReducer";
 
-const PersonalInfo = ({profilePage: {enableFullInfoBtn}, dispatch}) => {
+const PersonalInfo = ({profilePage: {enableFullInfoBtn}, store}) => {
     // debugger
 
     let onFullInfoButtonClick = () => {
-        dispatch({
-            type: "TOGGLE-FULL-INFO-ON-PROFILE-PAGE"
-        });
+        store.dispatch(toggleFullInfoActionCreator());
     };
 
     let fullInfo = null;

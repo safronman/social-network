@@ -14,7 +14,6 @@ import PropTypes from "prop-types";
 
 const App = ({state: {profilePage, messagesPage, sidebar}, store}) => {
     // debugger
-
     return (
         <div className="app-wrapper">
             <Header/>
@@ -24,9 +23,9 @@ const App = ({state: {profilePage, messagesPage, sidebar}, store}) => {
             </div>
             <div className="app-wrapper__content">
                 <Route exact path='/'
-                       render={() => <Profile profilePage={profilePage} dispatch={store.dispatch.bind(store)}/>}/>
+                       render={() => <Profile profilePage={profilePage} store={store}/>}/>
                 <Route path='/messages'
-                       render={() => <Messages messagesPage={messagesPage} dispatch={store.dispatch.bind(store)}/>}/>
+                       render={() => <Messages messagesPage={messagesPage} store={store}/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>

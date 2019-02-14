@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
+import {combineReducers, createStore} from "redux";
+import profilePageReducer from "./redux/profilePageReducer";
+import messagesPageReducer from "./redux/messagesPageReducer";
+import sidebarReducer from "./redux/sidebarReducer";
 
-let renderPage = () => {
+let combinedReducers = combineReducers({
+    profilePage: profilePageReducer,
+    messagesPage: messagesPageReducer,
+    sidebar: sidebarReducer
+});
+
+let store = createStore(combinedReducers);
+
+let renderPage = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={store.getState()} store={store}/>
@@ -17,7 +28,8 @@ let renderPage = () => {
 renderPage();
 
 store.subscribe(() => {
-    renderPage();
+    let state = store.getState();
+    renderPage(state);
 });
 
 export default renderPage;

@@ -1,22 +1,16 @@
 import React from "react";
 import styles from "./AddMessage.module.css";
 import PropTypes from "prop-types";
+import {addCurrentMessageActionCreator, addMessageActionCreator} from "../../../../redux/messagesPageReducer";
 
-const AddMessage = ({currentMessage, dispatch}) => {
+const AddMessage = ({currentMessage, store}) => {
     // debugger
-
     let onTextareaValueChange = (e) => {
-        dispatch({
-            type: "ADD-CURRENT-MESSAGE-TO-MESSAGES-PAGE",
-            text: e.currentTarget.value
-        })
+        store.dispatch(addCurrentMessageActionCreator(e.currentTarget.value))
     };
 
     let onSendButtonClick = () => {
-        dispatch({
-            type: "ADD-MESSAGE-TO-MESSAGES-PAGE",
-            text: currentMessage
-        })
+        store.dispatch(addMessageActionCreator(currentMessage))
     };
 
     return (

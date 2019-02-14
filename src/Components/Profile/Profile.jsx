@@ -1,18 +1,17 @@
 import React from 'react';
-// import styles from './Profile.module.css';
 import Cover from "./Cover/Cover";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Posts from "./Posts/Posts";
 import PropTypes from "prop-types";
+// import styles from './Profile.module.css';
 
-const Profile = ({profilePage, dispatch}) => {
+const Profile = ({profilePage, store}) => {
     // debugger
     return (
         <main>
             <Cover/>
-            <PersonalInfo profilePage={profilePage} dispatch={dispatch}/>
-
-            <Posts profilePage={profilePage} dispatch={dispatch}/>
+            <PersonalInfo profilePage={profilePage} store={store}/>
+            <Posts profilePage={profilePage} store={store}/>
         </main>
     );
 };

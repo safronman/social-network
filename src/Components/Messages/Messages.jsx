@@ -5,7 +5,7 @@ import DialogsMessages from "./DialogsMessages/DialogsMessages";
 import AddMessage from "./DialogsMessages/AddMessage/AddMessage";
 import PropTypes from "prop-types";
 
-const Messages = ({messagesPage: {chats, currentMessage}, dispatch}) => {
+const Messages = ({messagesPage: {chats, currentMessage}, store}) => {
     // debugger
 
     let dialogsPreview = chats.map(item => {
@@ -29,7 +29,7 @@ const Messages = ({messagesPage: {chats, currentMessage}, dispatch}) => {
             </div>
             <div>
                 <div className={styles.dialogsMessages}>{dialogsMessages}</div>
-                <AddMessage currentMessage={currentMessage} dispatch={dispatch}/>
+                <AddMessage currentMessage={currentMessage} store={store}/>
             </div>
         </div>
     );

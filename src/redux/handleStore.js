@@ -9,7 +9,7 @@ import avatar7 from '../img/avatar-7.svg';
 import avatar8 from '../img/avatar-8.svg';
 import avatar9 from '../img/avatar-9.svg';
 
-let store = {
+let handleStore = {
     _state: {
         profilePage: {
             postsData: [
@@ -153,4 +153,4 @@ let store = {
     }
 };
 
-export default store;
+export default handleStore;

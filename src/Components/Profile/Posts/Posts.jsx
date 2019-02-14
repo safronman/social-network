@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import AddPost from "./AddPost/AddPost";
 import PropTypes from "prop-types";
 
-const Posts = ({profilePage: {postsData, currentMessage}, dispatch}) => {
+const Posts = ({profilePage: {postsData, currentMessage}, store}) => {
     // debugger
 
     let posts = postsData.map(item => {
@@ -13,7 +13,7 @@ const Posts = ({profilePage: {postsData, currentMessage}, dispatch}) => {
 
     return (
         <div className={styles.postList}>
-            <AddPost currentMessage={currentMessage} dispatch={dispatch}/>
+            <AddPost currentMessage={currentMessage} store={store}/>
             {posts}
         </div>
     );

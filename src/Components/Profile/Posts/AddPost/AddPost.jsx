@@ -1,22 +1,17 @@
 import React from 'react';
 import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
+import {addCurrentMessageActionCreator, addPostActionCreator} from "../../../../redux/profilePageReducer";
 
-const AddPost = ({currentMessage, dispatch}) => {
+const AddPost = ({currentMessage, store}) => {
     // debugger
 
     let onTextareaChange = (e) => {
-        dispatch({
-            type: "ADD-CURRENT-MESSAGE-TO-PROFILE-PAGE",
-            message: e.currentTarget.value
-        });
+        store.dispatch(addCurrentMessageActionCreator(e.currentTarget.value));
     };
 
     let onAddPostClick = () => {
-        dispatch({
-            type: "ADD-POST-TO-PROFILE-PAGE",
-            message: currentMessage
-        });
+        store.dispatch(addPostActionCreator(currentMessage));
     };
 
     return (
