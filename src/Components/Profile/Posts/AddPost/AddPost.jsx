@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import {addCurrentMessageActionCreator, addPostActionCreator} from "../../../../redux/profilePageReducer";
 
 const AddPost = ({currentMessage, store}) => {
-    // debugger
 
     let onTextareaChange = (e) => {
         store.dispatch(addCurrentMessageActionCreator(e.currentTarget.value));

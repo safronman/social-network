@@ -54,7 +54,6 @@ export const addCurrentMessageActionCreator = (message) => {
     return {
         type: ADD_CURRENT_MESSAGE,
         message: message
-
     };
 };
 

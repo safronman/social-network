@@ -20,12 +20,12 @@ let store = createStore(combinedReducers);
 let renderPage = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={store.getState()} store={store}/>
+            <App state={state} store={store}/>
         </BrowserRouter>,
         document.getElementById('root'));
 };
 
-renderPage();
+renderPage(store.getState());
 
 store.subscribe(() => {
     let state = store.getState();
