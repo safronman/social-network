@@ -2,20 +2,19 @@ import React from 'react';
 import styles from './Messages.module.css';
 import DialogsPreview from "./DialogsPreview/DialogsPreview";
 import DialogsMessages from "./DialogsMessages/DialogsMessages";
-import AddMessage from "./DialogsMessages/AddMessage/AddMessage";
 import PropTypes from "prop-types";
+import AddMessageContainer from "./DialogsMessages/AddMessage/AddMessageContainer";
 
-const Messages = ({messagesPage: {chats, currentMessage}, store}) => {
+const Messages = ({messagesPage}) => {
     // debugger
-
-    let dialogsPreview = chats.map(item => {
+    let dialogsPreview = messagesPage.chats.map(item => {
         return <DialogsPreview key={item.chatsId}
                                chatsId={item.chatsId}
                                name={item.name}
                                avatar={item.avatar}/>
     });
 
-    let dialogsMessages = chats[0].messages.map(item => {
+    let dialogsMessages = messagesPage.chats[0].messages.map(item => {
         return <DialogsMessages key={item.messageId}
                                 messageId={item.messageId}
                                 author={item.author}
@@ -29,17 +28,15 @@ const Messages = ({messagesPage: {chats, currentMessage}, store}) => {
             </div>
             <div>
                 <div className={styles.dialogsMessages}>{dialogsMessages}</div>
-                <AddMessage currentMessage={currentMessage} store={store}/>
+                <AddMessageContainer/>
             </div>
         </div>
     );
 };
 
 Messages.propTypes = {
-    dispatch: PropTypes.func,
     messagesPage: PropTypes.shape({
-        chats: PropTypes.array,
-        currentMessage: PropTypes.string
+        chats: PropTypes.array
     })
 };
 

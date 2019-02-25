@@ -27,22 +27,27 @@ let initialState = {
 const profilePageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CURRENT_MESSAGE:
-            state.currentMessage = action.message;
-            return state;
+            return {
+                ...state,
+                currentMessage: action.message
+            };
 
         case ADD_POST:
-            let newPost = {
-                id: 4,
-                message: action.message,
-                likes: 0
+            return {
+                ...state,
+                postsData: [...state.postsData, {
+                    id: 4,
+                    message: action.message,
+                    likes: 0
+                }],
+                currentMessage: ''
             };
-            state.postsData.push(newPost);
-            state.currentMessage = '';
-            return state;
 
         case TOGGLE_FULL_INFO:
-            state.enableFullInfoBtn = !state.enableFullInfoBtn;
-            return state;
+            return {
+                ...state,
+                enableFullInfoBtn: !state.enableFullInfoBtn
+            };
 
         default:
             return state;

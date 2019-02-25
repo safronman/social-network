@@ -76,8 +76,13 @@ const messagesPageReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_CURRENT_MESSAGE:
-            state.currentMessage = action.text;
-            return state;
+            // state.currentMessage = action.text;
+            // return state;
+
+            return {
+                ...state,
+                currentMessage: action.text
+            };
 
         case ADD_MESSAGE:
             let newMessage = {
@@ -89,9 +94,11 @@ const messagesPageReducer = (state = initialState, action) => {
                 },
                 content: action.text
             };
-            state.chats[0].messages.push(newMessage);
-            state.currentMessage = '';
-            return state;
+
+            let newState = {...state};
+            newState.chats[0].messages.push(newMessage);
+            newState.currentMessage = '';
+            return newState;
 
         default:
             return state;

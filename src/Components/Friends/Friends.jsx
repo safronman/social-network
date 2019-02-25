@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const Friends = ({sidebar: {friends}}) => {
     // debugger
-
     let friendsList = friends.map(item => {
         return <Friend key={item.id} name={item.name} id={item.id} img={item.img}/>
     });

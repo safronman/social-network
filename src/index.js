@@ -8,6 +8,7 @@ import {combineReducers, createStore} from "redux";
 import profilePageReducer from "./redux/profilePageReducer";
 import messagesPageReducer from "./redux/messagesPageReducer";
 import sidebarReducer from "./redux/sidebarReducer";
+import {Provider} from "react-redux";
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,
@@ -17,20 +18,17 @@ let combinedReducers = combineReducers({
 
 let store = createStore(combinedReducers);
 
-let renderPage = (state) => {
+let renderPage = () => {
     ReactDOM.render(
-        <BrowserRouter>
-            <App state={state} store={store}/>
-        </BrowserRouter>,
+        <Provider store={store}>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+        </Provider>,
         document.getElementById('root'));
 };
 
 renderPage(store.getState());
-
-store.subscribe(() => {
-    let state = store.getState();
-    renderPage(state);
-});
 
 export default renderPage;
 

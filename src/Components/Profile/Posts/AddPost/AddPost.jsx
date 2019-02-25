@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
-import {addCurrentMessageActionCreator, addPostActionCreator} from "../../../../redux/profilePageReducer";
 
-const AddPost = ({currentMessage, store}) => {
+const AddPost = ({profilePage:{currentMessage}, addCurrentMessage, addPost}) => {
+    // debugger
 
     let onTextareaChange = (e) => {
-        store.dispatch(addCurrentMessageActionCreator(e.currentTarget.value));
+        addCurrentMessage(e.currentTarget.value);
     };
 
     let onAddPostClick = () => {
-        store.dispatch(addPostActionCreator(currentMessage));
+        addPost(currentMessage);
     };
 
     return (
@@ -29,8 +29,8 @@ const AddPost = ({currentMessage, store}) => {
 
 AddPost.propTypes = {
     currentMessage: PropTypes.string,
-    addPostOnProfilePage: PropTypes.func,
-    addCurrentMessageOnProfilePage: PropTypes.func
+    addCurrentMessage: PropTypes.func,
+    addPost: PropTypes.func
 };
 
 export default AddPost;

@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './PersonalInfo.module.css';
 import PropTypes from "prop-types";
-import {toggleFullInfoActionCreator} from "../../../redux/profilePageReducer";
 
-const PersonalInfo = ({profilePage: {enableFullInfoBtn}, store}) => {
+const PersonalInfo = ({profilePage: {enableFullInfoBtn}, toggleFullInfo}) => {
     // debugger
-
     let onFullInfoButtonClick = () => {
-        store.dispatch(toggleFullInfoActionCreator());
+        // debugger
+        toggleFullInfo();
     };
 
     let fullInfo = null;
@@ -39,10 +38,10 @@ const PersonalInfo = ({profilePage: {enableFullInfoBtn}, store}) => {
 };
 
 PersonalInfo.propTypes = {
-    dispatch: PropTypes.func,
     profilePage: PropTypes.shape({
         enableFullInfoBtn: PropTypes.bool
-    })
+    }),
+    toggleFullInfo: PropTypes.func
 };
 
 export default PersonalInfo;
