@@ -76,9 +76,6 @@ const messagesPageReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_CURRENT_MESSAGE:
-            // state.currentMessage = action.text;
-            // return state;
-
             return {
                 ...state,
                 currentMessage: action.text

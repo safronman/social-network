@@ -9,11 +9,13 @@ import profilePageReducer from "./redux/profilePageReducer";
 import messagesPageReducer from "./redux/messagesPageReducer";
 import sidebarReducer from "./redux/sidebarReducer";
 import {Provider} from "react-redux";
+import usersPageReducer from "./redux/usersPageReducer";
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,
     messagesPage: messagesPageReducer,
-    sidebar: sidebarReducer
+    sidebar: sidebarReducer,
+    usersPage: usersPageReducer
 });
 
 let store = createStore(combinedReducers);

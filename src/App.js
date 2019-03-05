@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import FriendsContainer from "./Components/Friends/FriendsContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import MessagesContainer from "./Components/Messages/MessagesContainer";
+import UsersContainer from "./Components/Users/UsersContainer";
 
 const App = () => {
     // debugger
@@ -19,6 +20,7 @@ const App = () => {
             <div className="sidebar">
                 <Navbar/>
                 <FriendsContainer />
+                <UsersContainer />
             </div>
             <div className="app-wrapper__content">
                 <Route exact path='/'
