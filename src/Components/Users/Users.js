@@ -40,7 +40,7 @@ Users.propTypes = {
         users: PropTypes.array
     }),
     setStatus: PropTypes.func,
-    setUsers: PropTypes.func,
+    setUsers: PropTypes.func
 };
 
 export default Users;

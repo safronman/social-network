@@ -7,7 +7,6 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import PropTypes from "prop-types";
-import FriendsContainer from "./Components/Friends/FriendsContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import MessagesContainer from "./Components/Messages/MessagesContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
@@ -19,7 +18,6 @@ const App = () => {
             <Header/>
             <div className="sidebar">
                 <Navbar/>
-                <FriendsContainer />
                 <UsersContainer />
             </div>
             <div className="app-wrapper__content">
