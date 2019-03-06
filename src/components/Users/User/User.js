@@ -16,7 +16,7 @@ const User = ({avatar, name}) => {
 
 User.propTypes = {
     id: PropTypes.number,
-    avatar: PropTypes.string,
+    avatar: PropTypes.object,
     name: PropTypes.string
 };
 

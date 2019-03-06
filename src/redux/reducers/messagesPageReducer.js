@@ -1,7 +1,7 @@
-import avatar from "../img/avatar.png";
-import avatar1 from "../img/avatar-1.svg";
-import avatar2 from "../img/avatar-2.svg";
-import avatar3 from "../img/avatar-3.svg";
+import avatar from "../../img/avatar.png";
+import avatar1 from "../../img/avatar-1.svg";
+import avatar2 from "../../img/avatar-2.svg";
+import avatar3 from "../../img/avatar-3.svg";
 
 // Actions
 const ADD_CURRENT_MESSAGE = 'social-network/messages-page/ADD_CURRENT_MESSAGE';

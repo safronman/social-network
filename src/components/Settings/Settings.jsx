@@ -1,9 +1,9 @@
 import React from 'react';
-// import styles from './Settings.module.css';
+import styles from './Settings.module.css';
 
 const Settings = (props) => {
     return (
-        <div>Settings</div>
+        <h2 className={styles.headerColor}>Settings</h2>
     );
 };
 

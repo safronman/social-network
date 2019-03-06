@@ -1,15 +1,15 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import './App.css';
-import Header from "./Components/Header/Header";
-import Navbar from "./Components/Navbar/Navbar";
-import News from "./Components/News/News";
-import Music from "./Components/Music/Music";
-import Settings from "./Components/Settings/Settings";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import News from "./components/News/News";
+import Music from "./components/Music/Music";
+import Settings from "./components/Settings/Settings";
 import PropTypes from "prop-types";
-import ProfileContainer from "./Components/Profile/ProfileContainer";
-import MessagesContainer from "./Components/Messages/MessagesContainer";
-import UsersContainer from "./Components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import MessagesContainer from "./components/Messages/MessagesContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
     // debugger

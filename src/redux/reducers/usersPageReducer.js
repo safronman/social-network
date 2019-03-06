@@ -1,4 +1,4 @@
-import {statuses} from "./requestStatuses";
+import {statuses} from "../requestStatuses";
 
 // Actions
 const SET_STATUS = 'social-network/users-page/SET_STATUS';

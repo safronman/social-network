@@ -5,10 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {combineReducers, createStore} from "redux";
-import profilePageReducer from "./redux/profilePageReducer";
-import messagesPageReducer from "./redux/messagesPageReducer";
+import profilePageReducer from "./redux/reducers/profilePageReducer";
+import messagesPageReducer from "./redux/reducers/messagesPageReducer";
 import {Provider} from "react-redux";
-import usersPageReducer from "./redux/usersPageReducer";
+import usersPageReducer from "./redux/reducers/usersPageReducer";
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,

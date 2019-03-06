@@ -1,6 +1,6 @@
 import PersonalInfo from "./PersonalInfo";
 import {connect} from "react-redux";
-import {toggleFullInfoActionCreator} from "../../../redux/profilePageReducer";
+import {toggleFullInfoActionCreator} from "../../../redux/reducers/profilePageReducer";
 
 let mapStateToProps = (state) => {
     return {

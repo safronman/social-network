@@ -1,9 +1,9 @@
 import React from 'react';
-// import styles from './News.module.css';
+import styles from './News.module.css';
 
 const News = (props) => {
     return (
-        <div>News</div>
+        <h2 className={styles.headerColor}>News</h2>
     );
 };
 

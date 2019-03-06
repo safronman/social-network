@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import AddMessage from "./AddMessage";
-import {addCurrentMessageActionCreator, addMessageActionCreator} from "../../../../redux/messagesPageReducer";
+import {addCurrentMessageActionCreator, addMessageActionCreator} from "../../../../redux/reducers/messagesPageReducer";
 
 let mapStateToProps = (state)=> {
     return {

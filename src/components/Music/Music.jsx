@@ -1,9 +1,9 @@
 import React from 'react';
-// import styles from './Messages.module.css';
+import styles from './Music.module.css';
 
 const Music = (props) => {
     return (
-        <div>Music</div>
+        <h2 className={styles.headerColor}>Music</h2>
     );
 };
 
