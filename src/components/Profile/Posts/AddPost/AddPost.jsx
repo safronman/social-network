@@ -15,7 +15,7 @@ const AddPost = ({profilePage:{currentMessage}, addCurrentMessage, addPost}) => 
 
     return (
         <div className={styles.newPost}>
-            <h2>My posts</h2>
+            <h2 className={styles.heading}>My posts</h2>
             <textarea className={styles.newPostTextarea}
                       onChange={onTextareaChange}
                       value={currentMessage}
