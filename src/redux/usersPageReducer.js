@@ -1,15 +1,13 @@
+import {statuses} from "./requestStatuses";
+
 // Actions
 const SET_STATUS = 'social-network/users-page/SET_STATUS';
 const SET_USERS = 'social-network/users-page/SET_USERS';
-export const STATUS_NOT_INITIALIZED = 'social-network/users-page/NOT_INITIALIZED';
-export const STATUS_ERROR = 'social-network/users-page/ERROR';
-export const STATUS_IN_PROGRESS = 'social-network/users-page/IN_PROGRESS';
-export const STATUS_SUCCESS = 'social-network/users-page/SUCCESS';
 
 
 // Initial state
 let initialState = {
-    status: STATUS_NOT_INITIALIZED,
+    status: statuses.STATUS_NOT_INITIALIZED,
     users: []
 };
 
@@ -38,14 +36,14 @@ const usersPageReducer = (state = initialState, action) => {
 export const setStatusActionCreator = (status) => {
     return {
         type: SET_STATUS,
-        status //status: status
+        status
     };
 };
 
 export const setUsersActionCreator = (users) => {
     return {
         type: SET_USERS,
-        users // users : users
+        users
     };
 };
 export default usersPageReducer;

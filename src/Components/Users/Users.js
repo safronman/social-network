@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Users.module.css';
 import User from "./User/User";
-import {STATUS_IN_PROGRESS, STATUS_NOT_INITIALIZED, STATUS_SUCCESS} from "../../redux/usersPageReducer";
+import {statuses} from "../../redux/requestStatuses";
 import * as axios from "axios";
 import PropTypes from "prop-types";
+
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -13,12 +14,12 @@ const instance = axios.create({
 const Users = ({usersPage: {status, users}, setStatus, setUsers}) => {
     // debugger
 
-    if (status === STATUS_NOT_INITIALIZED) {
-        setStatus(STATUS_IN_PROGRESS);
+    if (status === statuses.STATUS_NOT_INITIALIZED) {
+        setStatus(statuses.STATUS_IN_PROGRESS);
 
         instance.get('users?count=12')
             .then((response) => {
-                setStatus(STATUS_SUCCESS);
+                setStatus(statuses.STATUS_SUCCESS);
                 setUsers(response.data.items);
             })
     }
