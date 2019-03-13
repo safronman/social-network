@@ -1,4 +1,7 @@
 import {statuses} from "../requestStatuses";
+import React from "react";
+import axiosInstance from "./../../dal/axiosInstance";
+
 
 // Actions
 const SET_STATUS = 'social-network/users-page/SET_STATUS';
@@ -46,4 +49,17 @@ export const setUsersActionCreator = (users) => {
         users
     };
 };
+
+//Thunk Creators
+export let getUsersThunkCreator = () => {
+    return (dispatch) => {
+        dispatch(setStatusActionCreator(statuses.STATUS_IN_PROGRESS));
+        axiosInstance.get('users?count=26')
+            .then((response) => {
+                dispatch(setUsersActionCreator(response.data.items));
+                dispatch(setStatusActionCreator(statuses.STATUS_SUCCESS));
+            })
+    }
+};
+
 export default usersPageReducer;

@@ -4,19 +4,25 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import profilePageReducer from "./redux/reducers/profilePageReducer";
 import messagesPageReducer from "./redux/reducers/messagesPageReducer";
 import {Provider} from "react-redux";
 import usersPageReducer from "./redux/reducers/usersPageReducer";
+import thunk from "redux-thunk";
+import loginPageReducer from "./redux/reducers/loginPageReducer";
+import authPageReducer from "./redux/reducers/authPageReducer";
+
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,
     messagesPage: messagesPageReducer,
-    usersPage: usersPageReducer
+    usersPage: usersPageReducer,
+    loginPage: loginPageReducer,
+    authPage: authPageReducer
 });
 
-let store = createStore(combinedReducers);
+let store = createStore(combinedReducers, applyMiddleware(thunk));
 
 let renderPage = () => {
     ReactDOM.render(

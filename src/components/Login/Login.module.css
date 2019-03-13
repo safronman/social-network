@@ -1,0 +1,45 @@
+.wrapper {
+    padding: 10px;
+    background-color: rgba(74, 118, 168, 0.27);;
+}
+
+.fieldMail {
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.fieldPassword {
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.fieldCheckbox {
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.formBtnWrapper {
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.statusError {
+    padding: 10px;
+    margin: 10px;
+    background-color: red;
+    color: white;
+}
+
+.statusSuccess {
+    padding: 10px;
+    margin: 10px;
+    background-color: green;
+    color: white;
+}
+
+
+
