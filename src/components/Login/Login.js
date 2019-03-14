@@ -6,9 +6,9 @@ import {Redirect} from "react-router-dom";
 const Login = (props) => {
     // debugger
 
-    // if (props.isAuth) {
-    //     return <Redirect to='/profile'/>
-    // }
+    if (props.authorization.isAuth) {
+        return <Redirect to='/profile'/>
+    }
 
     // избавиться от ref используюя FLUX подход
     let mailRef = React.createRef();
@@ -18,9 +18,6 @@ const Login = (props) => {
     let onButtonClick = () => {
         props.login(mailRef.current.value, passwordRef.current.value, rememberMeRef.current.checked);
     };
-
-    let successMessage = props.loginPage.status === statuses.STATUS_SUCCESS &&
-        <div className={styles.statusSuccess}>Congratulations, you have successfully registered</div>;
 
     let errorMessage = props.loginPage.status === statuses.STATUS_ERROR &&
         <div className={styles.statusError}>{props.loginPage.message}</div>;
@@ -40,7 +37,7 @@ const Login = (props) => {
                            placeholder="Введите пароль" ref={passwordRef} defaultValue='98919012sn'/>
                 </div>
                 <div className={styles.fieldCheckbox}>
-                    <input className="field-checkbox__input" type="checkbox" id="check-1" ref={rememberMeRef} checked/>
+                    <input className="field-checkbox__input" type="checkbox" id="check-1" ref={rememberMeRef}/>
                     <label className="field-checkbox__label" htmlFor="check-1">Remember me </label>
                 </div>
                 <div className={styles.formBtnWrapper}>
@@ -49,7 +46,6 @@ const Login = (props) => {
                             onClick={onButtonClick}>Sign in
                     </button>
                 </div>
-                {successMessage}
                 {errorMessage}
             </div>
         </>

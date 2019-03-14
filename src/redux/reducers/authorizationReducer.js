@@ -15,7 +15,7 @@ let initialState = {
 };
 
 // Reducer
-const authPageReducer = (state = initialState, action) => {
+const authorizationReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_IS_AUTH:
             return {
@@ -78,4 +78,4 @@ export let logOutThunkCreator = () => {
     }
 };
 
-export default authPageReducer;
+export default authorizationReducer;

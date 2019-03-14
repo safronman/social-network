@@ -11,7 +11,7 @@ import {Provider} from "react-redux";
 import usersPageReducer from "./redux/reducers/usersPageReducer";
 import thunk from "redux-thunk";
 import loginPageReducer from "./redux/reducers/loginPageReducer";
-import authPageReducer from "./redux/reducers/authPageReducer";
+import authorizationReducer from "./redux/reducers/authorizationReducer";
 
 
 let combinedReducers = combineReducers({
@@ -19,7 +19,7 @@ let combinedReducers = combineReducers({
     messagesPage: messagesPageReducer,
     usersPage: usersPageReducer,
     loginPage: loginPageReducer,
-    authPage: authPageReducer
+    authorization: authorizationReducer
 });
 
 let store = createStore(combinedReducers, applyMiddleware(thunk));

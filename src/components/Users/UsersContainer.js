@@ -1,9 +1,5 @@
 import {connect} from "react-redux";
-import {
-    getUsersThunkCreator,
-    setStatusActionCreator,
-    setUsersActionCreator
-} from "../../redux/reducers/usersPageReducer";
+import {getUsersThunkCreator} from "../../redux/reducers/usersPageReducer";
 import React from "react";
 import {statuses} from "../../redux/requestStatuses";
 import Users from "./Users";
@@ -21,12 +17,6 @@ let UsersContainer = class extends React.Component {
     }
 
     render() {
-        // if (this.users.length === 0) {
-        //     return <div>users not found</div>
-        // } else {
-        //     return <Users {...this.props}/>
-        // }
-
         return <Users {...this.props}/>
     }
 
@@ -35,7 +25,6 @@ let UsersContainer = class extends React.Component {
         if (this.status === statuses.STATUS_NOT_INITIALIZED) {
             this.getUsers();
         }
-
     }
 };
 
@@ -47,12 +36,6 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        // setStatus: (status) => {
-        //     dispatch(setStatusActionCreator(status))
-        // },
-        // setUsers: (users) => {
-        //     dispatch(setUsersActionCreator(users))
-        // },
         getUsers: () => {
             dispatch(getUsersThunkCreator());
         }

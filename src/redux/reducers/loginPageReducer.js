@@ -1,6 +1,6 @@
 import {statuses} from "../requestStatuses";
 import axiosInstance from "../../dal/axiosInstance";
-import {authMeThunkCreator, setAuthActionCreator} from "./authPageReducer";
+import {authMeThunkCreator, setAuthActionCreator} from "./authorizationReducer";
 
 // Actions
 const SET_STATUS = 'social-network/login-page/SET_STATUS';
@@ -63,7 +63,6 @@ export let loginThunkCreator = (email, password, rememberMe) => {
                 if (response.data.resultCode === 0) {
                     dispatch(setStatusActionCreator(statuses.STATUS_SUCCESS));
                     dispatch(setAuthActionCreator(true));
-                    // ??? 4.4 LOGIN AXIOS 4
                     dispatch(authMeThunkCreator());
                 } else {
                     dispatch(setStatusActionCreator(statuses.STATUS_ERROR));
