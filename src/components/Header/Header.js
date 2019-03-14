@@ -6,32 +6,31 @@ import {Redirect} from "react-router-dom";
 const Header = (props) => {
     // debugger
 
-    // if (props.isAuth) {
-    //     return <Redirect to='/'/>
+    // if (props.authPage.isAuth) {
+    //     return <Redirect to='/profile'/>
     // }
 
     let onLogOutBtnClick = () => {
+        // debugger
         props.logOut();
     };
 
-    let signIn = !props.isAuth &&
-        <div>
-            <button className={styles.btn}>Sign in</button>
-            <button className={styles.btn}>Sign up</button>
-        </div>;
+    // let signIn = !props.authPage.isAuth &&
+    //     <div>
+    //         <button className={styles.btn}>Sign in</button>
+    //         <button className={styles.btn}>Registration</button>
+    //     </div>;
 
-    let showNickName = props.isAuth &&
+    let showNickName = props.authPage.isAuth &&
         <div className={styles.showNickNameWrapper}>
-            <p className={styles.userName}>{props.userInfo.userName}</p>
+            <p className={styles.userName}>{props.authPage.userInfo.userName}</p>
             <button className={styles.btn} onClick={onLogOutBtnClick}>Log out</button>
         </div>;
-
-
 
     return (
         <header className={styles.header}>
             <img className={styles.logo} src={logo} alt="logotype"/>
-            {signIn}
+            {/*{signIn}*/}
             {showNickName}
         </header>
     )

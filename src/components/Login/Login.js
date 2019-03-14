@@ -7,7 +7,7 @@ const Login = (props) => {
     // debugger
 
     // if (props.isAuth) {
-    //     return <Redirect to='/'/>
+    //     return <Redirect to='/profile'/>
     // }
 
     // избавиться от ref используюя FLUX подход
@@ -16,14 +16,14 @@ const Login = (props) => {
     let rememberMeRef = React.createRef();
 
     let onButtonClick = () => {
-        props.login(mailRef.current.value, passwordRef.current.value, rememberMeRef.current.checked)
+        props.login(mailRef.current.value, passwordRef.current.value, rememberMeRef.current.checked);
     };
 
-    let successMessage = props.status === statuses.STATUS_SUCCESS &&
+    let successMessage = props.loginPage.status === statuses.STATUS_SUCCESS &&
         <div className={styles.statusSuccess}>Congratulations, you have successfully registered</div>;
 
-    let errorMessage = props.status === statuses.STATUS_ERROR &&
-        <div className={styles.statusError}>{props.message}</div>;
+    let errorMessage = props.loginPage.status === statuses.STATUS_ERROR &&
+        <div className={styles.statusError}>{props.loginPage.message}</div>;
 
     return (
         <>
@@ -45,14 +45,13 @@ const Login = (props) => {
                 </div>
                 <div className={styles.formBtnWrapper}>
                     <button className="btn  btn__form" type="submit"
-                            disabled={props.status === statuses.STATUS_IN_PROGRESS}
+                            disabled={props.loginPage.status === statuses.STATUS_IN_PROGRESS}
                             onClick={onButtonClick}>Sign in
                     </button>
                 </div>
                 {successMessage}
                 {errorMessage}
             </div>
-
         </>
     );
 };

@@ -4,10 +4,10 @@ import {loginThunkCreator} from "../../redux/reducers/loginPageReducer";
 
 let mapStateToProps = (state) => {
     return {
+        loginPage: state.loginPage
         // isAuth: state.authPage.isAuth,
-        status: state.loginPage.status,
-        message: state.loginPage.message,
-        captchaUrl: state.loginPage.captchaUrl
+        // status: state.loginPage.status,
+        // message: state.loginPage.message,
     }
 };
 

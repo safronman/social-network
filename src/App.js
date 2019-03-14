@@ -22,11 +22,11 @@ const App = () => {
             </div>
             <div className="app-wrapper__content">
                 <Route exact path='/'
+                       render={() => <LoginContainer/>}/>
+                <Route path='/profile'
                        render={() => <ProfileContainer/>}/>
                 <Route path='/messages'
                        render={() => <MessagesContainer/>}/>
-                <Route path='/login'
-                       render={() => <LoginContainer/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>

@@ -8,19 +8,15 @@ const DialogsPreview = ({chatsId, name, avatar}) => {
     const mainPath = "/messages/";
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.dialogsItem}>
-                <NavLink to={`${mainPath}${chatsId}`}
-                         className={`${styles.dialogsLink}`}
-                         activeClassName={styles.dialogsLinkActive}>
-                    <img className={styles.dialogsPhoto}
-                         src={avatar}
-                         alt="Avatar photo"
-                         width="50px"/>
-                    <p>{name}</p>
-                </NavLink>
-            </div>
-        </div>
+        <NavLink to={`${mainPath}${chatsId}`}
+                 className={styles.dialogsLink}
+                 activeClassName={styles.dialogsLinkActive}>
+            <img className={styles.dialogsPhoto}
+                 src={avatar}
+                 alt="avatar"
+                 width="50px"/>
+            <p>{name}</p>
+        </NavLink>
     );
 };
 
