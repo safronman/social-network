@@ -1,6 +1,11 @@
 import Login from "./Login";
 import {connect} from "react-redux";
-import {loginThunkCreator} from "../../redux/reducers/loginPageReducer";
+import {
+    loginThunkCreator,
+    setCurrentCheckboxValueAC,
+    setCurrentEmailTextAC,
+    setCurrentPasswordTextAC
+} from "../../redux/reducers/loginPageReducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -13,6 +18,15 @@ let mapDispatchToProps = (dispatch) => {
     return {
         login: (mail, password, rememberMe) => {
             dispatch(loginThunkCreator(mail, password, rememberMe))
+        },
+        setCurrentEmailText: (value) => {
+            dispatch(setCurrentEmailTextAC(value));
+        },
+        setCurrentPasswordText: (value) => {
+            dispatch(setCurrentPasswordTextAC(value))
+        },
+        setCurrentCheckboxValue: (value) => {
+            dispatch(setCurrentCheckboxValueAC(value))
         }
     }
 };

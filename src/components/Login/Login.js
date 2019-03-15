@@ -10,13 +10,20 @@ const Login = (props) => {
         return <Redirect to='/profile'/>
     }
 
-    // избавиться от ref используюя FLUX подход
-    let mailRef = React.createRef();
-    let passwordRef = React.createRef();
-    let rememberMeRef = React.createRef();
+    let onEmailInputChange = (event) => {
+        props.setCurrentEmailText(event.currentTarget.value);
+    };
+
+    let onPasswordInputChange = (event) => {
+        props.setCurrentPasswordText(event.currentTarget.value);
+    };
+
+    let onCheckboxInputChange = (event) => {
+        props.setCurrentCheckboxValue(event.currentTarget.checked);
+    };
 
     let onButtonClick = () => {
-        props.login(mailRef.current.value, passwordRef.current.value, rememberMeRef.current.checked);
+        props.login(props.loginPage.currentEmail, props.loginPage.currentPassword, props.loginPage.currentCheckbox);
     };
 
     let errorMessage = props.loginPage.status === statuses.STATUS_ERROR &&
@@ -26,18 +33,25 @@ const Login = (props) => {
         <>
             <h2>Страница регистрации</h2>
             <div className={styles.wrapper}>
+                {errorMessage}
                 <div className={styles.fieldWrapper}>
                     <label className={styles.fieldLabel} htmlFor="email">Email:</label>
                     <input className={styles.fieldInput} type="email" id="email"
-                           placeholder="Email" ref={mailRef} defaultValue='safronmanbox@gmail.com'/>
+                           placeholder="Email"
+                           value={props.loginPage.currentEmail}
+                           onChange={onEmailInputChange}/>
                 </div>
                 <div className={styles.fieldWrapper}>
                     <label className={styles.fieldLabel} htmlFor="password">Password:</label>
                     <input className={styles.fieldInput} type="password" id="password"
-                           placeholder="Password" ref={passwordRef} defaultValue='98919012sn'/>
+                           placeholder="Password"
+                           value={props.loginPage.currentPassword}
+                           onChange={onPasswordInputChange}/>
                 </div>
                 <div className={styles.fieldWrapper}>
-                    <input type="checkbox" id="check-1" ref={rememberMeRef}/>
+                    <input type="checkbox" id="check-1"
+                           onChange={onCheckboxInputChange}
+                           value={props.loginPage.currentCheckbox}/>
                     <label className={styles.fieldCheckboxLabel} htmlFor="check-1">Remember me</label>
                 </div>
                 <div className={styles.fieldWrapper}>
@@ -46,7 +60,6 @@ const Login = (props) => {
                             onClick={onButtonClick}>Log in
                     </button>
                 </div>
-                {errorMessage}
             </div>
         </>
     );

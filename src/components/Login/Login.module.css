@@ -8,9 +8,13 @@
 
 .statusError {
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     color: white;
     background-color: red;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
 }
 
 .fieldWrapper {
