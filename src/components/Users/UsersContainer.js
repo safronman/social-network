@@ -5,25 +5,13 @@ import {statuses} from "../../redux/requestStatuses";
 import Users from "./Users";
 
 let UsersContainer = class extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.setStatus = this.props.setStatus;
-        this.setUsers = this.props.setUsers;
-        this.getUsers = this.props.getUsers;
-
-        this.status = this.props.usersPage.status;
-        this.users = this.props.usersPage.users;
-    }
-
     render() {
         return <Users {...this.props}/>
     }
 
     componentDidMount() {
-        // debugger
-        if (this.status === statuses.STATUS_NOT_INITIALIZED) {
-            this.getUsers();
+        if (this.props.usersPage.status === statuses.STATUS_NOT_INITIALIZED) {
+            this.props.getUsers();
         }
     }
 };

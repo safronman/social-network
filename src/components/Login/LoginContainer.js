@@ -6,9 +6,6 @@ let mapStateToProps = (state) => {
     return {
         loginPage: state.loginPage,
         authorization: state.authorization
-        // isAuth: state.authPage.isAuth,
-        // status: state.loginPage.status,
-        // message: state.loginPage.message,
     }
 };
 

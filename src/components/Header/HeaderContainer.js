@@ -4,10 +4,6 @@ import Header from "./Header";
 import {authMeThunkCreator, logOutThunkCreator} from "../../redux/reducers/authorizationReducer";
 
 let HeaderContainer = class extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return <Header {...this.props}/>
     }
@@ -21,8 +17,6 @@ let HeaderContainer = class extends React.Component {
 let mapStateToProps = (state) => {
     return {
         authorization: state.authorization
-        // isAuth: state.authPage.isAuth,
-        // userInfo: state.authPage.userInfo
     }
 };
 

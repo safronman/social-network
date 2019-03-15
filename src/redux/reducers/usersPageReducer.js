@@ -1,5 +1,4 @@
 import {statuses} from "../requestStatuses";
-import React from "react";
 import axiosInstance from "./../../dal/axiosInstance";
 
 
