@@ -24,26 +24,26 @@ const Login = (props) => {
 
     return (
         <>
-            <h2>Login</h2>
+            <h2>Страница регистрации</h2>
             <div className={styles.wrapper}>
-                <div className={styles.fieldMail}>
-                    <label className="field-email__label" htmlFor="email">Email: </label>
-                    <input className="field-email__input" type="email" id="email"
-                           placeholder="Введите почту" ref={mailRef} defaultValue='safronmanbox@gmail.com'/>
+                <div className={styles.fieldWrapper}>
+                    <label className={styles.fieldLabel} htmlFor="email">Email:</label>
+                    <input className={styles.fieldInput} type="email" id="email"
+                           placeholder="Email" ref={mailRef} defaultValue='safronmanbox@gmail.com'/>
                 </div>
-                <div className={styles.fieldPassword}>
-                    <label className="field-password__label" htmlFor="password">Password: </label>
-                    <input className="field-password__input" type="password" id="password"
-                           placeholder="Введите пароль" ref={passwordRef} defaultValue='98919012sn'/>
+                <div className={styles.fieldWrapper}>
+                    <label className={styles.fieldLabel} htmlFor="password">Password:</label>
+                    <input className={styles.fieldInput} type="password" id="password"
+                           placeholder="Password" ref={passwordRef} defaultValue='98919012sn'/>
                 </div>
-                <div className={styles.fieldCheckbox}>
-                    <input className="field-checkbox__input" type="checkbox" id="check-1" ref={rememberMeRef}/>
-                    <label className="field-checkbox__label" htmlFor="check-1">Remember me </label>
+                <div className={styles.fieldWrapper}>
+                    <input type="checkbox" id="check-1" ref={rememberMeRef}/>
+                    <label className={styles.fieldCheckboxLabel} htmlFor="check-1">Remember me</label>
                 </div>
-                <div className={styles.formBtnWrapper}>
-                    <button className="btn  btn__form" type="submit"
+                <div className={styles.fieldWrapper}>
+                    <button className={styles.btn} type="submit"
                             disabled={props.loginPage.status === statuses.STATUS_IN_PROGRESS}
-                            onClick={onButtonClick}>Sign in
+                            onClick={onButtonClick}>Log in
                     </button>
                 </div>
                 {errorMessage}

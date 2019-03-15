@@ -14,7 +14,9 @@ code {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 24px;
   text-align: center;
-  font-weight: bold;
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #285473;
 }

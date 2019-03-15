@@ -1,45 +1,64 @@
 .wrapper {
-    padding: 10px;
-    background-color: rgba(74, 118, 168, 0.27);;
-}
-
-.fieldMail {
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
-}
-
-.fieldPassword {
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
-}
-
-.fieldCheckbox {
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
-}
-
-.formBtnWrapper {
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #285473;
+    border-radius: 10px;
 }
 
 .statusError {
-    padding: 10px;
     margin: 10px;
+    padding: 10px;
+    color: white;
     background-color: red;
-    color: white;
 }
 
-.statusSuccess {
-    padding: 10px;
-    margin: 10px;
-    background-color: green;
-    color: white;
+.fieldWrapper {
+    margin: 20px 10px;
 }
 
+.fieldLabel {
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #285473;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.fieldCheckboxLabel {
+    text-transform: uppercase;
+    color: #285473;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.fieldInput {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    color: #285473;
+    border: 2px solid #e1e5eb;
+    border-radius: 5px;
+    outline-color: #e1e5eb;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.btn {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a76a8;
+    font-size: 16px;
+    line-height: 24px;
+}
 
 

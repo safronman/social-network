@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {applyMiddleware, combineReducers, createStore} from "redux";
+import './index.css';
+import App from './App';
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
 import profilePageReducer from "./redux/reducers/profilePageReducer";
 import messagesPageReducer from "./redux/reducers/messagesPageReducer";
-import {Provider} from "react-redux";
 import usersPageReducer from "./redux/reducers/usersPageReducer";
-import thunk from "redux-thunk";
 import loginPageReducer from "./redux/reducers/loginPageReducer";
 import authorizationReducer from "./redux/reducers/authorizationReducer";
 
