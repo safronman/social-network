@@ -14,8 +14,8 @@ const MyProfile = (props) => {
         props.setContactsValue(event.currentTarget.value);
     };
 
-    let onLookingForAJobChange = (event) => {
-        props.toggleLookingForAJobChangeValue(event.currentTarget.checked);
+    let onLookingForAJobChange = () => {
+        props.toggleLookingForAJobChangeValue();
     };
 
     let onLookingForAJobDescriptionChange = (event) => {
@@ -76,12 +76,12 @@ const MyProfile = (props) => {
                         <div className={styles.infoValue}>{contacts}</div>
                 }
 
-                {/*что-то тут не так*/}
                 {/*lookingForAJob*/}
                 <div className={styles.infoKey}>lookingForAJob</div>
                 <div className={styles.infoValue}>
-                    <input type="checkbox" onChange={onLookingForAJobChange}
-                           defaultValue={props.myProfilePage.lookingForAJob}/>
+                    <input type="checkbox"
+                           onChange={onLookingForAJobChange}
+                           checked={props.myProfilePage.lookingForAJob}/>
                 </div>
 
                 {/*lookingForAJobDescription*/}

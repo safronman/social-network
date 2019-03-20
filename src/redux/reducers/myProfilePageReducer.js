@@ -3,10 +3,12 @@ import axiosInstance from "../../dal/axiosInstance";
 // Actions
 const SET_FULL_NAME = 'social-network/my-profile-page/SET_FULL_NAME';
 const SET_CONTACTS = 'social-network/my-profile-page/SET_CONTACTS';
-const SET_LOOKING_FOR_A_JOB_DESC = 'social-network/my-profile-page/SET_LOOKING_FOR_A_JOB_DESC';
-const TOGGLE_EDIT_MODE = 'social-network/my-profile-page/TOGGLE_EDIT_MODE';
-const TOGGLE_LOOKING_FOR_A_JOB = 'social-network/my-profile-page/TOGGLE_LOOKING_FOR_A_JOB';
 const SET_CONTACTS_VALUE = 'social-network/my-profile-page/SET_CONTACTS_VALUE';
+const SET_LOOKING_FOR_A_JOB_DESC = 'social-network/my-profile-page/SET_LOOKING_FOR_A_JOB_DESC';
+const TOGGLE_LOOKING_FOR_A_JOB = 'social-network/my-profile-page/TOGGLE_LOOKING_FOR_A_JOB';
+const SET_LOOKING_FOR_A_JOB = 'social-network/my-profile-page/SET_LOOKING_FOR_A_JOB';
+const TOGGLE_EDIT_MODE = 'social-network/my-profile-page/TOGGLE_EDIT_MODE';
+
 
 // Initial state
 let initialState = {
@@ -43,24 +45,6 @@ const myProfilePageReducer = (state = initialState, action) => {
                 contacts: action.value
             };
 
-        case SET_LOOKING_FOR_A_JOB_DESC:
-            return {
-                ...state,
-                lookingForAJobDescription: action.value
-            };
-
-        case TOGGLE_EDIT_MODE:
-            return {
-                ...state,
-                editMode: !state.editMode
-            };
-
-        case TOGGLE_LOOKING_FOR_A_JOB:
-            return {
-                ...state,
-                lookingForAJob: action.value
-            };
-
         case SET_CONTACTS_VALUE:
             return {
                 ...state,
@@ -75,6 +59,30 @@ const myProfilePageReducer = (state = initialState, action) => {
                     website: action.value,
                     youtube: action.value
                 }
+            };
+
+        case SET_LOOKING_FOR_A_JOB_DESC:
+            return {
+                ...state,
+                lookingForAJobDescription: action.value
+            };
+
+        case TOGGLE_LOOKING_FOR_A_JOB:
+            return {
+                ...state,
+                lookingForAJob: !state.lookingForAJob
+            };
+
+        case SET_LOOKING_FOR_A_JOB:
+            return {
+                ...state,
+                lookingForAJob: action.value
+            };
+
+        case TOGGLE_EDIT_MODE:
+            return {
+                ...state,
+                editMode: !state.editMode
             };
 
         default:
@@ -98,9 +106,29 @@ export const setContactsAC = (value) => {
     };
 };
 
+export const setContactsValueAC = (value) => {
+    return {
+        type: SET_CONTACTS_VALUE,
+        value
+    };
+};
+
 export const setLookingForAJobDescriptionAC = (value) => {
     return {
         type: SET_LOOKING_FOR_A_JOB_DESC,
+        value
+    };
+};
+
+export const toggleLookingForAJobChangeValueAC = () => {
+    return {
+        type: TOGGLE_LOOKING_FOR_A_JOB
+    };
+};
+
+export const setLookingForAJobAC = (value) => {
+    return {
+        type: SET_LOOKING_FOR_A_JOB,
         value
     };
 };
@@ -111,39 +139,23 @@ export const toggleEditModeAC = () => {
     };
 };
 
-export const toggleLookingForAJobChangeValueAC = (value) => {
-    return {
-        type: TOGGLE_LOOKING_FOR_A_JOB,
-        value
-    };
-};
-
-export const setContactsValueAC = (value) => {
-    return {
-        type: SET_CONTACTS_VALUE,
-        value
-    };
-};
-
 
 //Thunk Creators
 export let getProfileTC = () => {
     return (dispatch) => {
         axiosInstance.get('profile/26')
             .then((response) => {
-                debugger
+                // debugger
                 dispatch(setFullNameAC(response.data.fullName));
                 dispatch(setContactsAC(response.data.contacts));
-                dispatch(toggleLookingForAJobChangeValueAC(response.data.lookingForAJob));
+                dispatch(setLookingForAJobAC(response.data.lookingForAJob));
                 dispatch(setLookingForAJobDescriptionAC(response.data.lookingForAJobDescription));
             })
     }
 };
 
 export let saveMyProfileTC = (profile) => {
-    // debugger
     return (dispatch) => {
-        // debugger
         axiosInstance.put('profile', {
             aboutMe: profile.aboutMe,
             contacts: {

@@ -46,8 +46,8 @@ let mapDispatchToProps = (dispatch) => {
         setCurrentLookingForAJobDescriptionValue: (value) => {
             dispatch(setLookingForAJobDescriptionAC(value));
         },
-        toggleLookingForAJobChangeValue: (value) => {
-            dispatch(toggleLookingForAJobChangeValueAC(value));
+        toggleLookingForAJobChangeValue: () => {
+            dispatch(toggleLookingForAJobChangeValueAC());
         },
         setContactsValue: (value) => {
             dispatch(setContactsValueAC(value));
