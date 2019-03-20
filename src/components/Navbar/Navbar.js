@@ -6,23 +6,23 @@ const Navbar = (props) => {
     return (
         <nav className={styles.nav}>
             <ul className={styles.list}>
-                <li className={styles.item}>
+                <li>
                     <NavLink exact to='/' className={styles.link} activeClassName={styles.activeLink}>Login</NavLink>
                 </li>
-                <li className={styles.item}>
+                <li>
                     <NavLink to='/profile' className={styles.link} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
-                <li className={styles.item}>
+                <li>
                     <NavLink to='/messages' className={styles.link} activeClassName={styles.activeLink}>Messages</NavLink>
                 </li>
-                <li className={styles.item}>
+                <li>
                     <NavLink to='/news' className={styles.link} activeClassName={styles.activeLink}>News</NavLink>
                 </li>
-                <li className={styles.item}>
-                    <NavLink to='/music' className={styles.link} activeClassName={styles.activeLink}>Music</NavLink>
-                </li>
-                <li className={styles.item}>
+                <li>
                     <NavLink to='/settings' className={styles.link} activeClassName={styles.activeLink}>Settings</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/myprofile' className={styles.link} activeClassName={styles.activeLink}>My profile</NavLink>
                 </li>
             </ul>
         </nav>

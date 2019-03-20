@@ -12,6 +12,7 @@ import messagesPageReducer from "./redux/reducers/messagesPageReducer";
 import usersPageReducer from "./redux/reducers/usersPageReducer";
 import loginPageReducer from "./redux/reducers/loginPageReducer";
 import authorizationReducer from "./redux/reducers/authorizationReducer";
+import myProfilePageReducer from "./redux/reducers/myProfilePageReducer";
 
 
 let combinedReducers = combineReducers({
@@ -19,7 +20,8 @@ let combinedReducers = combineReducers({
     messagesPage: messagesPageReducer,
     usersPage: usersPageReducer,
     loginPage: loginPageReducer,
-    authorization: authorizationReducer
+    authorization: authorizationReducer,
+    myProfilePage: myProfilePageReducer
 });
 
 let store = createStore(combinedReducers, applyMiddleware(thunk));

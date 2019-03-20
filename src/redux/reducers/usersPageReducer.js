@@ -53,7 +53,7 @@ export const setUsersActionCreator = (users) => {
 export let getUsersThunkCreator = () => {
     return (dispatch) => {
         dispatch(setStatusActionCreator(statuses.STATUS_IN_PROGRESS));
-        axiosInstance.get('users?count=26')
+        axiosInstance.get('users?count=30')
             .then((response) => {
                 dispatch(setUsersActionCreator(response.data.items));
                 dispatch(setStatusActionCreator(statuses.STATUS_SUCCESS));

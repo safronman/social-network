@@ -1,6 +1,6 @@
-// Actions
 import axiosInstance from "../../dal/axiosInstance";
 
+// Actions
 const SET_IS_AUTH = 'social-network/auth-page/SET_IS_AUTH';
 const SET_USER_NAME = 'social-network/auth-page/SET_USER_NAME';
 
