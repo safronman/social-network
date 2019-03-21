@@ -10,7 +10,7 @@ const Header = (props) => {
         props.logOut();
     };
 
-    let signIn = !props.authorization.isAuth && <Redirect to='/'/>;
+    // let signIn = !props.authorization.isAuth && <Redirect to='/'/>;
 
     let showNickName = props.authorization.isAuth &&
         <div className={styles.showNickNameWrapper}>
@@ -21,7 +21,7 @@ const Header = (props) => {
     return (
         <header className={styles.header}>
             <img className={styles.logo} src={logo} alt="logotype"/>
-            {signIn}
+            {/*{signIn}*/}
             {showNickName}
         </header>
     )

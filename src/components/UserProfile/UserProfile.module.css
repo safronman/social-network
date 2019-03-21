@@ -1,0 +1,26 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    margin: 0 0 10px 50px;
+}
+
+.title {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #285473;
+    font-weight: bold;
+    margin: 0;
+}
+
+.contacts {
+    margin: 0 0 0 20px;
+}
+
+.titleContacts {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #285473;
+    font-weight: bold;
+    margin: 0 0 0 50px;
+}

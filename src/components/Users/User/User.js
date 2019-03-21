@@ -3,7 +3,6 @@ import styles from './User.module.css';
 import PropTypes from "prop-types";
 
 const User = ({avatar, name}) => {
-    // debugger;
     return (
         <div>
             <img className={styles.avatar}

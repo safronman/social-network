@@ -4,6 +4,7 @@ import MyProfile from "./MyProfile";
 import {
     getProfileTC,
     saveMyProfileTC,
+    setAboutMeAC,
     setContactsValueAC,
     setFullNameAC,
     setLookingForAJobDescriptionAC,
@@ -11,7 +12,6 @@ import {
     toggleLookingForAJobChangeValueAC
 } from "../../redux/reducers/myProfilePageReducer";
 
-// вводим классовую компоненту, чтобы делать запросы нв сервер
 let MyProfileContainer = class extends React.Component {
     render() {
         return <MyProfile {...this.props}/>
@@ -40,17 +40,20 @@ let mapDispatchToProps = (dispatch) => {
         setCurrentFullNameValue: (value) => {
             dispatch(setFullNameAC(value))
         },
-        saveMyProfile: (value) => {
-            dispatch(saveMyProfileTC(value));
+        setCurrentAboutMeValue: (value) => {
+            dispatch(setAboutMeAC(value))
         },
-        setCurrentLookingForAJobDescriptionValue: (value) => {
-            dispatch(setLookingForAJobDescriptionAC(value));
+        setContactsValue: (value) => {
+            dispatch(setContactsValueAC(value));
         },
         toggleLookingForAJobChangeValue: () => {
             dispatch(toggleLookingForAJobChangeValueAC());
         },
-        setContactsValue: (value) => {
-            dispatch(setContactsValueAC(value));
+        setCurrentLookingForAJobDescriptionValue: (value) => {
+            dispatch(setLookingForAJobDescriptionAC(value));
+        },
+        saveMyProfile: (value) => {
+            dispatch(saveMyProfileTC(value));
         }
     }
 };

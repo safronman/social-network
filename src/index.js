@@ -13,6 +13,7 @@ import usersPageReducer from "./redux/reducers/usersPageReducer";
 import loginPageReducer from "./redux/reducers/loginPageReducer";
 import authorizationReducer from "./redux/reducers/authorizationReducer";
 import myProfilePageReducer from "./redux/reducers/myProfilePageReducer";
+import userProfileReducer from "./redux/reducers/userProfileReducer";
 
 
 let combinedReducers = combineReducers({
@@ -21,7 +22,8 @@ let combinedReducers = combineReducers({
     usersPage: usersPageReducer,
     loginPage: loginPageReducer,
     authorization: authorizationReducer,
-    myProfilePage: myProfilePageReducer
+    myProfilePage: myProfilePageReducer,
+    userProfile: userProfileReducer
 });
 
 let store = createStore(combinedReducers, applyMiddleware(thunk));

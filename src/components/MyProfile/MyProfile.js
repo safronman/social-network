@@ -8,6 +8,10 @@ const MyProfile = (props) => {
         props.setCurrentFullNameValue(event.currentTarget.value);
     };
 
+    let onAboutMeInputChange = (event) => {
+        props.setCurrentAboutMeValue(event.currentTarget.value);
+    };
+
     // не понимаю как реализовать замену контактов
     let onContactsChange = (event) => {
         // debugger
@@ -66,6 +70,17 @@ const MyProfile = (props) => {
                                defaultValue={props.myProfilePage.fullName}
                                onChange={onFullNameInputChange}/> :
                         <div className={styles.infoValue}>{props.myProfilePage.fullName}</div>
+                }
+
+                {/*about me*/}
+                <div className={styles.infoKey}>about me</div>
+                {
+                    props.myProfilePage.editMode ?
+                        <input className={styles.editMode}
+                               type="text"
+                               defaultValue={props.myProfilePage.aboutMe}
+                               onChange={onAboutMeInputChange}/> :
+                        <div className={styles.infoValue}>{props.myProfilePage.aboutMe}</div>
                 }
 
                 {/*contacts*/}

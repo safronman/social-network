@@ -2,13 +2,20 @@ import React from 'react';
 import styles from './Users.module.css';
 import User from "./User/User";
 import PropTypes from "prop-types";
+import {NavLink} from "react-router-dom";
 
 
 const Users = (props) => {
     let {usersPage: {users}} = props;
 
+    const mainPath = "profile/";
+
     let usersList = users.map(item => {
-        return <User key={item.id} name={item.name} avatar={item.photos}/>
+        return (
+            <NavLink to={`${mainPath}${item.id}`}>
+                <User key={item.id} name={item.name} avatar={item.photos}/>
+            </NavLink>
+        )
     });
 
     return (

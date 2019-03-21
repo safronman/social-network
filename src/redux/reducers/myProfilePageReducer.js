@@ -2,6 +2,7 @@ import axiosInstance from "../../dal/axiosInstance";
 
 // Actions
 const SET_FULL_NAME = 'social-network/my-profile-page/SET_FULL_NAME';
+const SET_ABOUT_ME = 'social-network/my-profile-page/SET_ABOUT_ME';
 const SET_CONTACTS = 'social-network/my-profile-page/SET_CONTACTS';
 const SET_CONTACTS_VALUE = 'social-network/my-profile-page/SET_CONTACTS_VALUE';
 const SET_LOOKING_FOR_A_JOB_DESC = 'social-network/my-profile-page/SET_LOOKING_FOR_A_JOB_DESC';
@@ -37,6 +38,12 @@ const myProfilePageReducer = (state = initialState, action) => {
             return {
                 ...state,
                 fullName: action.value
+            };
+
+        case SET_ABOUT_ME:
+            return {
+                ...state,
+                aboutMe: action.value
             };
 
         case SET_CONTACTS:
@@ -99,6 +106,13 @@ export const setFullNameAC = (value) => {
     };
 };
 
+export const setAboutMeAC = (value) => {
+    return {
+        type: SET_ABOUT_ME,
+        value
+    };
+};
+
 export const setContactsAC = (value) => {
     return {
         type: SET_CONTACTS,
@@ -147,6 +161,7 @@ export let getProfileTC = () => {
             .then((response) => {
                 // debugger
                 dispatch(setFullNameAC(response.data.fullName));
+                dispatch(setAboutMeAC(response.data.aboutMe));
                 dispatch(setContactsAC(response.data.contacts));
                 dispatch(setLookingForAJobAC(response.data.lookingForAJob));
                 dispatch(setLookingForAJobDescriptionAC(response.data.lookingForAJobDescription));
