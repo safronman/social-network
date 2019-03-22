@@ -10,7 +10,6 @@ import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import MyProfileContainer from "./components/MyProfile/MyProfileContainer";
 import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
 
 const App = () => {
@@ -30,8 +29,6 @@ const App = () => {
                        render={() => <MessagesContainer/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/settings' component={Settings}/>
-                <Route path='/myprofile'
-                       render={() => <MyProfileContainer/>}/>
                 <Route path='/users/:userId?'
                        render={() => <UserProfileContainer/>}/>
             </div>

@@ -1,26 +1,68 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 80%;
     align-items: center;
-    margin: 0 0 10px 50px;
+    border: 2px solid lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.title {
+.contactsWrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    border: 2px solid lightgrey;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.editModeTitle {
+    border: 2px solid lightcoral;
+    padding: 5px;
     font-size: 16px;
-    text-transform: uppercase;
+}
+
+.titleKey {
+    font-size: 18px;
     color: #285473;
     font-weight: bold;
     margin: 0;
 }
 
-.contacts {
+.contactsTitleKey {
+    font-size: 18px;
+    color: #285473;
+    font-weight: bold;
+    margin: 0 0 10px 10px;
+}
+
+.contactsTitle {
     margin: 0 0 0 20px;
 }
 
-.titleContacts {
-    font-size: 16px;
-    text-transform: uppercase;
+.titleValue {
+    font-size: 18px;
     color: #285473;
-    font-weight: bold;
-    margin: 0 0 0 50px;
+    margin: 0;
+}
+
+/*BUTTON STYLES*/
+.btn {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a76a8;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #425884;
 }

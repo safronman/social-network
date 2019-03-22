@@ -1,43 +1,50 @@
 import React from 'react';
-import styles from './UserProfile.module.css';
+import FullNameUserProfileContainer from "./FullNameUserProfile/FullNameUserProfileContainer";
+import AboutMeUserProfileContainer from "./AboutMeUserProfile/AboutMeUserProfileContainer";
+import ContactsUserProfileContainer from "./ContactsUserProfile/ContactsUserProfileContainer";
+import LookingForAJobUserProfileContainer from "./LookingForAJobUserProfile/LookingForAJobUserProfileContainer";
+import LookingForAJobDescUserProfileContainer
+    from "./LookingForAJobDescUserProfile/LookingForAJobDescUserProfileContainer";
+import styles from "./UserProfile.module.css";
 
 const UserProfile = (props) => {
     // debugger
 
-    let contacts = Object.keys(props.userProfile.contacts).map(item => {
-        return (
-            <div className={styles.wrapper}>
-                <p className={styles.contacts}>{item}: </p>
-                <div>{props.userProfile.contacts[item] === '' || props.userProfile.contacts[item] === null ?
-                    'поле не заполнено' :
-                    props.userProfile.contacts[item]}</div>
-            </div>
-        )
-    });
+    // if (props.authorization.isAuth) {
+    //     alert(1)
+    // } else {
+    //     alert(2)
+    // }
+
+    let onEditBtnClick = () => {
+        props.editMode();
+    };
+
+    let onSaveBtnClick = () => {
+        props.editMode();
+        props.saveUserProfile(props.userProfile);
+    };
 
     return (
         <div>
             <h2>User profile</h2>
-            <div className={styles.wrapper}>
-                <p className={styles.title}>fullname: </p>
-                {props.userProfile.fullName}</div>
-            <div className={styles.wrapper}>
-                <p className={styles.title}> aboutMe: </p>
-                {props.userProfile.aboutMe === '' || props.userProfile.aboutMe === null ?
-                    'поле не заполнено' :
-                    props.userProfile.aboutMe}
-            </div>
-            <div>
-                <p className={styles.titleContacts}>contacts: </p>
-                {contacts}
-            </div>
-            <div className={styles.wrapper}>
-                <p className={styles.title}>lookingForAJob: </p>
-                <input type="checkbox" checked={props.userProfile.lookingForAJob}/>
-            </div>
-            <div className={styles.wrapper}>
-                <p className={styles.title}>lookingForAJobDescription: </p>
-                {props.userProfile.lookingForAJobDescription}</div>
+            <FullNameUserProfileContainer/>
+            <AboutMeUserProfileContainer/>
+            <ContactsUserProfileContainer/>
+            <LookingForAJobUserProfileContainer/>
+            <LookingForAJobDescUserProfileContainer/>
+
+            {/*{*/}
+                {/*props.userProfile.editMode ?*/}
+                {/*<button className={styles.btn} onClick={onSaveBtnClick}>Save</button> :*/}
+                {/*<button className={styles.btn} onClick={onEditBtnClick}>Edit</button>*/}
+            {/*}*/}
+            {
+                props.authorization.isAuth  ?
+                    <button className={styles.btn} onClick={onEditBtnClick}>Edit</button> :
+                    null
+            }
+
         </div>
     )
 };

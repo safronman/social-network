@@ -12,7 +12,6 @@ import messagesPageReducer from "./redux/reducers/messagesPageReducer";
 import usersPageReducer from "./redux/reducers/usersPageReducer";
 import loginPageReducer from "./redux/reducers/loginPageReducer";
 import authorizationReducer from "./redux/reducers/authorizationReducer";
-import myProfilePageReducer from "./redux/reducers/myProfilePageReducer";
 import userProfileReducer from "./redux/reducers/userProfileReducer";
 
 
@@ -22,7 +21,6 @@ let combinedReducers = combineReducers({
     usersPage: usersPageReducer,
     loginPage: loginPageReducer,
     authorization: authorizationReducer,
-    myProfilePage: myProfilePageReducer,
     userProfile: userProfileReducer
 });
 
