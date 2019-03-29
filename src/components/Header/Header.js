@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../img/logo.svg';
-import {Redirect} from "react-router-dom";
 
 const Header = (props) => {
     // debugger
 
     let onLogOutBtnClick = () => {
+        // debugger
         props.logOut();
-    };
 
-    // let signIn = !props.authorization.isAuth && <Redirect to='/'/>;
+        props.setAuth(false);
+        props.history.push('/');
+    };
 
     let showNickName = props.authorization.isAuth &&
         <div className={styles.showNickNameWrapper}>
@@ -21,7 +22,6 @@ const Header = (props) => {
     return (
         <header className={styles.header}>
             <img className={styles.logo} src={logo} alt="logotype"/>
-            {/*{signIn}*/}
             {showNickName}
         </header>
     )

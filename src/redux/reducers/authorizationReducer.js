@@ -3,6 +3,7 @@ import axiosInstance from "../../dal/axiosInstance";
 // Actions
 const SET_IS_AUTH = 'social-network/auth-page/SET_IS_AUTH';
 const SET_USER_NAME = 'social-network/auth-page/SET_USER_NAME';
+const SET_USER_ID = 'social-network/auth-page/SET_USER_ID';
 
 // Initial state
 let initialState = {
@@ -32,50 +33,48 @@ const authorizationReducer = (state = initialState, action) => {
                 }
             };
 
+        case SET_USER_ID:
+            return {
+                ...state,
+                userInfo: {
+                    ...state.userInfo,
+                    userId: action.id
+                }
+            };
+
         default:
             return state;
     }
 };
 
 // Action Creators
-export const setAuthActionCreator = (value) => {
-    return {
-        type: SET_IS_AUTH,
-        value
-    };
+export const setAuthAC = (value) => ({type: SET_IS_AUTH, value});
+export const setUserNameAC = (login) => ({type: SET_USER_NAME, login});
+export const setUserIdAC = (id) => ({type: SET_USER_ID, id});
+
+
+// Thunk Creators
+export let authMeTC = () => (dispatch) => {
+    axiosInstance.get('auth/me')
+        .then((response) => {
+            if (response.data.resultCode === 0) {
+                dispatch(setUserIdAC(response.data.data.id));
+                dispatch(setUserNameAC(response.data.data.login));
+                dispatch(setAuthAC(true));
+            }
+        })
 };
 
-export const setUserNameActionCreator = (login) => {
-    return {
-        type: SET_USER_NAME,
-        login
-    };
-};
 
-
-//Thunk Creators
-export let authMeThunkCreator = () => {
-    return (dispatch) => {
-        axiosInstance.get('auth/me')
-            .then((response) => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setAuthActionCreator(true));
-                    dispatch(setUserNameActionCreator(response.data.data.login));
-                }
-            })
-    }
-};
-
-export let logOutThunkCreator = () => {
-    return (dispatch) => {
-        axiosInstance.post('auth/logout')
-            .then((response) => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setAuthActionCreator(false));
-                    dispatch(setUserNameActionCreator(null));
-                }
-            })
-    }
+export let logOutTC = () => (dispatch) => {
+    axiosInstance.post('auth/logout')
+        .then((response) => {
+            if (response.data.resultCode === 0) {
+                dispatch(setUserIdAC(null));
+                dispatch(setUserNameAC(null));
+                dispatch(setAuthAC(false));
+            }
+        })
 };
 
 export default authorizationReducer;

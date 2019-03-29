@@ -1,7 +1,7 @@
 import Login from "./Login";
 import {connect} from "react-redux";
 import {
-    loginThunkCreator,
+    loginTC,
     setCurrentCheckboxValueAC,
     setCurrentEmailTextAC,
     setCurrentPasswordTextAC
@@ -17,7 +17,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         login: (mail, password, rememberMe) => {
-            dispatch(loginThunkCreator(mail, password, rememberMe))
+            dispatch(loginTC(mail, password, rememberMe))
         },
         setCurrentEmailText: (value) => {
             dispatch(setCurrentEmailTextAC(value));

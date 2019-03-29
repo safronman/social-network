@@ -55,24 +55,8 @@ const profilePageReducer = (state = initialState, action) => {
 };
 
 // Action Creators
-export const addCurrentMessageActionCreator = (message) => {
-    return {
-        type: ADD_CURRENT_MESSAGE,
-        message: message
-    };
-};
-
-export const addPostActionCreator = (message) => {
-    return {
-        type: ADD_POST,
-        message: message
-    };
-};
-
-export const toggleFullInfoActionCreator = () => {
-    return {
-        type: TOGGLE_FULL_INFO
-    };
-};
+export const addCurrentMessageActionCreator = (message) => ({type: ADD_CURRENT_MESSAGE, message});
+export const addPostActionCreator = (message) => ({type: ADD_POST, message});
+export const toggleFullInfoActionCreator = () => ({type: TOGGLE_FULL_INFO});
 
 export default profilePageReducer;

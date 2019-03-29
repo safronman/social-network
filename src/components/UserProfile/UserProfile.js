@@ -10,11 +10,12 @@ import styles from "./UserProfile.module.css";
 const UserProfile = (props) => {
     // debugger
 
-    // if (props.authorization.isAuth) {
-    //     alert(1)
-    // } else {
-    //     alert(2)
-    // }
+    // в каком месте нужно выполнять эту проверку
+    if (String(props.authorization.userInfo.userId) === props.match.params.userId) {
+        props.userProfile.isOwner = true;
+    } else {
+        props.userProfile.isOwner = false;
+    }
 
     let onEditBtnClick = () => {
         props.editMode();
@@ -25,26 +26,32 @@ const UserProfile = (props) => {
         props.saveUserProfile(props.userProfile);
     };
 
+    let onAddToFriendClick = () => {
+        props.addToFriend(props.match.params.userId);
+    };
+
     return (
         <div>
-            <h2>User profile</h2>
+            <div className={styles.followWrapper}>
+                <h2>User profile</h2>
+                {
+                    props.userProfile.isFollow ?
+                        'вы подписаны' :
+                        <button className={styles.btn} onClick={onAddToFriendClick}>Add to friend</button>
+                }
+            </div>
             <FullNameUserProfileContainer/>
             <AboutMeUserProfileContainer/>
             <ContactsUserProfileContainer/>
             <LookingForAJobUserProfileContainer/>
             <LookingForAJobDescUserProfileContainer/>
-
-            {/*{*/}
-                {/*props.userProfile.editMode ?*/}
-                {/*<button className={styles.btn} onClick={onSaveBtnClick}>Save</button> :*/}
-                {/*<button className={styles.btn} onClick={onEditBtnClick}>Edit</button>*/}
-            {/*}*/}
             {
-                props.authorization.isAuth  ?
-                    <button className={styles.btn} onClick={onEditBtnClick}>Edit</button> :
+                props.userProfile.isOwner ?
+                    props.userProfile.editMode ?
+                        <button className={styles.btn} onClick={onSaveBtnClick}>Save</button> :
+                        <button className={styles.btn} onClick={onEditBtnClick}>Edit</button> :
                     null
             }
-
         </div>
     )
 };

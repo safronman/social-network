@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Navbar.module.css';
 import NavLink from "react-router-dom/es/NavLink";
 
-const Navbar = (props) => {
+const Navbar = () => {
     return (
         <nav className={styles.nav}>
             <ul className={styles.list}>
@@ -22,7 +22,7 @@ const Navbar = (props) => {
                     <NavLink to='/settings' className={styles.link} activeClassName={styles.activeLink}>Settings</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/users/26' className={styles.link} activeClassName={styles.activeLink}>User profile</NavLink>
+                    <NavLink to='/users/' className={styles.link} activeClassName={styles.activeLink}>User profile</NavLink>
                 </li>
             </ul>
         </nav>

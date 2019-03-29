@@ -6,15 +6,14 @@ import {NavLink} from "react-router-dom";
 
 
 const Users = (props) => {
-    let {usersPage: {users}} = props;
+    // debugger
 
-    const mainPath = "profile/";
-
-    let usersList = users.map(item => {
+    let usersList = props.users.map(item => {
         return (
-            <NavLink to={`${mainPath}${item.id}`}>
-                <User key={item.id} name={item.name} avatar={item.photos}/>
+            <NavLink to={`/users/${item.id}`} key={item.id}>
+                <User  name={item.name} avatar={item.photos} followed={item.followed}/>
             </NavLink>
+
         )
     });
 

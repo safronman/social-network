@@ -6,8 +6,10 @@ import {Redirect} from "react-router-dom";
 const Login = (props) => {
     // debugger
 
+    let id = props.authorization.userInfo.userId;
+
     if (props.authorization.isAuth) {
-        return <Redirect to='/profile'/>
+        return <Redirect to={`users/${id}`}/>
     }
 
     let onEmailInputChange = (event) => {
@@ -31,7 +33,7 @@ const Login = (props) => {
 
     return (
         <>
-            <h2>Страница регистрации</h2>
+            <h2>Registration page</h2>
             <div className={styles.wrapper}>
                 {errorMessage}
                 <div className={styles.fieldWrapper}>

@@ -10,9 +10,9 @@ const ContactsUserProfile = (props) => {
         props.setContactsValue(event.currentTarget.value);
     };
 
-    let contacts = Object.keys(props.userProfile.contacts).map(item => {
+    let contacts = Object.keys(props.userProfile.contacts).map((item, i) => {
         return (
-            <div className={styles.contactsWrapper}>
+            <div className={styles.contactsWrapper} key={i}>
                 <p className={styles.contactsTitle}>{item}: </p>
                 <div>{props.userProfile.contacts[item]}</div>
             </div>

@@ -1,24 +1,25 @@
 import {connect} from "react-redux";
-import {getUsersThunkCreator} from "../../redux/reducers/usersPageReducer";
+import {getUsersThunkCreator, usersSelector} from "../../redux/reducers/usersPageReducer";
 import React from "react";
 import {statuses} from "../../redux/requestStatuses";
 import Users from "./Users";
 
 let UsersContainer = class extends React.Component {
-    render() {
-        return <Users {...this.props}/>
-    }
-
     componentDidMount() {
-        if (this.props.usersPage.status === statuses.STATUS_NOT_INITIALIZED) {
+        if (this.props.status === statuses.STATUS_NOT_INITIALIZED) {
             this.props.getUsers();
         }
+    }
+
+    render() {
+        return <Users {...this.props}/>
     }
 };
 
 let mapStateToProps = (state) => {
     return {
-        usersPage: state.usersPage
+        status: state.usersPage.status,
+        users: usersSelector(state)
     }
 };
 
@@ -30,6 +31,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
-
-export default UsersContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

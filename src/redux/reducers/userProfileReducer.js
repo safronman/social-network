@@ -8,6 +8,8 @@ const SET_USER_CONTACTS = 'social-network/user-profile/SET_USER_CONTACTS';
 const SET_CONTACTS_VALUE = 'social-network/user-profile/SET_CONTACTS_VALUE';
 const SET_LOOKING_FOR_A_JOB = 'social-network/user-profile/SET_LOOKING_FOR_A_JOB';
 const SET_LOOKING_FOR_A_JOB_DESCRIPTION = 'social-network/user-profile/SET_LOOKING_FOR_A_JOB_DESCRIPTION';
+const FOLLOW = 'social-network/user-profile/FOLLOW';
+
 
 // Initial state
 let initialState = {
@@ -26,7 +28,8 @@ let initialState = {
     lookingForAJob: false,
     lookingForAJobDescription: '',
     editMode: false,
-    isOwner: false
+    isOwner: false,
+    isFollow: false
 };
 
 // Reducer
@@ -84,95 +87,72 @@ const userProfileReducer = (state = initialState, action) => {
                 lookingForAJobDescription: action.value
             };
 
+        case FOLLOW:
+            return {
+                ...state,
+                isFollow: !state.isFollow
+            };
+
         default:
             return state;
     }
 };
 
 // Action Creators
-export const toggleEditModeAC = () => {
-    return {
-        type: TOGGLE_EDIT_MODE
-    };
-};
-
-export const setUserFullNameAC = (value) => {
-    return {
-        type: SET_USER_FULL_NAME,
-        value
-    };
-};
-
-export const setUserAboutMeAC = (value) => {
-    return {
-        type: SET_USER_ABOUT_ME,
-        value
-    };
-};
-
-export const setUserContactsAC = (value) => {
-    return {
-        type: SET_USER_CONTACTS,
-        value
-    };
-};
-
-export const setUserLookingForAJobAC = (value) => {
-    return {
-        type: SET_LOOKING_FOR_A_JOB,
-        value
-    };
-};
-
-export const setUserLookingForAJobDescriptionAC = (value) => {
-    return {
-        type: SET_LOOKING_FOR_A_JOB_DESCRIPTION,
-        value
-    };
-};
-
-export const setContactsValueAC = (value) => {
-    return {
-        type: SET_CONTACTS_VALUE,
-        value
-    };
-};
+export const toggleEditModeAC = () => ({type: TOGGLE_EDIT_MODE});
+export const setUserFullNameAC = (value) => ({type: SET_USER_FULL_NAME, value});
+export const setUserAboutMeAC = (value) => ({type: SET_USER_ABOUT_ME, value});
+export const setUserContactsAC = (value) => ({type: SET_USER_CONTACTS, value});
+export const setUserLookingForAJobAC = (value) => ({type: SET_LOOKING_FOR_A_JOB, value});
+export const setUserLookingForAJobDescriptionAC = (value) => ({type: SET_LOOKING_FOR_A_JOB_DESCRIPTION, value});
+export const setContactsValueAC = (value) => ({type: SET_CONTACTS_VALUE, value});
+export const follow = () => ({type: FOLLOW});
 
 
 //Thunk Creators
-export let getUserProfileTC = (id) => {
-    return (dispatch) => {
-        axiosInstance.get(`profile/${id}`)
-            .then((response) => {
-                // debugger
-                dispatch(setUserFullNameAC(response.data.fullName));
-                dispatch(setUserAboutMeAC(response.data.aboutMe));
-                dispatch(setUserContactsAC(response.data.contacts));
-                dispatch(setUserLookingForAJobAC(response.data.lookingForAJob));
-                dispatch(setUserLookingForAJobDescriptionAC(response.data.lookingForAJobDescription));
-            })
-    }
+export let getUserProfileTC = (id) => (dispatch) => {
+    axiosInstance.get(`profile/${id}`)
+        .then((response) => {
+            // debugger
+            dispatch(setUserFullNameAC(response.data.fullName));
+            dispatch(setUserAboutMeAC(response.data.aboutMe));
+            dispatch(setUserContactsAC(response.data.contacts));
+            dispatch(setUserLookingForAJobAC(response.data.lookingForAJob));
+            dispatch(setUserLookingForAJobDescriptionAC(response.data.lookingForAJobDescription));
+        })
 };
 
-export let saveUserProfileAC = (profile) => {
-    return (dispatch) => {
-        axiosInstance.put('profile', {
-            fullName: profile.fullName,
-            aboutMe: profile.aboutMe,
-            contacts: {
-                facebook: profile.contacts.facebook,
-                github: profile.contacts.github,
-                instagram: profile.contacts.instagram,
-                mainLink: profile.contacts.mainLink,
-                twitter: profile.contacts.twitter,
-                vk: profile.contacts.vk,
-                website: profile.contacts.website,
-                youtube: profile.contacts.youtube
-            },
-            lookingForAJob: profile.lookingForAJob,
-            lookingForAJobDescription: profile.lookingForAJobDescription
+
+export let saveUserProfileAC = (profile) => (dispatch) => {
+    axiosInstance.put('profile', {
+        fullName: profile.fullName,
+        aboutMe: profile.aboutMe,
+        contacts: {
+            facebook: profile.contacts.facebook,
+            github: profile.contacts.github,
+            instagram: profile.contacts.instagram,
+            mainLink: profile.contacts.mainLink,
+            twitter: profile.contacts.twitter,
+            vk: profile.contacts.vk,
+            website: profile.contacts.website,
+            youtube: profile.contacts.youtube
+        },
+        lookingForAJob: profile.lookingForAJob,
+        lookingForAJobDescription: profile.lookingForAJobDescription
+    })
+};
+
+export let addToFriendTC = (id) => (dispatch) => {
+    axiosInstance.post(`follow/${id}`)
+        .then((response) => {
+            // debugger
+            if (response.data.resultCode === 0) {
+                dispatch(follow());
+            } else {
+                // вывести сообщение об ошибке
+            }
+
         })
-    }
 };
 
 

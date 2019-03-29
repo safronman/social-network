@@ -26,19 +26,15 @@ let combinedReducers = combineReducers({
 
 let store = createStore(combinedReducers, applyMiddleware(thunk));
 
-let renderPage = () => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
-        </Provider>,
-        document.getElementById('root'));
-};
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+);
 
-renderPage(store.getState());
-
-export default renderPage;
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

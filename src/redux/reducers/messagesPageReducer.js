@@ -103,18 +103,7 @@ const messagesPageReducer = (state = initialState, action) => {
 };
 
 // Action Creators
-export const addCurrentMessageActionCreator = (message) => {
-    return {
-        type: ADD_CURRENT_MESSAGE,
-        text: message
-    };
-};
-
-export const addMessageActionCreator = (message) => {
-    return {
-        type: ADD_MESSAGE,
-        text: message
-    };
-};
+export const addCurrentMessageActionCreator = (message) => ({type: ADD_CURRENT_MESSAGE, text: message});
+export const addMessageActionCreator = (message) => ({type: ADD_MESSAGE, text: message});
 
 export default messagesPageReducer;

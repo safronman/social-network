@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {authMeThunkCreator, logOutThunkCreator} from "../../redux/reducers/authorizationReducer";
+import {authMeTC, logOutTC, setAuthAC} from "../../redux/reducers/authorizationReducer";
+import {withRouter} from "react-router-dom";
 
 let HeaderContainer = class extends React.Component {
     render() {
@@ -24,14 +25,15 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         authMe: () => {
-            dispatch(authMeThunkCreator())
+            dispatch(authMeTC())
         },
         logOut: () => {
-            dispatch(logOutThunkCreator())
+            dispatch(logOutTC())
+        },
+        setAuth: (value) => {
+            dispatch(setAuthAC(value))
         }
     }
 };
 
-HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
-
-export default HeaderContainer;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HeaderContainer));
