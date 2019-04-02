@@ -2,7 +2,6 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
@@ -25,7 +24,6 @@ const App = () => {
                     <Route exact path='/' component={LoginContainer}/>
                     <Route path='/profile' component={ProfileContainer}/>
                     <Route path='/messages' component={MessagesContainer}/>
-                    <Route path='/news' component={News}/>
                     <Route path='/settings' component={Settings}/>
                     <Route path='/users/:userId' component={UserProfileContainer}/>
                     <Route component={NotFound}/>

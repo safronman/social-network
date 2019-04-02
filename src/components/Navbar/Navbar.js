@@ -16,13 +16,7 @@ const Navbar = () => {
                     <NavLink to='/messages' className={styles.link} activeClassName={styles.activeLink}>Messages</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/news' className={styles.link} activeClassName={styles.activeLink}>News</NavLink>
-                </li>
-                <li>
                     <NavLink to='/settings' className={styles.link} activeClassName={styles.activeLink}>Settings</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/users/' className={styles.link} activeClassName={styles.activeLink}>User profile</NavLink>
                 </li>
             </ul>
         </nav>
