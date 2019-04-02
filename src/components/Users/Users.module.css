@@ -1,12 +1,13 @@
-/*.wrapper {*/
-    /*width: 200px;*/
-    /*border: 1px solid orangered;*/
-/*}*/
-
 .userList {
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
     grid-column-gap: 10px;
     grid-row-gap: 25px;
     text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #285473;
+    text-transform: capitalize;
 }

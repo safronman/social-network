@@ -1,5 +1,10 @@
 import {connect} from "react-redux";
-import {getUsersThunkCreator, usersSelector} from "../../redux/reducers/usersPageReducer";
+import {
+    addToFriendsTC,
+    getUsersTC,
+    removeFromFriendsTC,
+    // usersSelector
+} from "../../redux/reducers/usersPageReducer";
 import React from "react";
 import {statuses} from "../../redux/requestStatuses";
 import Users from "./Users";
@@ -19,14 +24,21 @@ let UsersContainer = class extends React.Component {
 let mapStateToProps = (state) => {
     return {
         status: state.usersPage.status,
-        users: usersSelector(state)
+        // users: usersSelector(state)
+        users: state.usersPage.users
     }
 };
 
 let mapDispatchToProps = (dispatch) => {
     return {
         getUsers: () => {
-            dispatch(getUsersThunkCreator());
+            dispatch(getUsersTC());
+        },
+        addToFriends: (userId) => {
+            dispatch(addToFriendsTC(userId));
+        },
+        removeFromFriends: (userId) => {
+            dispatch(removeFromFriendsTC(userId));
         }
     }
 };

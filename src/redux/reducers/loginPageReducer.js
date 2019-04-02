@@ -74,7 +74,6 @@ export let loginTC = (email, password, rememberMe) => (dispatch) => {
         rememberMe
     })
         .then((response) => {
-            // debugger
             if (response.data.resultCode === 0) {
                 dispatch(setStatusAC(statuses.STATUS_SUCCESS));
                 dispatch(authMeTC());

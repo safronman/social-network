@@ -10,8 +10,8 @@ const Users = (props) => {
 
     let usersList = props.users.map(item => {
         return (
-            <NavLink to={`/users/${item.id}`} key={item.id}>
-                <User  name={item.name} avatar={item.photos} followed={item.followed}/>
+            <NavLink className={styles.link} to={`/users/${item.id}`} key={item.id}>
+                <User item={item} addToFriends={props.addToFriends} removeFromFriends={props.removeFromFriends}/>
             </NavLink>
 
         )

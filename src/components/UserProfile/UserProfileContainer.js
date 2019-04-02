@@ -3,7 +3,6 @@ import {withRouter} from "react-router-dom";
 import UserProfile from "./UserProfile";
 import React from "react";
 import {
-    addToFriendTC,
     getUserProfileTC,
     saveUserProfileAC,
     toggleEditModeAC
@@ -47,9 +46,6 @@ let mapDispatchToProps = (dispatch) => {
         },
         saveUserProfile: (profile) => {
             dispatch(saveUserProfileAC(profile));
-        },
-        addToFriend: (id) => {
-            dispatch(addToFriendTC(id));
         },
         setCurrentUserId: (id) => {
             dispatch(setCurrentUserIdAC(id));

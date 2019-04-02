@@ -18,12 +18,6 @@
     margin-bottom: 5px;
 }
 
-.followWrapper {
-    display: grid;
-    grid-template-columns: 80% 20%;
-    align-items: center;
-}
-
 .editModeTitle {
     border: 2px solid lightcoral;
     padding: 5px;

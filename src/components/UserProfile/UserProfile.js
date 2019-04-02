@@ -10,7 +10,6 @@ import styles from "./UserProfile.module.css";
 const UserProfile = (props) => {
     // debugger
 
-    // в каком месте нужно выполнять эту проверку
     if (String(props.authorization.userInfo.userId) === props.match.params.userId) {
         props.userProfile.isOwner = true;
     } else {
@@ -26,20 +25,9 @@ const UserProfile = (props) => {
         props.saveUserProfile(props.userProfile);
     };
 
-    let onAddToFriendClick = () => {
-        props.addToFriend(props.match.params.userId);
-    };
-
     return (
         <div>
-            <div className={styles.followWrapper}>
-                <h2>User profile</h2>
-                {
-                    props.userProfile.isFollow ?
-                        'вы подписаны' :
-                        <button className={styles.btn} onClick={onAddToFriendClick}>Add to friend</button>
-                }
-            </div>
+            <h2>User profile</h2>
             <FullNameUserProfileContainer/>
             <AboutMeUserProfileContainer/>
             <ContactsUserProfileContainer/>

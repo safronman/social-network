@@ -48,9 +48,9 @@ const authorizationReducer = (state = initialState, action) => {
 };
 
 // Action Creators
-export const setAuthAC = (value) => ({type: SET_IS_AUTH, value});
-export const setUserNameAC = (login) => ({type: SET_USER_NAME, login});
-export const setUserIdAC = (id) => ({type: SET_USER_ID, id});
+export const setAuthAC = value => ({type: SET_IS_AUTH, value});
+export const setUserNameAC = login => ({type: SET_USER_NAME, login});
+export const setUserIdAC = id => ({type: SET_USER_ID, id});
 
 
 // Thunk Creators
