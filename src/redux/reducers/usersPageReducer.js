@@ -93,7 +93,7 @@ export const unSubscribeAC = id => ({type: UNSUBSCRIBE, id});
 // Thunk Creators
 export let getUsersTC = () => (dispatch) => {
     dispatch(setStatusAC(statuses.STATUS_IN_PROGRESS));
-    axiosInstance.get('users?count=30')
+    axiosInstance.get('users?count=20')
         .then((response) => {
             dispatch(setUsersAC(response.data.items));
             dispatch(setStatusAC(statuses.STATUS_SUCCESS));
