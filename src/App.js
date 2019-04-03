@@ -23,9 +23,9 @@ const App = () => {
                 <Switch>
                     <Route exact path='/' component={LoginContainer}/>
                     <Route path='/profile' component={ProfileContainer}/>
+                    <Route path='/users/:userId' component={UserProfileContainer}/>
                     <Route path='/messages' component={MessagesContainer}/>
                     <Route path='/settings' component={Settings}/>
-                    <Route path='/users/:userId' component={UserProfileContainer}/>
                     <Route component={NotFound}/>
                 </Switch>
             </div>

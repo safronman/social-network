@@ -4,7 +4,7 @@ import {setUserLookingForAJobAC} from "../../../redux/reducers/userProfileReduce
 
 let mapStateToProps = (state) => {
     return {
-        userProfile: state.userProfile
+        lookingForAJob: state.userProfile.lookingForAJob
     }
 };
 

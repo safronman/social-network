@@ -4,7 +4,8 @@ import {setContactsValueAC} from "../../../redux/reducers/userProfileReducer";
 
 let mapStateToProps = (state) => {
     return {
-        userProfile: state.userProfile
+        editMode: state.profilePage.editMode,
+        contacts: state.userProfile.contacts
     }
 };
 

@@ -1,12 +1,8 @@
+import React from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import UserProfile from "./UserProfile";
-import React from "react";
-import {
-    getUserProfileTC,
-    saveUserProfileAC,
-    toggleEditModeAC
-} from "../../redux/reducers/userProfileReducer";
+import {getUserProfileTC} from "../../redux/reducers/userProfileReducer";
 import {setCurrentUserIdAC} from "../../redux/reducers/usersPageReducer";
 
 
@@ -31,7 +27,6 @@ let UserProfileContainer = class extends React.Component {
 let mapStateToProps = (state) => {
     return {
         userProfile: state.userProfile,
-        authorization: state.authorization,
         currentUserId: state.usersPage.currentUserId
     }
 };
@@ -40,12 +35,6 @@ let mapDispatchToProps = (dispatch) => {
     return {
         getUserProfile: (id) => {
             dispatch(getUserProfileTC(id));
-        },
-        editMode: () => {
-            dispatch(toggleEditModeAC());
-        },
-        saveUserProfile: (profile) => {
-            dispatch(saveUserProfileAC(profile));
         },
         setCurrentUserId: (id) => {
             dispatch(setCurrentUserIdAC(id));

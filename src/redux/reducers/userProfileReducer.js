@@ -1,7 +1,7 @@
 import axiosInstance from "../../dal/axiosInstance";
 
 // Actions
-const TOGGLE_EDIT_MODE = 'social-network/user-profile/TOGGLE_EDIT_MODE';
+// const TOGGLE_EDIT_MODE = 'social-network/user-profile/TOGGLE_EDIT_MODE';
 const SET_USER_FULL_NAME = 'social-network/user-profile/SET_USER_FULL_NAME';
 const SET_USER_ABOUT_ME = 'social-network/user-profile/SET_USER_ABOUT_ME';
 const SET_USER_CONTACTS = 'social-network/user-profile/SET_USER_CONTACTS';
@@ -26,18 +26,18 @@ let initialState = {
     },
     lookingForAJob: false,
     lookingForAJobDescription: '',
-    editMode: false,
+    // editMode: false,
     isOwner: false
 };
 
 // Reducer
 const userProfileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case TOGGLE_EDIT_MODE:
-            return {
-                ...state,
-                editMode: !state.editMode
-            };
+        // case TOGGLE_EDIT_MODE:
+        //     return {
+        //         ...state,
+        //         editMode: !state.editMode
+        //     };
 
         case SET_USER_FULL_NAME:
             return {
@@ -91,7 +91,7 @@ const userProfileReducer = (state = initialState, action) => {
 };
 
 // Action Creators
-export const toggleEditModeAC = () => ({type: TOGGLE_EDIT_MODE});
+// export const toggleEditModeAC = () => ({type: TOGGLE_EDIT_MODE});
 export const setUserFullNameAC = (value) => ({type: SET_USER_FULL_NAME, value});
 export const setUserAboutMeAC = (value) => ({type: SET_USER_ABOUT_ME, value});
 export const setUserContactsAC = (value) => ({type: SET_USER_CONTACTS, value});

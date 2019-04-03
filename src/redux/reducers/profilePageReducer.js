@@ -1,7 +1,8 @@
 // Actions
 const ADD_CURRENT_MESSAGE = 'social-network/profile-page/ADD_CURRENT_MESSAGE';
 const ADD_POST = 'social-network/profile-page/ADD_POST';
-const TOGGLE_FULL_INFO = 'social-network/profile-page/TOGGLE_FULL_INFO';
+
+const TOGGLE_EDIT_MODE = 'social-network/user-profile/TOGGLE_EDIT_MODE';
 
 
 // Initial state
@@ -18,8 +19,8 @@ let initialState = {
             likes: 232
         }
     ],
-    enableFullInfoBtn: false,
-    currentMessage: ''
+    currentMessage: '',
+    editMode: false,
 };
 
 
@@ -43,10 +44,10 @@ const profilePageReducer = (state = initialState, action) => {
                 currentMessage: ''
             };
 
-        case TOGGLE_FULL_INFO:
+        case TOGGLE_EDIT_MODE:
             return {
                 ...state,
-                enableFullInfoBtn: !state.enableFullInfoBtn
+                editMode: !state.editMode
             };
 
         default:
@@ -57,6 +58,7 @@ const profilePageReducer = (state = initialState, action) => {
 // Action Creators
 export const addCurrentMessageActionCreator = (message) => ({type: ADD_CURRENT_MESSAGE, message});
 export const addPostActionCreator = (message) => ({type: ADD_POST, message});
-export const toggleFullInfoActionCreator = () => ({type: TOGGLE_FULL_INFO});
+export const toggleEditModeAC = () => ({type: TOGGLE_EDIT_MODE});
+
 
 export default profilePageReducer;

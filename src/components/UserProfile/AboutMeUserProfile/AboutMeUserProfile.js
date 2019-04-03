@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './../UserProfile.module.css';
 
 const AboutMeUserProfile = (props) => {
-    // debugger
+
     let onAboutMeChange = (event) => {
         props.setCurrentAboutMeValue(event.currentTarget.value);
     };
@@ -11,12 +11,12 @@ const AboutMeUserProfile = (props) => {
         <div className={styles.wrapper}>
             <p className={styles.titleKey}>Обо мне</p>
             {
-                props.userProfile.editMode ?
+                props.editMode ?
                     <textarea className={styles.editModeTitle}
-                              value={props.userProfile.aboutMe}
+                              value={props.aboutMe}
                               onChange={onAboutMeChange}
                     /> :
-                    <p className={styles.titleValue}>{props.userProfile.aboutMe}</p>
+                    <p className={styles.titleValue}>{props.aboutMe}</p>
             }
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './../UserProfile.module.css';
 
 const FullNameUserProfile = (props) => {
-    // debugger
+
     let onFullNameChange = (event) => {
         props.setCurrentFullNameValue(event.currentTarget.value);
     };
@@ -11,12 +11,12 @@ const FullNameUserProfile = (props) => {
         <div className={styles.wrapper}>
             <p className={styles.titleKey}>Имя</p>
             {
-                props.userProfile.editMode ?
+                props.editMode ?
                     <input type="text"
                            className={styles.editModeTitle}
-                           value={props.userProfile.fullName}
+                           value={props.fullName}
                            onChange={onFullNameChange}/> :
-                    <p className={styles.titleValue}>{props.userProfile.fullName}</p>
+                    <p className={styles.titleValue}>{props.fullName}</p>
             }
         </div>
     )

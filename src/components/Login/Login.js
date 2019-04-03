@@ -6,10 +6,11 @@ import {Redirect} from "react-router-dom";
 const Login = (props) => {
     // debugger
 
-    let id = props.authorization.userInfo.userId;
+    // let id = props.authorization.userInfo.userId;
 
     if (props.authorization.isAuth) {
-        return <Redirect to={`users/${id}`}/>
+        // return <Redirect to={`users/${id}`}/>
+        return <Redirect to='/profile'/>
     }
 
     let onEmailInputChange = (event) => {

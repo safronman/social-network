@@ -5,7 +5,8 @@ import {setUserLookingForAJobDescriptionAC} from "../../../redux/reducers/userPr
 
 let mapStateToProps = (state) => {
     return {
-        userProfile: state.userProfile
+        editMode: state.profilePage.editMode,
+        lookingForAJobDescription: state.userProfile.lookingForAJobDescription
     }
 };
 

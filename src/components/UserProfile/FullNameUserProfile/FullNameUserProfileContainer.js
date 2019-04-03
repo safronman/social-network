@@ -6,7 +6,8 @@ import {
 
 let mapStateToProps = (state) => {
     return {
-        userProfile: state.userProfile
+        editMode: state.profilePage.editMode,
+        fullName: state.userProfile.fullName
     }
 };
 

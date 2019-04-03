@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './../UserProfile.module.css';
 
 const LookingForAJobDescUserProfile = (props) => {
-    // debugger
 
     let onLookingForAJobDescriptionChange = (event) => {
         props.setCurrentLookingForAJobDescriptionValue(event.currentTarget.value);
@@ -12,12 +11,12 @@ const LookingForAJobDescUserProfile = (props) => {
         <div className={styles.wrapper}>
             <p className={styles.titleKey}>Описание навыков</p>
             {
-                props.userProfile.editMode ?
+                props.editMode ?
                     <textarea className={styles.editModeTitle}
-                              value={props.userProfile.lookingForAJobDescription}
+                              value={props.lookingForAJobDescription}
                         onChange={onLookingForAJobDescriptionChange}
                     /> :
-                    <p className={styles.titleValue}>{props.userProfile.lookingForAJobDescription}</p>
+                    <p className={styles.titleValue}>{props.lookingForAJobDescription}</p>
             }
         </div>
     )

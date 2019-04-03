@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './Cover.module.css';
-import cover from'../../../img/cover.jpg'
 
 const Cover = () => {
     return (
         <img className={styles.coverImg}
-             src={cover}
+             src='https://www.placecage.com/896/260'
              alt="cover"/>
     );
 };
