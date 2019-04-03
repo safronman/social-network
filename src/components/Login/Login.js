@@ -4,12 +4,8 @@ import {statuses} from "../../redux/requestStatuses";
 import {Redirect} from "react-router-dom";
 
 const Login = (props) => {
-    // debugger
-
-    // let id = props.authorization.userInfo.userId;
 
     if (props.authorization.isAuth) {
-        // return <Redirect to={`users/${id}`}/>
         return <Redirect to='/profile'/>
     }
 
