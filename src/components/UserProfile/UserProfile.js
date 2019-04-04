@@ -1,21 +1,41 @@
 import React from 'react';
-import FullNameUserProfileContainer from "./FullNameUserProfile/FullNameUserProfileContainer";
-import AboutMeUserProfileContainer from "./AboutMeUserProfile/AboutMeUserProfileContainer";
-import ContactsUserProfileContainer from "./ContactsUserProfile/ContactsUserProfileContainer";
-import LookingForAJobUserProfileContainer from "./LookingForAJobUserProfile/LookingForAJobUserProfileContainer";
-import LookingForAJobDescUserProfileContainer
-    from "./LookingForAJobDescUserProfile/LookingForAJobDescUserProfileContainer";
+import styles from "./UserProfile.module.css";
 
-const UserProfile = () => {
+const UserProfile = (props) => {
+    // debugger
+
+    let contacts = Object.keys(props.userProfile.contacts).map((item, i) => {
+        return (
+            <div className={styles.contactsWrapper} key={i}>
+                <p className={styles.contactsTitle}>{item}: </p>
+                <div>{props.userProfile.contacts[item]}</div>
+            </div>
+        )
+    });
 
     return (
         <div>
             <h2>User profile</h2>
-            <FullNameUserProfileContainer/>
-            <AboutMeUserProfileContainer/>
-            <ContactsUserProfileContainer/>
-            <LookingForAJobUserProfileContainer/>
-            <LookingForAJobDescUserProfileContainer/>
+            <div className={styles.wrapper}>
+                <p className={styles.titleKey}>Имя</p>
+                <p className={styles.titleValue}>{props.userProfile.fullName}</p>
+            </div>
+            <div className={styles.wrapper}>
+                <p className={styles.titleKey}>Обо мне</p>
+                <p className={styles.titleValue}>{props.userProfile.aboutMe}</p>
+            </div>
+            <div className={styles.contactsWrapper}>
+                <p className={styles.contactsTitleKey}>Контакты</p>
+                <div>{contacts}</div>
+            </div>
+            <div className={styles.wrapper}>
+                <p className={styles.titleKey}>Ищу работу</p>
+                <input type="checkbox" checked={props.userProfile.lookingForAJob} onChange={() => ({})}/>
+            </div>
+            <div className={styles.wrapper}>
+                <p className={styles.titleKey}>Описание навыков</p>
+                <p className={styles.titleValue}>{props.userProfile.lookingForAJobDescription}</p>
+            </div>
         </div>
     )
 };

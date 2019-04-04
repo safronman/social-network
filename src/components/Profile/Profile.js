@@ -1,14 +1,14 @@
 import React from 'react';
+import styles from "../Profile/Profile.module.css";
 import Cover from "./Cover/Cover";
 import PostsContainer from "./Posts/PostsContainer";
-import FullNameUserProfileContainer from "../UserProfile/FullNameUserProfile/FullNameUserProfileContainer";
-import AboutMeUserProfileContainer from "../UserProfile/AboutMeUserProfile/AboutMeUserProfileContainer";
-import ContactsUserProfileContainer from "../UserProfile/ContactsUserProfile/ContactsUserProfileContainer";
-import LookingForAJobUserProfileContainer
-    from "../UserProfile/LookingForAJobUserProfile/LookingForAJobUserProfileContainer";
-import LookingForAJobDescUserProfileContainer
-    from "../UserProfile/LookingForAJobDescUserProfile/LookingForAJobDescUserProfileContainer";
-import styles from "../UserProfile/UserProfile.module.css";
+import ContactsFieldContainer from "./ContactsField/ContactsFieldContainer";
+import LookingForAJobFieldContainer from "./LookingForAJobField/LookingForAJobFieldContainer";
+import LookingForAJobDescFieldContainer
+    from "./LookingForAJobDescField/LookingForAJobDescFieldContainer";
+import FullNameFieldContainer from "./FullNameField/FullNameFieldContainer";
+import AboutMeFieldContainer from "./AboutMeField/AboutMeFieldContainer";
+import {NavLink} from "react-router-dom";
 
 const Profile = (props) => {
     // debugger
@@ -19,18 +19,18 @@ const Profile = (props) => {
 
     let onSaveBtnClick = () => {
         props.editMode();
-        props.saveUserProfile(props.userProfile);
+        props.saveProfile(props.profilePage);
     };
 
     if (props.authorization.isAuth) {
         return (
             <main>
                 <Cover/>
-                <FullNameUserProfileContainer/>
-                <AboutMeUserProfileContainer/>
-                <ContactsUserProfileContainer/>
-                <LookingForAJobUserProfileContainer/>
-                <LookingForAJobDescUserProfileContainer/>
+                <FullNameFieldContainer/>
+                <AboutMeFieldContainer/>
+                <ContactsFieldContainer/>
+                <LookingForAJobFieldContainer/>
+                <LookingForAJobDescFieldContainer/>
                 {
                     props.profilePage.editMode ?
                         <button className={styles.btn} onClick={onSaveBtnClick}>Save</button> :
@@ -41,7 +41,10 @@ const Profile = (props) => {
         )
     } else {
         return (
-            <div>Только залогиненный пользователь может увидеть эту страницу. Перейдите на страницу логина</div>
+            <>
+                <p className={styles.titleLink}>Только залогиненный пользователь может увидеть эту страницу.</p>
+                <NavLink to='/' className={styles.titleLink}>Перейдите на страницу логина</NavLink>
+            </>
         )
     }
 };

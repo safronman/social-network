@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './User.module.css';
 import PropTypes from "prop-types";
+import {NavLink} from "react-router-dom";
 
 const User = (props) => {
     // debugger
@@ -14,17 +15,21 @@ const User = (props) => {
     };
 
     return (
-        <>
-            <img className={styles.avatar}
-                 src={props.item.photos.small === null ? 'https://placecage.com/80/80' : props.item.photos.small}
-                 alt="avatar"/>
-            <p className={styles.name}>{props.item.name.length > 15 ? `${props.item.name.substring(0, 12)} ...` : props.item.name}</p>
+        <div>
+            <NavLink className={styles.link} to={`/users/${props.item.id}`}>
+                <img className={styles.avatar}
+                     src={props.item.photos.small === null ? 'https://placecage.com/80/80' : props.item.photos.small}
+                     alt="avatar"/>
+                <p className={styles.name}>{props.item.name.length > 15 ? `${props.item.name.substring(0, 12)} ...` : props.item.name}</p>
+            </NavLink>
             {
                 props.item.followed ?
-                    <button data-user-id={props.item.id} className={styles.btn} onClick={onUnsubscribeClick}>Unsubscribe</button> :
-                    <button data-user-id={props.item.id} className={styles.btn} onClick={onSubscribeClick}>Subscribe</button>
+                    <button data-user-id={props.item.id} className={styles.btn}
+                            onClick={onUnsubscribeClick}>Unsubscribe</button> :
+                    <button data-user-id={props.item.id} className={styles.btn}
+                            onClick={onSubscribeClick}>Subscribe</button>
             }
-        </>
+        </div>
     );
 };
 

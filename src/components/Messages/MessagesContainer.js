@@ -7,7 +7,4 @@ let mapStateToProps = (state)=> {
     }
 };
 
-
-let MessagesContainer = connect(mapStateToProps)(Messages);
-
-export default MessagesContainer;
+export default connect(mapStateToProps)(Messages);

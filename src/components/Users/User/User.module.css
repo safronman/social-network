@@ -9,6 +9,12 @@
     margin: 0 0 10px 0;
 }
 
+.link {
+    text-decoration: none;
+    color: #285473;
+    text-transform: capitalize;
+}
+
 .btn {
     display: block;
     box-sizing: border-box;

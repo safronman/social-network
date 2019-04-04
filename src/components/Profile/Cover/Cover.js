@@ -4,7 +4,7 @@ import styles from './Cover.module.css';
 const Cover = () => {
     return (
         <img className={styles.coverImg}
-             src='https://www.placecage.com/896/260'
+             src='https://via.placeholder.com/896X260?text=photo'
              alt="cover"/>
     );
 };

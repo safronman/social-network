@@ -19,6 +19,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-let AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage);
-
-export default AddMessageContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(AddMessage);

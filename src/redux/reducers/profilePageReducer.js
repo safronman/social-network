@@ -1,8 +1,17 @@
+import axiosInstance from "../../dal/axiosInstance";
+
 // Actions
 const ADD_CURRENT_MESSAGE = 'social-network/profile-page/ADD_CURRENT_MESSAGE';
 const ADD_POST = 'social-network/profile-page/ADD_POST';
+const TOGGLE_EDIT_MODE = 'social-network/profile-page/TOGGLE_EDIT_MODE';
+const SET_OWNER_ID = 'social-network/profile-page/SET_OWNER_ID';
 
-const TOGGLE_EDIT_MODE = 'social-network/user-profile/TOGGLE_EDIT_MODE';
+const SET_OWNER_FULL_NAME = 'social-network/profile-page/SET_OWNER_FULL_NAME';
+const SET_OWNER_ABOUT_ME = 'social-network/profile-page/SET_OWNER_ABOUT_ME';
+const SET_OWNER_CONTACTS = 'social-network/profile-page/SET_OWNER_CONTACTS';
+const SET_OWNER_CONTACTS_VALUE = 'social-network/profile-page/SET_OWNER_CONTACTS_VALUE';
+const SET_OWNER_LOOKING_FOR_A_JOB = 'social-network/profile-page/SET_OWNER_LOOKING_FOR_A_JOB';
+const SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION = 'social-network/profile-page/SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION';
 
 
 // Initial state
@@ -21,6 +30,21 @@ let initialState = {
     ],
     currentMessage: '',
     editMode: false,
+    ownerId: null,
+    fullName: '',
+    aboutMe: '',
+    contacts: {
+        facebook: '',
+        github: '',
+        instagram: '',
+        mainLink: '',
+        twitter: '',
+        vk: '',
+        website: '',
+        youtube: ''
+    },
+    lookingForAJob: false,
+    lookingForAJobDescription: ''
 };
 
 
@@ -50,15 +74,109 @@ const profilePageReducer = (state = initialState, action) => {
                 editMode: !state.editMode
             };
 
+        case SET_OWNER_ID:
+            return {
+                ...state,
+                ownerId: action.id
+            };
+
+        case SET_OWNER_FULL_NAME:
+            return {
+                ...state,
+                fullName: action.value
+            };
+
+        case SET_OWNER_ABOUT_ME:
+            return {
+                ...state,
+                aboutMe: action.value
+            };
+
+        case SET_OWNER_CONTACTS:
+            return {
+                ...state,
+                contacts: action.value
+            };
+
+        case SET_OWNER_CONTACTS_VALUE:
+            return {
+                ...state,
+                contacts: {
+                    ...state.contacts,
+                    facebook: action.value,
+                    github: action.value,
+                    instagram: action.value,
+                    mainLink: action.value,
+                    twitter: action.value,
+                    vk: action.value,
+                    website: action.value,
+                    youtube: action.value
+                }
+            };
+
+        case SET_OWNER_LOOKING_FOR_A_JOB:
+            return {
+                ...state,
+                lookingForAJob: action.value
+            };
+
+        case SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION:
+            return {
+                ...state,
+                lookingForAJobDescription: action.value
+            };
+
+
         default:
             return state;
     }
 };
 
+
 // Action Creators
 export const addCurrentMessageActionCreator = (message) => ({type: ADD_CURRENT_MESSAGE, message});
 export const addPostActionCreator = (message) => ({type: ADD_POST, message});
 export const toggleEditModeAC = () => ({type: TOGGLE_EDIT_MODE});
+export const setOwnerIdAC = (id) => ({type: SET_OWNER_ID, id});
+
+export const setOwnerFullNameAC = (value) => ({type: SET_OWNER_FULL_NAME, value});
+export const setOwnerAboutMeAC = (value) => ({type: SET_OWNER_ABOUT_ME, value});
+export const setOwnerContactsAC = (value) => ({type: SET_OWNER_CONTACTS, value});
+export const setOwnerContactsValueAC = (value) => ({type: SET_OWNER_CONTACTS_VALUE, value});
+export const setOwnerLookingForAJobAC = (value) => ({type: SET_OWNER_LOOKING_FOR_A_JOB, value});
+export const setOwnerLookingForAJobDescriptionAC = (value) => ({type: SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION, value});
+
+
+//Thunk Creators
+export let getMyProfileTC = (id) => (dispatch) => {
+    axiosInstance.get(`profile/${id}`)
+        .then((response) => {
+            dispatch(setOwnerFullNameAC(response.data.fullName));
+            dispatch(setOwnerAboutMeAC(response.data.aboutMe));
+            dispatch(setOwnerContactsAC(response.data.contacts));
+            dispatch(setOwnerLookingForAJobAC(response.data.lookingForAJob));
+            dispatch(setOwnerLookingForAJobDescriptionAC(response.data.lookingForAJobDescription));
+        })
+};
+
+export let saveProfileTC = (profile) => (dispatch) => {
+    axiosInstance.put('profile', {
+        fullName: profile.fullName,
+        aboutMe: profile.aboutMe,
+        contacts: {
+            facebook: profile.contacts.facebook,
+            github: profile.contacts.github,
+            instagram: profile.contacts.instagram,
+            mainLink: profile.contacts.mainLink,
+            twitter: profile.contacts.twitter,
+            vk: profile.contacts.vk,
+            website: profile.contacts.website,
+            youtube: profile.contacts.youtube
+        },
+        lookingForAJob: profile.lookingForAJob,
+        lookingForAJobDescription: profile.lookingForAJobDescription
+    })
+};
 
 
 export default profilePageReducer;

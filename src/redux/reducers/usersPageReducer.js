@@ -17,7 +17,7 @@ const UNSUBSCRIBE = 'social-network/users-page/UNSUBSCRIBE';
 let initialState = {
     status: statuses.STATUS_NOT_INITIALIZED,
     users: [],
-    currentUserId: null,
+    currentUserId: null
 };
 
 
