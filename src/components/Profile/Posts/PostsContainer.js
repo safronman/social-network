@@ -7,6 +7,4 @@ let mapStateToProps = (state)=> {
     }
 };
 
-let PostsContainer = connect(mapStateToProps)(Posts);
-
-export default PostsContainer;
+export default connect(mapStateToProps)(Posts);

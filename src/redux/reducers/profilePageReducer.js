@@ -5,13 +5,12 @@ const ADD_CURRENT_MESSAGE = 'social-network/profile-page/ADD_CURRENT_MESSAGE';
 const ADD_POST = 'social-network/profile-page/ADD_POST';
 const TOGGLE_EDIT_MODE = 'social-network/profile-page/TOGGLE_EDIT_MODE';
 const SET_OWNER_ID = 'social-network/profile-page/SET_OWNER_ID';
-
 const SET_OWNER_FULL_NAME = 'social-network/profile-page/SET_OWNER_FULL_NAME';
 const SET_OWNER_ABOUT_ME = 'social-network/profile-page/SET_OWNER_ABOUT_ME';
 const SET_OWNER_CONTACTS = 'social-network/profile-page/SET_OWNER_CONTACTS';
-const SET_OWNER_CONTACTS_VALUE = 'social-network/profile-page/SET_OWNER_CONTACTS_VALUE';
 const SET_OWNER_LOOKING_FOR_A_JOB = 'social-network/profile-page/SET_OWNER_LOOKING_FOR_A_JOB';
 const SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION = 'social-network/profile-page/SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION';
+const SET_NEW_CONTACTS_VALUE = 'social-network/profile-page/SET_NEW_CONTACTS_VALUE';
 
 
 // Initial state
@@ -98,19 +97,12 @@ const profilePageReducer = (state = initialState, action) => {
                 contacts: action.value
             };
 
-        case SET_OWNER_CONTACTS_VALUE:
+        case SET_NEW_CONTACTS_VALUE:
             return {
                 ...state,
                 contacts: {
                     ...state.contacts,
-                    facebook: action.value,
-                    github: action.value,
-                    instagram: action.value,
-                    mainLink: action.value,
-                    twitter: action.value,
-                    vk: action.value,
-                    website: action.value,
-                    youtube: action.value
+                    [action.item] : action.value
                 }
             };
 
@@ -126,7 +118,6 @@ const profilePageReducer = (state = initialState, action) => {
                 lookingForAJobDescription: action.value
             };
 
-
         default:
             return state;
     }
@@ -138,13 +129,12 @@ export const addCurrentMessageActionCreator = (message) => ({type: ADD_CURRENT_M
 export const addPostActionCreator = (message) => ({type: ADD_POST, message});
 export const toggleEditModeAC = () => ({type: TOGGLE_EDIT_MODE});
 export const setOwnerIdAC = (id) => ({type: SET_OWNER_ID, id});
-
 export const setOwnerFullNameAC = (value) => ({type: SET_OWNER_FULL_NAME, value});
 export const setOwnerAboutMeAC = (value) => ({type: SET_OWNER_ABOUT_ME, value});
 export const setOwnerContactsAC = (value) => ({type: SET_OWNER_CONTACTS, value});
-export const setOwnerContactsValueAC = (value) => ({type: SET_OWNER_CONTACTS_VALUE, value});
 export const setOwnerLookingForAJobAC = (value) => ({type: SET_OWNER_LOOKING_FOR_A_JOB, value});
 export const setOwnerLookingForAJobDescriptionAC = (value) => ({type: SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION, value});
+export const setNewContactsValueAC = (value, item) => ({type: SET_NEW_CONTACTS_VALUE, value, item});
 
 
 //Thunk Creators
