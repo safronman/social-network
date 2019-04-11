@@ -2,23 +2,49 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 
 let Dialogs = (props) => {
+    // debugger
+
+    let messages = props.messages.map(item => {
+        if (item.senderId === props.authorization.userInfo.userId) {
+            return (
+                <div className={styles.dialogs_owner_message} key={item.id}>
+                    <div>
+                        <p className={styles.dialogs_messages_content}>{item.body}
+                            <a className={styles.dialogs_btn_delete_owner_message}
+                               onClick={() => {
+                                   return onDeleteMessageClick(item.id)
+                               }}>Delete
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <img className={styles.dialogs_messages_img} src='https://placecage.com/50/50'
+                             alt="avatar"/>
+                        <p className={styles.dialogs_owner_name}>{item.senderName}</p>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className={styles.dialogs_user_message} key={item.id}>
+                    <div>
+                        <img className={styles.dialogs_messages_img} src='https://www.fillmurray.com/50/50'
+                             alt="avatar"/>
+                        <p className={styles.dialogs_owner_name}>{item.senderName}</p>
+                    </div>
+                    <p className={styles.dialogs_messages_content}>{item.body}
+                        <a className={styles.dialogs_btn_delete_user_message}
+                           onClick={() => {
+                               return onDeleteMessageClick(item.id)
+                           }}>Delete
+                        </a>
+                    </p>
+                </div>
+            )
+        }
+    });
 
     let newMessageRef = React.createRef();
-
-    let message = props.messages.map(item => {
-        return (
-            <div className={styles.dialogs_messages_item} key={item.id}>
-                <img className={styles.dialogs_messages_img} src='https://placecage.com/80/80'
-                     alt="avatar"/>
-                <p className={styles.dialogs_messages_content}>{item.body}</p>
-                <button className={styles.btn_delete}
-                        onClick={() => {
-                            return onDeleteMessageClick(item.id)
-                        }}>Delete
-                </button>
-            </div>
-        )
-    });
 
     let onSendButtonClick = () => {
         props.sendMessage(props.match.params.userId, newMessageRef.current.value);
@@ -49,14 +75,13 @@ let Dialogs = (props) => {
                                         <p className={styles.currentDialog}>{item.userName}</p> :
                                         <p className={styles.dialogs_item}>{item.userName}</p>
                                 }
-
                             </div>
                         )
                     })
                 }
             </div>
             <div className={styles.dialogs_messages_wrapper}>
-                {message}
+                {messages}
                 <div className={styles.add_message_wrapper}>
                     <textarea className={styles.add_message_textarea} ref={newMessageRef}
                               placeholder="Write a message"/>

@@ -64,16 +64,26 @@
     cursor: pointer;
 }
 
-.dialogs_messages_item {
+/*Owner messages */
+.dialogs_owner_message {
     display: grid;
-    grid-template-columns: 1fr 9fr 1fr;
+    grid-template-columns: 11fr 1fr;
     align-items: center;
     grid-column-gap: 10px;
+    margin-bottom: 20px;
 }
 
-.dialogs_messages_img {
-    width: 50px;
-    height: 50px;
+.dialogs_owner_name {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #425884;
+}
+
+.dialogs_owner_img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 
@@ -81,6 +91,52 @@
     padding: 10px 20px;
     border-radius: 10px;
     background-color: #f0f4f8;
+    position: relative;
+    margin-top: 0;
+}
+
+/*buttons*/
+.dialogs_btn_delete_owner_message {
+    position: absolute;
+    top: 43px;
+    left: 0;
+    content: '';
+    background-color: transparent;
+    border: none;
+    color: #5B88BD;
+    font-size: 12px;
+}
+
+.dialogs_btn_delete_user_message {
+    position: absolute;
+    top: 43px;
+    right: 0;
+    content: '';
+    background-color: transparent;
+    border: none;
+    color: #5B88BD;
+    font-size: 12px;
+}
+
+.dialogs_btn_delete_owner_message:hover,
+.dialogs_btn_delete_user_message:hover{
+    cursor: pointer;
+    color: #425884;
+}
+
+/*User messages */
+.dialogs_user_message {
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    align-items: center;
+    grid-column-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.dialogs_messages_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .btn_delete {
