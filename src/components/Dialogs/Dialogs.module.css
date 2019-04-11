@@ -1,0 +1,86 @@
+.currentDialog {
+    background-color: #5B88BD;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.currentDialog:hover {
+    background-color: #5B88BD;
+
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+}
+
+.dialogs_wrapper {
+    border-right: 1px solid #EDEEF0;
+}
+
+.dialogs_messages_wrapper {
+    padding: 0 20px;
+}
+
+.add_message_wrapper {
+    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+}
+
+.add_message_textarea {
+    box-sizing: border-box;
+    margin-right: 20px;
+    height: 52px;
+    padding: 15px;
+    border: 2px solid #d3dae1;
+    font-size: 14px;
+}
+
+.add_message_btn {
+    color: #55677d;
+    border: none;
+    background-color: #dfe6ed;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.add_message_btn:hover {
+    cursor: pointer;
+    background-color: #d3dae1;
+}
+
+.dialogs_item {
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #EDEEF0;
+}
+
+.dialogs_item:hover {
+
+    background-color: #F5F7FA;
+    cursor: pointer;
+}
+
+.dialogs_messages_item {
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    align-items: center;
+    grid-column-gap: 10px;
+}
+
+.dialogs_messages_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dialogs_messages_content {
+    width: 70%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #f0f4f8;
+}

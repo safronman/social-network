@@ -24,11 +24,12 @@ const User = (props) => {
             </NavLink>
             {
                 props.item.followed ?
-                    <button data-user-id={props.item.id} className={styles.btn}
+                    <button data-user-id={props.item.id} className={styles.btn__follow}
                             onClick={onUnsubscribeClick}>Unsubscribe</button> :
-                    <button data-user-id={props.item.id} className={styles.btn}
+                    <button data-user-id={props.item.id} className={styles.btn__follow}
                             onClick={onSubscribeClick}>Subscribe</button>
             }
+            <NavLink className={styles.btn} to={`/dialogs/${props.item.id}`}>Send message</NavLink>
         </div>
     );
 };

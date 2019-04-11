@@ -13,11 +13,13 @@ const Navbar = () => {
                     <NavLink to='/profile' className={styles.link} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/messages' className={styles.link} activeClassName={styles.activeLink}>Messages</NavLink>
+                    <NavLink to='/dialogs' className={styles.link} activeClassName={styles.activeLink}>Dialogs</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/settings' className={styles.link} activeClassName={styles.activeLink}>Settings</NavLink>
+                    <NavLink to='/settings' className={styles.link}
+                             activeClassName={styles.activeLink}>Settings</NavLink>
                 </li>
+
             </ul>
         </nav>
     );

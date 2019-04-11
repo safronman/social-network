@@ -10,6 +10,7 @@ import LoginContainer from "./components/Login/LoginContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
 import NotFound from "./components/NotFound/NotFound";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                     <Route path='/profile' component={ProfileContainer}/>
                     <Route path='/users/:userId' component={UserProfileContainer}/>
                     <Route path='/messages' component={MessagesContainer}/>
+                    <Route path='/dialogs/:userId?' component={DialogsContainer}/>
                     <Route path='/settings' component={Settings}/>
                     <Route component={NotFound}/>
                 </Switch>
