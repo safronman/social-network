@@ -7,10 +7,15 @@ let Dialogs = (props) => {
 
     let message = props.messages.map(item => {
         return (
-            <div className={styles.dialogs_messages_item}>
+            <div className={styles.dialogs_messages_item} key={item.id}>
                 <img className={styles.dialogs_messages_img} src='https://placecage.com/80/80'
                      alt="avatar"/>
                 <p className={styles.dialogs_messages_content}>{item.body}</p>
+                <button className={styles.btn_delete}
+                        onClick={() => {
+                            return onDeleteMessageClick(item.id)
+                        }}>Delete
+                </button>
             </div>
         )
     });
@@ -24,6 +29,11 @@ let Dialogs = (props) => {
         props.history.push(`/dialogs/${userId}`);
         props.initialRequests(userId);
     };
+
+    let onDeleteMessageClick = (messageId) => {
+        props.deleteMessage(messageId, props.match.params.userId)
+    };
+
 
     return (
         <div className={styles.wrapper}>
@@ -53,7 +63,6 @@ let Dialogs = (props) => {
                     <button className={styles.add_message_btn} onClick={onSendButtonClick}>Send</button>
                 </div>
             </div>
-
         </div>
     );
 };

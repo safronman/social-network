@@ -1,5 +1,5 @@
 import {statuses} from "../requestStatuses";
-import {getDialogs, getMessages, sendMessage, updateDialogs} from "../../dal/services";
+import {deleteMessage, getDialogs, getMessages, sendMessage, updateDialogs} from "../../dal/services";
 
 // Actions
 const SET_STATUS = 'social-network/dialogs-page/SET_STATUS';
@@ -79,6 +79,15 @@ export let getDialogsTC = () => (dispatch) => {
 
 export let sendMessageTC = (userId, body) => (dispatch) => {
     sendMessage(userId, body)
+        .then(() => getMessages(userId))
+        .then((res) => {
+            dispatch(setMessagesAC(res.items));
+        })
+};
+
+
+export let deleteMessageTC = (messageId, userId) => (dispatch) => {
+    deleteMessage(messageId)
         .then(() => getMessages(userId))
         .then((res) => {
             dispatch(setMessagesAC(res.items));

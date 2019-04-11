@@ -29,7 +29,7 @@ export const sendMessage = (userId, body) => {
 };
 
 export const deleteMessage = (messageId) => {
-    axiosInstance.delete(`dialogs/messages/${messageId}`)
+    return axiosInstance.delete(`dialogs/messages/${messageId}`)
         .then(res => {
             return res.data
         })

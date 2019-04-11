@@ -60,14 +60,13 @@
 }
 
 .dialogs_item:hover {
-
     background-color: #F5F7FA;
     cursor: pointer;
 }
 
 .dialogs_messages_item {
     display: grid;
-    grid-template-columns: 1fr 11fr;
+    grid-template-columns: 1fr 9fr 1fr;
     align-items: center;
     grid-column-gap: 10px;
 }
@@ -79,8 +78,13 @@
 }
 
 .dialogs_messages_content {
-    width: 70%;
     padding: 10px 20px;
     border-radius: 10px;
     background-color: #f0f4f8;
+}
+
+.btn_delete {
+    background-color: white;
+    border: none;
+    color: #5B88BD;
 }

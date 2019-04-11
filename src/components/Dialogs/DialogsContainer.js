@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
+    deleteMessageTC,
     getDialogsTC,
     initialRequestsTC,
     sendMessageTC
@@ -52,6 +53,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         sendMessage: (userId, message) => {
             dispatch(sendMessageTC(userId, message))
+        },
+        deleteMessage: (messageId, userId) => {
+            dispatch(deleteMessageTC(messageId, userId))
         }
     }
 };
