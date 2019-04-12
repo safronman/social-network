@@ -108,6 +108,13 @@ export let sendMessageTC = (userId, body) => (dispatch) => {
         .then((res) => {
             dispatch(setMessagesAC(res.items));
         })
+
+    // 2 ver. Get only last message
+    // .then((res) => {
+    //     debugger
+    //     // getNewMessages(userId, res.data.message.addedAt);
+    //     dispatch(setNewMessagesToStateAC(res.data))
+    // })
 };
 
 

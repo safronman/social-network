@@ -66,6 +66,7 @@ let Dialogs = (props) => {
             <div className={styles.dialogs_wrapper}>
                 {
                     props.dialogs.map(item => {
+                        debugger
                         return (
                             <div key={item.id} onClick={() => {
                                 return onDialogClick(item.id)
@@ -74,6 +75,9 @@ let Dialogs = (props) => {
                                     String(item.id) === props.currentDialogId ?
                                         <p className={styles.currentDialog}>{item.userName}</p> :
                                         <p className={styles.dialogs_item}>{item.userName}</p>
+                                }
+                                {
+                                    item.hasNewMessages ? <span> NEW</span> : null
                                 }
                             </div>
                         )
