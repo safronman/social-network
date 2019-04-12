@@ -5,10 +5,6 @@ import {newMessagesCountTC, updateCounterAndGetMessagesTC} from "../../redux/red
 import {withRouter} from "react-router-dom";
 
 let UnreadMessagesCountContainer = class extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     componentDidMount() {
         setInterval(() => {
             this.props.newMessagesCount();
@@ -16,14 +12,15 @@ let UnreadMessagesCountContainer = class extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        let lastMessage = this.props.messages[this.props.messages.length - 1];
+        if (this.props.messages) {
+            let lastMessage = this.props.messages[this.props.messages.length - 1];
 
-        if (this.props.unreadMessagesCounter !== prevProps.unreadMessagesCounter &&
-            String(lastMessage.senderId) === this.props.currentDialogId) {
-            this.props.updateCounterAndGetMessages(this.props.currentDialogId, lastMessage.addedAt);
+            if (this.props.unreadMessagesCounter !== prevProps.unreadMessagesCounter &&
+                String(lastMessage.senderId) === this.props.currentDialogId) {
+                this.props.updateCounterAndGetMessages(this.props.currentDialogId, lastMessage.addedAt);
+            }
         }
     }
-
 
     render() {
         return <UnreadMessagesCount {...this.props}/>
@@ -34,7 +31,8 @@ let mapStateToProps = (state) => {
     return {
         unreadMessagesCounter: state.dialogsPage.unreadMessagesCounter,
         currentDialogId: state.dialogsPage.currentDialogId,
-        messages: state.dialogsPage.messages
+        messages: state.dialogsPage.messages,
+        dialogs: state.dialogsPage.dialogs
     }
 };
 
@@ -46,7 +44,6 @@ let mapDispatchToProps = (dispatch) => {
         updateCounterAndGetMessages: (userId, date) => {
             dispatch(updateCounterAndGetMessagesTC(userId, date))
         }
-
     }
 };
 

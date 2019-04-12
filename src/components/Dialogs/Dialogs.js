@@ -10,11 +10,11 @@ let Dialogs = (props) => {
                 <div className={styles.dialogs_owner_message} key={item.id}>
                     <div>
                         <p className={styles.dialogs_owner_messages_content}>{item.body}
-                            <a className={styles.dialogs_btn_delete_owner_message}
+                            <span className={styles.dialogs_btn_delete_owner_message}
                                onClick={() => {
                                    return onDeleteMessageClick(item.id)
                                }}>Delete
-                            </a>
+                            </span>
                         </p>
                     </div>
                     <div>
@@ -33,11 +33,11 @@ let Dialogs = (props) => {
                         <p className={styles.dialogs_owner_name}>{item.senderName}</p>
                     </div>
                     <p className={styles.dialogs_user_messages_content}>{item.body}
-                        <a className={styles.dialogs_btn_delete_user_message}
+                        <span className={styles.dialogs_btn_delete_user_message}
                            onClick={() => {
                                return onDeleteMessageClick(item.id)
                            }}>Delete
-                        </a>
+                        </span>
                     </p>
                 </div>
             )
@@ -66,19 +66,21 @@ let Dialogs = (props) => {
             <div className={styles.dialogs_wrapper}>
                 {
                     props.dialogs.map(item => {
-                        debugger
+                        // debugger
+                        let hasNewMessages = item.hasNewMessages ?
+                            <span className={styles.new_message}> NEW</span>
+                            : null;
+
                         return (
                             <div key={item.id} onClick={() => {
                                 return onDialogClick(item.id)
                             }}>
                                 {
                                     String(item.id) === props.currentDialogId ?
-                                        <p className={styles.currentDialog}>{item.userName}</p> :
-                                        <p className={styles.dialogs_item}>{item.userName}</p>
+                                        <p className={styles.currentDialog}>{item.userName} {hasNewMessages} </p> :
+                                        <p className={styles.dialogs_item}>{item.userName} {hasNewMessages}</p>
                                 }
-                                {
-                                    item.hasNewMessages ? <span> NEW</span> : null
-                                }
+
                             </div>
                         )
                     })
