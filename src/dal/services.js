@@ -35,3 +35,17 @@ export const deleteMessage = (messageId) => {
         })
 };
 
+export const newMessagesCount = () => {
+    return axiosInstance.get('dialogs/messages/new/count')
+        .then(res => {
+            return res.data
+        })
+};
+
+export const getNewMessages = (userId, date) => {
+    return axiosInstance.get(`dialogs/${userId}/messages/new?newerThen=${date}`)
+        .then(res => {
+            return res.data
+        })
+};
+

@@ -9,7 +9,7 @@ let Dialogs = (props) => {
             return (
                 <div className={styles.dialogs_owner_message} key={item.id}>
                     <div>
-                        <p className={styles.dialogs_messages_content}>{item.body}
+                        <p className={styles.dialogs_owner_messages_content}>{item.body}
                             <a className={styles.dialogs_btn_delete_owner_message}
                                onClick={() => {
                                    return onDeleteMessageClick(item.id)
@@ -32,7 +32,7 @@ let Dialogs = (props) => {
                              alt="avatar"/>
                         <p className={styles.dialogs_owner_name}>{item.senderName}</p>
                     </div>
-                    <p className={styles.dialogs_messages_content}>{item.body}
+                    <p className={styles.dialogs_user_messages_content}>{item.body}
                         <a className={styles.dialogs_btn_delete_user_message}
                            onClick={() => {
                                return onDeleteMessageClick(item.id)

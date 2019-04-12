@@ -1,18 +1,29 @@
 import {statuses} from "../requestStatuses";
-import {deleteMessage, getDialogs, getMessages, sendMessage, updateDialogs} from "../../dal/services";
+import {
+    deleteMessage,
+    getDialogs,
+    getMessages,
+    getNewMessages,
+    newMessagesCount,
+    sendMessage,
+    updateDialogs
+} from "../../dal/services";
 
 // Actions
 const SET_STATUS = 'social-network/dialogs-page/SET_STATUS';
 const SET_DIALOGS = 'social-network/dialogs-page/SET_DIALOGS';
 const SET_MESSAGES = 'social-network/dialogs-page/SET_MESSAGES';
 const SET_CURRENT_DIALOG_ID = 'social-network/dialogs-page/SET_CURRENT_DIALOG_ID';
+const SET_NEW_MESSAGE_TO_COUNTER = 'social-network/dialogs-page/SET_NEW_MESSAGE_TO_COUNTER';
+const SET_NEW_MESSAGE_TO_STATE = 'social-network/dialogs-page/SET_NEW_MESSAGE_TO_STATE';
 
 // Initial state
 let initialState = {
     status: statuses.STATUS_NOT_INITIALIZED,
     dialogs: [],
     currentDialogId: null,
-    messages: []
+    messages: [],
+    unreadMessagesCounter: 0
 };
 
 
@@ -43,6 +54,18 @@ const dialogsPageReducer = (state = initialState, action) => {
                 currentDialogId: action.id
             };
 
+        case SET_NEW_MESSAGE_TO_COUNTER:
+            return {
+                ...state,
+                unreadMessagesCounter: action.count
+            };
+
+        case SET_NEW_MESSAGE_TO_STATE:
+            return {
+                ...state,
+                messages: [...state.messages, ...action.message]
+            };
+
         default:
             return state;
     }
@@ -53,6 +76,8 @@ export const setStatusAC = (status) => ({type: SET_STATUS, status});
 export const setDialogsAC = (dialogs) => ({type: SET_DIALOGS, dialogs});
 export const setMessagesAC = (messages) => ({type: SET_MESSAGES, messages});
 export const setCurrentDialogIdAC = (id) => ({type: SET_CURRENT_DIALOG_ID, id});
+export const setNewMessageToUnreadCounterAC = (count) => ({type: SET_NEW_MESSAGE_TO_COUNTER, count});
+export const setNewMessagesToStateAC = (message) => ({type: SET_NEW_MESSAGE_TO_STATE, message});
 
 
 // Thunk Creators
@@ -93,5 +118,21 @@ export let deleteMessageTC = (messageId, userId) => (dispatch) => {
             dispatch(setMessagesAC(res.items));
         })
 };
+
+export let newMessagesCountTC = () => (dispatch) => {
+    newMessagesCount()
+        .then((res) => {
+            dispatch(setNewMessageToUnreadCounterAC(res))
+        })
+};
+
+export let updateCounterAndGetMessagesTC = (userId, date) => (dispatch) => {
+    getNewMessages(userId, date)
+        .then((res) => {
+            dispatch(setNewMessagesToStateAC(res));
+            dispatch(setNewMessageToUnreadCounterAC(0))
+        })
+};
+
 
 export default dialogsPageReducer;

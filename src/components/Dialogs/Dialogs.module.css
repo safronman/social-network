@@ -8,7 +8,6 @@
 
 .currentDialog:hover {
     background-color: #5B88BD;
-
 }
 
 .wrapper {
@@ -87,13 +86,23 @@
     border-radius: 50%;
 }
 
-.dialogs_messages_content {
+
+.dialogs_owner_messages_content {
     padding: 10px 20px;
     border-radius: 10px;
     background-color: #f0f4f8;
     position: relative;
     margin-top: 0;
 }
+
+.dialogs_user_messages_content {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #F7F9FC;
+    position: relative;
+    margin-top: 0;
+}
+
 
 /*buttons*/
 .dialogs_btn_delete_owner_message {
