@@ -17,7 +17,8 @@ let HeaderContainer = class extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        authorization: state.authorization
+        authorization: state.authorization,
+        avatar: state.profilePage.avatar
     }
 };
 

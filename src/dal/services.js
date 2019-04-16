@@ -15,7 +15,6 @@ export const updateDialogs = (userId) => {
 };
 
 export const getMessages = (userId) => {
-
     return axiosInstance.get(`dialogs/${userId}/messages`)
         .then(res => {
             return res.data
@@ -45,6 +44,19 @@ export const newMessagesCount = () => {
 
 export const getNewMessages = (userId, date) => {
     return axiosInstance.get(`dialogs/${userId}/messages/new?newerThen=${date}`)
+        .then(res => {
+            return res.data
+        })
+};
+
+export const uploadPhoto = (file) => {
+    let formData = new FormData();
+    formData.append('image', file);
+    return axiosInstance.post(`profile/photo`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
         .then(res => {
             return res.data
         })

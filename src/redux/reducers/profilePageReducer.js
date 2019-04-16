@@ -1,4 +1,5 @@
 import axiosInstance from "../../dal/axiosInstance";
+import {uploadPhoto} from "../../dal/services";
 
 // Actions
 const ADD_CURRENT_MESSAGE = 'social-network/profile-page/ADD_CURRENT_MESSAGE';
@@ -11,6 +12,7 @@ const SET_OWNER_CONTACTS = 'social-network/profile-page/SET_OWNER_CONTACTS';
 const SET_OWNER_LOOKING_FOR_A_JOB = 'social-network/profile-page/SET_OWNER_LOOKING_FOR_A_JOB';
 const SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION = 'social-network/profile-page/SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION';
 const SET_NEW_CONTACTS_VALUE = 'social-network/profile-page/SET_NEW_CONTACTS_VALUE';
+const SET_AVATAR = 'social-network/profile-page/SET_AVATAR';
 
 
 // Initial state
@@ -43,7 +45,8 @@ let initialState = {
         youtube: ''
     },
     lookingForAJob: false,
-    lookingForAJobDescription: ''
+    lookingForAJobDescription: '',
+    avatar: null
 };
 
 
@@ -118,6 +121,12 @@ const profilePageReducer = (state = initialState, action) => {
                 lookingForAJobDescription: action.value
             };
 
+        case SET_AVATAR:
+            return {
+                ...state,
+                avatar: action.img
+            };
+
         default:
             return state;
     }
@@ -135,6 +144,7 @@ export const setOwnerContactsAC = (value) => ({type: SET_OWNER_CONTACTS, value})
 export const setOwnerLookingForAJobAC = (value) => ({type: SET_OWNER_LOOKING_FOR_A_JOB, value});
 export const setOwnerLookingForAJobDescriptionAC = (value) => ({type: SET_OWNER_LOOKING_FOR_A_JOB_DESCRIPTION, value});
 export const setNewContactsValueAC = (value, item) => ({type: SET_NEW_CONTACTS_VALUE, value, item});
+export const setAvatarAC = (img) => ({type: SET_AVATAR, img});
 
 
 //Thunk Creators
@@ -146,6 +156,7 @@ export let getMyProfileTC = (id) => (dispatch) => {
             dispatch(setOwnerContactsAC(response.data.contacts));
             dispatch(setOwnerLookingForAJobAC(response.data.lookingForAJob));
             dispatch(setOwnerLookingForAJobDescriptionAC(response.data.lookingForAJobDescription));
+            dispatch(setAvatarAC(response.data.photos.small));
         })
 };
 
@@ -166,6 +177,13 @@ export let saveProfileTC = (profile) => (dispatch) => {
         lookingForAJob: profile.lookingForAJob,
         lookingForAJobDescription: profile.lookingForAJobDescription
     })
+};
+
+export let uploadAvatarTC = (file) => (dispatch) => {
+    uploadPhoto(file)
+        .then((res) => {
+            dispatch(setAvatarAC(res.data.photos.small))
+        })
 };
 
 

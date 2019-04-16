@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "../Profile/Profile.module.css";
-import Cover from "./Cover/Cover";
 import PostsContainer from "./Posts/PostsContainer";
 import ContactsFieldContainer from "./ContactsField/ContactsFieldContainer";
 import LookingForAJobFieldContainer from "./LookingForAJobField/LookingForAJobFieldContainer";
@@ -9,6 +8,7 @@ import LookingForAJobDescFieldContainer
 import FullNameFieldContainer from "./FullNameField/FullNameFieldContainer";
 import AboutMeFieldContainer from "./AboutMeField/AboutMeFieldContainer";
 import {NavLink} from "react-router-dom";
+import ProfilePhotoContainer from "./ProfilePhoto/ProfilePhotoContainer";
 
 const Profile = (props) => {
 
@@ -24,7 +24,7 @@ const Profile = (props) => {
     if (props.authorization.isAuth) {
         return (
             <main>
-                <Cover/>
+                <ProfilePhotoContainer/>
                 <FullNameFieldContainer/>
                 <AboutMeFieldContainer/>
                 <ContactsFieldContainer/>
