@@ -14,6 +14,7 @@ import loginPageReducer from "./redux/reducers/loginPageReducer";
 import authorizationReducer from "./redux/reducers/authorizationReducer";
 import userProfileReducer from "./redux/reducers/userProfileReducer";
 import dialogsPageReducer from "./redux/reducers/dialogsPageReducer";
+import {composeWithDevTools} from "redux-devtools-extension";
 
 
 let combinedReducers = combineReducers({
@@ -26,7 +27,7 @@ let combinedReducers = combineReducers({
     dialogsPage: dialogsPageReducer
 });
 
-let store = createStore(combinedReducers, applyMiddleware(thunk));
+let store = createStore(combinedReducers, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
     <Provider store={store}>
