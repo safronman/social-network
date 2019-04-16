@@ -16,6 +16,7 @@ const SET_MESSAGES = 'social-network/dialogs-page/SET_MESSAGES';
 const SET_CURRENT_DIALOG_ID = 'social-network/dialogs-page/SET_CURRENT_DIALOG_ID';
 const SET_NEW_MESSAGE_TO_COUNTER = 'social-network/dialogs-page/SET_NEW_MESSAGE_TO_COUNTER';
 const SET_NEW_MESSAGE_TO_STATE = 'social-network/dialogs-page/SET_NEW_MESSAGE_TO_STATE';
+const ADD_NEW_MESSAGE_TO_STATE = 'social-network/dialogs-page/ADD_NEW_MESSAGE_TO_STATE';
 
 // Initial state
 let initialState = {
@@ -66,6 +67,12 @@ const dialogsPageReducer = (state = initialState, action) => {
                 messages: [...state.messages, ...action.message]
             };
 
+        case ADD_NEW_MESSAGE_TO_STATE:
+            return {
+                ...state,
+                messages: [...state.messages, action.message]
+            };
+
         default:
             return state;
     }
@@ -78,6 +85,7 @@ export const setMessagesAC = (messages) => ({type: SET_MESSAGES, messages});
 export const setCurrentDialogIdAC = (id) => ({type: SET_CURRENT_DIALOG_ID, id});
 export const setNewMessageToUnreadCounterAC = (count) => ({type: SET_NEW_MESSAGE_TO_COUNTER, count});
 export const setNewMessagesToStateAC = (message) => ({type: SET_NEW_MESSAGE_TO_STATE, message});
+export const addNewMessageToState = (message) => ({type: ADD_NEW_MESSAGE_TO_STATE, message});
 
 
 // Thunk Creators
@@ -104,17 +112,9 @@ export let getDialogsTC = () => (dispatch) => {
 
 export let sendMessageTC = (userId, body) => (dispatch) => {
     sendMessage(userId, body)
-        .then(() => getMessages(userId))
-        .then((res) => {
-            dispatch(setMessagesAC(res.items));
-        })
-
-    // 2 ver. Get only last message
-    // .then((res) => {
-    //     debugger
-    //     // getNewMessages(userId, res.data.message.addedAt);
-    //     dispatch(setNewMessagesToStateAC(res.data))
-    // })
+    .then((res) => {
+        dispatch(addNewMessageToState(res.data.message))
+    })
 };
 
 
@@ -133,11 +133,17 @@ export let newMessagesCountTC = () => (dispatch) => {
         })
 };
 
-export let updateCounterAndGetMessagesTC = (userId, date) => (dispatch) => {
-    getNewMessages(userId, date)
+
+export const updateUnreadDialogTC = (userId, date) => (dispatch) => {
+    updateDialogs(userId)
+        .then((res) => {
+            dispatch(setCurrentDialogIdAC(userId))
+        })
+        .then(() => getDialogs())
+        .then((res) => dispatch(setDialogsAC(res)))
+        .then(() => getNewMessages(userId, date))
         .then((res) => {
             dispatch(setNewMessagesToStateAC(res));
-            dispatch(setNewMessageToUnreadCounterAC(0))
         })
 };
 

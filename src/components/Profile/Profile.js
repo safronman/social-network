@@ -11,7 +11,6 @@ import AboutMeFieldContainer from "./AboutMeField/AboutMeFieldContainer";
 import {NavLink} from "react-router-dom";
 
 const Profile = (props) => {
-    // debugger
 
     let onEditBtnClick = () => {
         props.editMode();

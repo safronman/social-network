@@ -15,6 +15,7 @@ export const updateDialogs = (userId) => {
 };
 
 export const getMessages = (userId) => {
+
     return axiosInstance.get(`dialogs/${userId}/messages`)
         .then(res => {
             return res.data

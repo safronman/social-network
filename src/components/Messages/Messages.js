@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import AddMessageContainer from "./DialogsMessages/AddMessage/AddMessageContainer";
 
 const Messages = ({messagesPage}) => {
-    // debugger
+
     let dialogsPreview = messagesPage.chats.map(item => {
         return <DialogsPreview key={item.chatsId}
                                chatsId={item.chatsId}

@@ -4,7 +4,6 @@ import User from "./User/User";
 import PropTypes from "prop-types";
 
 const Users = (props) => {
-    // debugger
 
     let usersList = props.users.map(item => {
         return (

@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./UserProfile.module.css";
 
 const UserProfile = (props) => {
-    // debugger
 
     let contacts = Object.keys(props.userProfile.contacts).map((item, i) => {
         return (

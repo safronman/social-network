@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import AddPostContainer from "./AddPost/AddPostContainer";
 
 const Posts = ({profilePage: {postsData}}) => {
-    // debugger
+
     let posts = postsData.map(item => {
         return <Post key={item.id} message={item.message} likes={item.likes}/>
     });

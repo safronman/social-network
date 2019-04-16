@@ -4,7 +4,8 @@ import {
     deleteMessageTC,
     getDialogsTC,
     initialRequestsTC,
-    sendMessageTC
+    sendMessageTC,
+    updateUnreadDialogTC
 } from "../../redux/reducers/dialogsPageReducer";
 import Dialogs from "./Dialogs";
 import {withRouter} from "react-router-dom";
@@ -12,7 +13,6 @@ import {withRouter} from "react-router-dom";
 
 let DialogsContainer = class extends React.Component {
     componentDidMount() {
-        // debugger
         if (this.props.match.params.userId) {
             this.props.initialRequests(this.props.match.params.userId);
         } else {
@@ -21,10 +21,15 @@ let DialogsContainer = class extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // debugger
         if (this.props.match.params.userId) {
-            if (this.props.match.params.userId !== prevProps.currentDialogId) {
+
+            let lastMessage = this.props.messages[this.props.messages.length - 1];
+
+            if (this.props.match.params.userId !== String(prevProps.currentDialogId )) {
                 this.props.initialRequests(this.props.match.params.userId);
+            }
+            if (this.props.unreadMessagesCounter !== prevProps.unreadMessagesCounter) {
+                this.props.updateUnreadDialog(this.props.match.params.userId, lastMessage.addedAt);
             }
         }
     }
@@ -40,6 +45,7 @@ let mapStateToProps = (state) => {
         dialogs: state.dialogsPage.dialogs,
         currentDialogId: state.dialogsPage.currentDialogId,
         messages: state.dialogsPage.messages,
+        unreadMessagesCounter: state.dialogsPage.unreadMessagesCounter,
         authorization: state.authorization
     }
 };
@@ -57,6 +63,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         deleteMessage: (messageId, userId) => {
             dispatch(deleteMessageTC(messageId, userId))
+        },
+        updateUnreadDialog: (userId, date) => {
+            dispatch(updateUnreadDialogTC(userId, date))
         }
     }
 };

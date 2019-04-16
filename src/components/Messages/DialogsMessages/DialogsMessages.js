@@ -3,7 +3,6 @@ import styles from "./DialogsMessages.module.css";
 import PropTypes from "prop-types";
 
 const DialogsMessages = ({content, messageId, author:{avatar}}) => {
-    // debugger
 
     return (
         <div className={styles.wrapper}>

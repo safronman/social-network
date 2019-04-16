@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 
 let Dialogs = (props) => {
-    // debugger
 
     let messages = props.messages.map(item => {
         if (item.senderId === props.authorization.userInfo.userId) {
@@ -60,13 +59,11 @@ let Dialogs = (props) => {
         props.deleteMessage(messageId, props.match.params.userId)
     };
 
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.dialogs_wrapper}>
                 {
                     props.dialogs.map(item => {
-                        // debugger
                         let hasNewMessages = item.hasNewMessages ?
                             <span className={styles.new_message}> NEW</span>
                             : null;
@@ -77,10 +74,9 @@ let Dialogs = (props) => {
                             }}>
                                 {
                                     String(item.id) === props.currentDialogId ?
-                                        <p className={styles.currentDialog}>{item.userName} {hasNewMessages} </p> :
+                                        <p className={styles.currentDialog}>{item.userName}{hasNewMessages}</p> :
                                         <p className={styles.dialogs_item}>{item.userName} {hasNewMessages}</p>
                                 }
-
                             </div>
                         )
                     })

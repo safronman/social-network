@@ -4,12 +4,9 @@ import logo from '../../img/logo.svg';
 import UnreadMessagesCountContainer from './../UnreadMessagesCount/UnreadMesagesCountContainer'
 
 const Header = (props) => {
-    // debugger
 
     let onLogOutBtnClick = () => {
-        // debugger
         props.logOut();
-
         props.setAuth(false);
         props.history.push('/');
     };

@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import {NavLink} from "react-router-dom";
 
 const User = (props) => {
-    // debugger
 
     let onSubscribeClick = (event) => {
         props.addToFriends(Number(event.currentTarget.dataset.userId));

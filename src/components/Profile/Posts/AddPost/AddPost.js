@@ -3,7 +3,6 @@ import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
 
 const AddPost = ({profilePage:{currentMessage}, addCurrentMessage, addPost}) => {
-    // debugger
 
     let onTextareaChange = (e) => {
         addCurrentMessage(e.currentTarget.value);

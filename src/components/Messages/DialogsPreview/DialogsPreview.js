@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const DialogsPreview = ({chatsId, name, avatar}) => {
-    // debugger
+
     const mainPath = "/messages/";
 
     return (

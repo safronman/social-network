@@ -4,7 +4,7 @@ import avatar from '../../../../img/avatar.png'
 import PropTypes from 'prop-types';
 
 const Post = ({message, likes}) => {
-    // debugger
+
     return (
         <div className={styles.postItem}>
             <div className={styles.postContent}>

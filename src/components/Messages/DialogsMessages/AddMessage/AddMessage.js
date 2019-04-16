@@ -3,7 +3,7 @@ import styles from "./AddMessage.module.css";
 import PropTypes from "prop-types";
 
 const AddMessage = ({messagesPage: {currentMessage}, addCurrentMessage, addMessage }) => {
-    // debugger
+
     let onTextareaValueChange = (e) => {
         addCurrentMessage(e.currentTarget.value);
     };
