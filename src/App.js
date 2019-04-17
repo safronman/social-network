@@ -4,7 +4,6 @@ import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import Settings from "./components/Settings/Settings";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
@@ -27,7 +26,6 @@ const App = () => {
                     <Route exact path='/' render={() => <LoginFormContainer/>}/>
                     <Route path='/profile' component={ProfileContainer}/>
                     <Route path='/users/:userId' component={UserProfileContainer}/>
-                    <Route path='/messages' component={MessagesContainer}/>
                     <Route path='/dialogs/:userId?' component={DialogsContainer}/>
                     <Route path='/settings' component={Settings}/>
                     <Route component={NotFound}/>
