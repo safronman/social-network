@@ -15,7 +15,7 @@ import authorizationReducer from "./redux/reducers/authorizationReducer";
 import userProfileReducer from "./redux/reducers/userProfileReducer";
 import dialogsPageReducer from "./redux/reducers/dialogsPageReducer";
 import {composeWithDevTools} from "redux-devtools-extension";
-
+import { reducer as formReducer } from 'redux-form'
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,
@@ -24,7 +24,8 @@ let combinedReducers = combineReducers({
     loginPage: loginPageReducer,
     authorization: authorizationReducer,
     userProfile: userProfileReducer,
-    dialogsPage: dialogsPageReducer
+    dialogsPage: dialogsPageReducer,
+    form: formReducer
 });
 
 let store = createStore(combinedReducers, composeWithDevTools(applyMiddleware(thunk)));

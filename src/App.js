@@ -6,13 +6,15 @@ import Settings from "./components/Settings/Settings";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import LoginContainer from "./components/Login/LoginContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import UserProfileContainer from "./components/UserProfile/UserProfileContainer";
 import NotFound from "./components/NotFound/NotFound";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import LoginFormContainer from "./components/LoginForm/LoginFormContainer";
+
 
 const App = () => {
+
     return (
         <div className="app-wrapper">
             <HeaderContainer/>
@@ -22,7 +24,7 @@ const App = () => {
             </div>
             <div className="app-wrapper__content">
                 <Switch>
-                    <Route exact path='/' component={LoginContainer}/>
+                    <Route exact path='/' render={() => <LoginFormContainer/>}/>
                     <Route path='/profile' component={ProfileContainer}/>
                     <Route path='/users/:userId' component={UserProfileContainer}/>
                     <Route path='/messages' component={MessagesContainer}/>
