@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LoginForm.module.css';
-import {Field, reduxForm} from "redux-form";
+import {Field} from "redux-form";
 import {statuses} from "../../redux/requestStatuses";
 import {Redirect} from "react-router-dom";
 
