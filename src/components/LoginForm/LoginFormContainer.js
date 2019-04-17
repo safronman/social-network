@@ -1,7 +1,12 @@
 import {connect} from "react-redux";
 import {loginTC} from "../../redux/reducers/loginPageReducer";
-import SuperLoginForm from "./LoginForm";
+import LoginForm from "./LoginForm";
 import React from "react";
+import {reduxForm} from "redux-form";
+
+let LoginFormUnderReduxForm =  reduxForm({
+    form: 'loginForm'
+})(LoginForm);
 
 let LoginFormContainer = class extends React.Component {
     constructor(props) {
@@ -14,7 +19,7 @@ let LoginFormContainer = class extends React.Component {
     };
 
     render() {
-        return <SuperLoginForm {...this.props} onSubmit={this.submit}/>
+        return <LoginFormUnderReduxForm {...this.props} onSubmit={this.submit}/>
     }
 };
 

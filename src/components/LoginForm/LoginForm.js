@@ -42,8 +42,6 @@ let LoginForm = (props) => {
     );
 };
 
-export default reduxForm({
-    form: 'loginForm' // a unique identifier for this form
-})(LoginForm);
+export default LoginForm;
 
 
