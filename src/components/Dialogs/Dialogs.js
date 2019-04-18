@@ -1,23 +1,27 @@
 import React from 'react';
 import styles from './Dialogs.module.css'
+import PropTypes from "prop-types";
+import Posts from "../Profile/Posts/Posts";
 
 let Dialogs = (props) => {
+    // debugger
 
     let messages = props.messages.map(item => {
-        if (item.senderId === props.authorization.userInfo.userId) {
+        if (item.senderId === props.userInfo.userId) {
             return (
                 <div className={styles.dialogs_owner_message} key={item.id}>
                     <div>
                         <p className={styles.dialogs_owner_messages_content}>{item.body}
                             <span className={styles.dialogs_btn_delete_owner_message}
-                               onClick={() => {
-                                   return onDeleteMessageClick(item.id)
-                               }}>Delete
+                                  onClick={() => {
+                                      return onDeleteMessageClick(item.id)
+                                  }}>Delete
                             </span>
                         </p>
                     </div>
                     <div>
-                        <img className={styles.dialogs_messages_img} src='https://placecage.com/50/50'
+                        <img className={styles.dialogs_messages_img}
+                             src={props.avatar ? props.avatar : 'https://www.fillmurray.com/50/50'}
                              alt="avatar"/>
                         <p className={styles.dialogs_owner_name}>{item.senderName}</p>
                     </div>
@@ -27,15 +31,15 @@ let Dialogs = (props) => {
             return (
                 <div className={styles.dialogs_user_message} key={item.id}>
                     <div>
-                        <img className={styles.dialogs_messages_img} src='https://www.fillmurray.com/50/50'
+                        <img className={styles.dialogs_messages_img} src='https://placecage.com/50/50'
                              alt="avatar"/>
                         <p className={styles.dialogs_owner_name}>{item.senderName}</p>
                     </div>
                     <p className={styles.dialogs_user_messages_content}>{item.body}
                         <span className={styles.dialogs_btn_delete_user_message}
-                           onClick={() => {
-                               return onDeleteMessageClick(item.id)
-                           }}>Delete
+                              onClick={() => {
+                                  return onDeleteMessageClick(item.id)
+                              }}>Delete
                         </span>
                     </p>
                 </div>
@@ -92,6 +96,15 @@ let Dialogs = (props) => {
             </div>
         </div>
     );
+};
+
+Posts.propTypes = {
+    dialogs: PropTypes.array,
+    currentDialogId: PropTypes.string,
+    messages: PropTypes.array,
+    unreadMessagesCounter: PropTypes.number,
+    userInfo: PropTypes.object,
+    avatar: PropTypes.string
 };
 
 export default Dialogs;
