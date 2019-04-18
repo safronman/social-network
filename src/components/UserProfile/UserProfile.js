@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./UserProfile.module.css";
+import PropTypes from "prop-types";
 
 const UserProfile = (props) => {
 
@@ -38,5 +39,11 @@ const UserProfile = (props) => {
         </div>
     )
 };
+
+UserProfile.propTypes = {
+    userProfile: PropTypes.object,
+    currentUserId: PropTypes.number
+};
+
 
 export default UserProfile;
