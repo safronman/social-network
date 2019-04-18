@@ -4,7 +4,7 @@ import {addCurrentMessageActionCreator, addPostActionCreator} from "../../../../
 
 let mapStateToProps = (state) => {
     return {
-        profilePage: state.profilePage
+        currentMessage: state.profilePage.currentMessage
     }
 };
 
@@ -19,6 +19,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-let AddPostContainer = connect(mapStateToProps, mapDispatchToProps)(AddPost);
-
-export default AddPostContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(AddPost);

@@ -2,14 +2,14 @@ import React from 'react';
 import styles from './AddPost.module.css';
 import PropTypes from "prop-types";
 
-const AddPost = ({profilePage:{currentMessage}, addCurrentMessage, addPost}) => {
+const AddPost = (props) => {
 
-    let onTextareaChange = (e) => {
-        addCurrentMessage(e.currentTarget.value);
+    let onTextareaChange = (event) => {
+        props.addCurrentMessage(event.currentTarget.value);
     };
 
     let onAddPostClick = () => {
-        addPost(currentMessage);
+        props.addPost(props.currentMessage);
     };
 
     return (
@@ -17,11 +17,10 @@ const AddPost = ({profilePage:{currentMessage}, addCurrentMessage, addPost}) => 
             <h2 className={styles.heading}>My posts</h2>
             <textarea className={styles.newPostTextarea}
                       onChange={onTextareaChange}
-                      value={currentMessage}
-                      placeholder="Add text"/>
-            <button className={styles.newPostBtn}
-                    onClick={onAddPostClick}>Add post
-            </button>
+                      value={props.currentMessage}
+                      placeholder="Add text"
+            />
+            <button className={styles.newPostBtn} onClick={onAddPostClick}>Add post</button>
         </div>
     );
 };
