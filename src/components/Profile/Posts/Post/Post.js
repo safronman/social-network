@@ -7,7 +7,7 @@ const Post = ({message, likes, avatar}) => {
     return (
         <div className={styles.postItem}>
             <div>
-                <img className={styles.postAvatar} src={avatar} alt="avatar"/>
+                <img className={styles.postAvatar} src={avatar ? avatar : 'https://www.fillmurray.com/50/50'} alt="avatar"/>
                 <p>{message}</p>
             </div>
             <div>
