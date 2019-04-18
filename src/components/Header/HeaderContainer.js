@@ -5,19 +5,20 @@ import {authMeTC, logOutTC, setAuthAC} from "../../redux/reducers/authorizationR
 import {withRouter} from "react-router-dom";
 
 let HeaderContainer = class extends React.Component {
-    render() {
-        return <Header {...this.props}/>
-    }
-
     componentDidMount() {
         this.props.authMe();
+    }
+
+    render() {
+        return <Header {...this.props}/>
     }
 };
 
 
 let mapStateToProps = (state) => {
     return {
-        authorization: state.authorization,
+        isAuth: state.authorization.isAuth,
+        userName: state.authorization.userInfo.userName,
         avatar: state.profilePage.avatar
     }
 };
