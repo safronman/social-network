@@ -3,6 +3,7 @@ import styles from './LoginForm.module.css';
 import {Field} from "redux-form";
 import {statuses} from "../../redux/requestStatuses";
 import {Redirect} from "react-router-dom";
+import PropTypes from "prop-types";
 
 let LoginForm = (props) => {
     const {handleSubmit, pristine, reset, submitting} = props;
@@ -40,6 +41,13 @@ let LoginForm = (props) => {
             </div>
         </form>
     );
+};
+
+
+LoginForm.propTypes = {
+    status: PropTypes.string,
+    message: PropTypes.string,
+    isAuth: PropTypes.bool
 };
 
 export default LoginForm;
