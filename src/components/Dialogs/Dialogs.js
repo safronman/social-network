@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Dialogs.module.css'
 import PropTypes from "prop-types";
-import Posts from "../Profile/Posts/Posts";
 
 let Dialogs = (props) => {
     // debugger
@@ -98,7 +97,7 @@ let Dialogs = (props) => {
     );
 };
 
-Posts.propTypes = {
+Dialogs.propTypes = {
     dialogs: PropTypes.array,
     currentDialogId: PropTypes.string,
     messages: PropTypes.array,
