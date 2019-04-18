@@ -3,7 +3,8 @@ import Posts from "./Posts";
 
 let mapStateToProps = (state)=> {
     return {
-        profilePage: state.profilePage
+        postsData: state.profilePage.postsData,
+        avatar: state.profilePage.avatar
     }
 };
 

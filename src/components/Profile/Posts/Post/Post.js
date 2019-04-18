@@ -1,19 +1,16 @@
 import React from 'react';
 import styles from './Post.module.css';
-import avatar from '../../../../img/avatar.png'
 import PropTypes from 'prop-types';
 
-const Post = ({message, likes}) => {
+const Post = ({message, likes, avatar}) => {
 
     return (
         <div className={styles.postItem}>
-            <div className={styles.postContent}>
-                <img className={styles.postAvatar}
-                     src={avatar}
-                     alt="avatar"/>
-                <p className={styles.postDesc}>{message}</p>
+            <div>
+                <img className={styles.postAvatar} src={avatar} alt="avatar"/>
+                <p>{message}</p>
             </div>
-            <div className={styles.postActions}>
+            <div>
                 <div>like: {likes}</div>
             </div>
         </div>
@@ -22,7 +19,8 @@ const Post = ({message, likes}) => {
 
 Post.propTypes = {
     message: PropTypes.string,
-    likes: PropTypes.number
+    likes: PropTypes.number,
+    avatar: PropTypes.string
 };
 
 export default Post;

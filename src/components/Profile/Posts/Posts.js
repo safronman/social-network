@@ -4,10 +4,10 @@ import Post from "./Post/Post";
 import PropTypes from "prop-types";
 import AddPostContainer from "./AddPost/AddPostContainer";
 
-const Posts = ({profilePage: {postsData}}) => {
+const Posts = (props) => {
 
-    let posts = postsData.map(item => {
-        return <Post key={item.id} message={item.message} likes={item.likes}/>
+    let posts = props.postsData.map(item => {
+        return <Post key={item.id} message={item.message} likes={item.likes} avatar={props.avatar}/>
     });
 
     return (
@@ -19,9 +19,8 @@ const Posts = ({profilePage: {postsData}}) => {
 };
 
 Posts.propTypes = {
-    profilePage: PropTypes.shape({
-        postsData: PropTypes.array
-    })
+    postsData: PropTypes.array,
+    avatar: PropTypes.string
 };
 
 export default Posts;
