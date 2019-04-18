@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './UnreadMesagesCount.module.css'
 import PropTypes from "prop-types";
-import Dialogs from "../Dialogs/Dialogs";
 
 const UnreadMessagesCount = (props) => {
     return (
@@ -9,7 +8,7 @@ const UnreadMessagesCount = (props) => {
     );
 };
 
-Dialogs.propTypes = {
+UnreadMessagesCount.propTypes = {
     unreadMessagesCounter: PropTypes.number
 };
 
