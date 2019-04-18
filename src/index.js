@@ -8,7 +8,6 @@ import App from './App';
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import profilePageReducer from "./redux/reducers/profilePageReducer";
-import messagesPageReducer from "./redux/reducers/messagesPageReducer";
 import usersPageReducer from "./redux/reducers/usersPageReducer";
 import loginPageReducer from "./redux/reducers/loginPageReducer";
 import authorizationReducer from "./redux/reducers/authorizationReducer";
@@ -19,7 +18,6 @@ import { reducer as formReducer } from 'redux-form'
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,
-    messagesPage: messagesPageReducer,
     usersPage: usersPageReducer,
     loginPage: loginPageReducer,
     authorization: authorizationReducer,
