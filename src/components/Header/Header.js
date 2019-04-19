@@ -13,14 +13,14 @@ const Header = (props) => {
     };
 
     let showNickName = props.isAuth &&
-        <div className={styles.showNickNameWrapper}>
+        <div className={styles.info}>
             <p className={styles.userName}>{props.userName} </p>
-            <div className={styles.img_wrapper}>
-                <img className={styles.profilePhoto_img}
+            <div className={styles.imgWrapper}>
+                <img className={styles.avatar}
                      src={props.avatar ? props.avatar : 'https://www.fillmurray.com/40/40'} alt="avatar"/>
                 <UnreadMessagesCountContainer/>
             </div>
-            <button className={styles.btn} onClick={onLogOutBtnClick}>Log out</button>
+            <button className={styles.logOutBtn} onClick={onLogOutBtnClick}>Log out</button>
         </div>;
 
     return (

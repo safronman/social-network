@@ -12,8 +12,11 @@
     padding: 10px;
 }
 
-.img_wrapper {
-    position: relative;
+.info {
+    display: grid;
+    align-items: center;
+
+    grid-template-columns: 5fr 1fr 6fr;
 }
 
 .userName {
@@ -21,13 +24,17 @@
     font-size: 22px;
 }
 
-.showNickNameWrapper {
-    display: grid;
-    grid-template-columns: 5fr 1fr 6fr;
-    align-items: center;
+.imgWrapper {
+    position: relative;
 }
 
-.btn {
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.logOutBtn {
     margin: 5px 18px;
     padding: 7px 10px;
     color: black;
@@ -35,13 +42,7 @@
     background-color: white;
 }
 
-.btn:hover {
+.logOutBtn:hover {
     cursor: pointer;
     background-color: lightgrey;
-}
-
-.profilePhoto_img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
 }
