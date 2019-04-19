@@ -15,7 +15,7 @@ let LoginFormContainer = class extends React.Component {
     }
 
     submit(values){
-        this.props.login(values.email, values.password, values.saveData = false);
+        this.props.login(values.email, values.password, values.saveData);
     };
 
     render() {

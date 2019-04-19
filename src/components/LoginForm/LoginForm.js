@@ -43,7 +43,6 @@ let LoginForm = (props) => {
     );
 };
 
-
 LoginForm.propTypes = {
     status: PropTypes.string,
     message: PropTypes.string,
