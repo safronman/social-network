@@ -22,12 +22,8 @@ const Users = (props) => {
 };
 
 Users.propTypes = {
-    usersPage: PropTypes.shape({
-        status: PropTypes.string,
-        users: PropTypes.array
-    }),
-    setStatus: PropTypes.func,
-    setUsers: PropTypes.func
+    status: PropTypes.string,
+    users: PropTypes.array
 };
 
 export default Users;
