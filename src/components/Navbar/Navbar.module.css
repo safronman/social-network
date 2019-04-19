@@ -1,23 +1,23 @@
 .nav {
-    background-color: #EDEEF0;
     margin-bottom: 50px;
+    background-color: #edeef0;
 }
 
 .list {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .link {
     display: block;
+    padding: 10px 10px 10px 20px;
     text-decoration: none;
     color: #285473;
-    padding: 10px 10px 10px 20px;
 }
 
 .link:hover {
-    background-color: #E1E5EB;
+    background-color: #e1e5eb;
 }
 
 .activeLink {
