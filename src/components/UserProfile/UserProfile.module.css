@@ -1,43 +1,23 @@
 .wrapper {
-    display: grid;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-
-    grid-template-columns: 20% 80%;
+    composes: wrapper from "../Profile/Profile.module.css";
 }
 
 .titleValue {
-    margin: 0;
-    color: #285473;
-    font-size: 18px;
+    composes: titleValue from "../Profile/Profile.module.css";
 }
 
 .titleKey {
-    font-weight: bold;
-
-    composes: titleValue;
+    composes: titleKey from "../Profile/Profile.module.css";
 }
 
 .contactsTitleKey {
-    margin: 0 0 10px 10px;
-
-    composes: titleKey;
+    composes: contactsTitleKey from "../Profile/Profile.module.css";
 }
 
 .contactsWrapper {
-    display: grid;
-    align-items: center;
-    margin-bottom: 5px;
-    padding: 5px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-
-    grid-template-columns: 20% 80%;
+    composes: contactsWrapper from "../Profile/Profile.module.css";
 }
 
 .contactsTitle {
-    margin: 0 0 0 20px;
+    composes: contactsTitle from "../Profile/Profile.module.css";
 }
