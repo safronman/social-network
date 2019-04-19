@@ -14,7 +14,7 @@ const User = (props) => {
     };
 
     return (
-        <div>
+        <>
             <NavLink className={styles.link} to={`/users/${props.item.id}`}>
                 <img className={styles.avatar}
                      src={props.item.photos.small === null ? 'https://placecage.com/80/80' : props.item.photos.small}
@@ -23,19 +23,17 @@ const User = (props) => {
             </NavLink>
             {
                 props.item.followed ?
-                    <button data-user-id={props.item.id} className={styles.btn__follow}
+                    <button data-user-id={props.item.id} className={styles.followBtn}
                             onClick={onUnsubscribeClick}>Unsubscribe</button> :
-                    <button data-user-id={props.item.id} className={styles.btn__follow}
+                    <button data-user-id={props.item.id} className={styles.followBtn}
                             onClick={onSubscribeClick}>Subscribe</button>
             }
-            <NavLink className={styles.btn} to={`/dialogs/${props.item.id}`}>Send message</NavLink>
-        </div>
+            <NavLink className={styles.sendBtn} to={`/dialogs/${props.item.id}`}>Send message</NavLink>
+        </>
     );
 };
 
 User.propTypes = {
-    addToFriends: PropTypes.func,
-    removeFromFriends: PropTypes.func,
     item: PropTypes.object
 };
 
