@@ -1,14 +1,14 @@
 .counter {
-    background-color: mediumvioletred;
-    color: white;
     position: absolute;
     top: -11px;
     right: -11px;
     width: 19px;
     height: 19px;
+    padding: 5px;
+    text-align: center;
+    color: white;
     border-radius: 50%;
+    background-color: mediumvioletred;
     font-size: 14px;
     line-height: 19px;
-    text-align: center;
-    padding: 5px;
 }
