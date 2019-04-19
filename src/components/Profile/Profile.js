@@ -41,8 +41,8 @@ const Profile = (props) => {
     } else {
         return (
             <>
-                <p className={styles.titleLink}>Только залогиненный пользователь может увидеть эту страницу.</p>
-                <NavLink to='/' className={styles.titleLink}>Перейдите на страницу логина</NavLink>
+                <p className={styles.goToLogin}>Только залогиненный пользователь может увидеть эту страницу.</p>
+                <NavLink to='/' className={styles.goToLogin}>Перейдите на страницу логина</NavLink>
             </>
         )
     }

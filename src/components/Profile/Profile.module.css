@@ -1,70 +1,84 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 20% 80%;
     align-items: center;
-    border: 2px solid lightgrey;
-    padding: 10px;
-    border-radius: 5px;
     margin-bottom: 10px;
-}
-
-.contactsWrapper {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    align-items: center;
+    padding: 10px;
     border: 2px solid lightgrey;
-    padding: 5px;
     border-radius: 5px;
-    margin-bottom: 5px;
+
+    grid-template-columns: 20% 80%;
 }
 
-.editModeTitle {
-    border: 2px solid lightcoral;
-    padding: 5px;
-    font-size: 16px;
+.titleValue {
+    margin: 0;
+    color: #285473;
+    font-size: 18px;
 }
 
 .titleKey {
-    font-size: 18px;
-    color: #285473;
     font-weight: bold;
-    margin: 0;
+
+    composes: titleValue;
 }
 
 .contactsTitleKey {
-    font-size: 18px;
-    color: #285473;
-    font-weight: bold;
     margin: 0 0 10px 10px;
+
+    composes: titleKey;
 }
 
 .contactsTitle {
     margin: 0 0 0 20px;
 }
 
-.titleValue {
-    font-size: 18px;
-    color: #285473;
-    margin: 0;
+.contactsWrapper {
+    display: grid;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+
+    grid-template-columns: 20% 80%;
 }
 
-.titleLink {
-    font-size: 24px;
-    color: #285473;
-    font-weight: 100;
-    text-align: center;
+/*profilePhoto*/
+.profilePhotoWrapper {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.profilePhotoImg {
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+/*edit mode*/
+.editModeTitle {
+    padding: 5px;
+    border: 2px solid lightcoral;
+    font-size: 16px;
+}
+
+/*go to login*/
+.goToLogin {
     display: block;
+    text-align: center;
+    color: #285473;
+    font-size: 24px;
+    font-weight: 100;
 }
 
-.titleLink:hover {
+.goToLogin:hover {
     text-decoration: none;
 }
 
-/*BUTTON STYLES*/
+/*button*/
 .btn {
     display: block;
     box-sizing: border-box;
     width: 100%;
+    margin-bottom: 100px;
     padding: 12px 10px;
     cursor: pointer;
     text-decoration: none;
@@ -73,7 +87,6 @@
     border-radius: 5px;
     background-color: #4a76a8;
     font-size: 16px;
-    margin-bottom: 100px;
 }
 
 .btn:hover {
