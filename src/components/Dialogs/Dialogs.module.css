@@ -1,161 +1,140 @@
-.currentDialog {
-    background-color: #5B88BD;
-    color: white;
+.wrapper {
+    display: grid;
+
+    grid-template-columns: 3fr 9fr;
+}
+
+.dialogsWrapper {
+    border-right: 1px solid #edeef0;
+}
+
+.messagesWrapper {
+    padding: 0 20px;
+}
+
+.dialog {
     margin: 0;
     padding: 10px;
+    border-bottom: 1px solid #edeef0;
+    font-size: 16px;
+}
+
+.dialog:hover {
+    cursor: pointer;
+    background-color: #f5f7fa;
+}
+
+.currentDialog {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    background-color: #5b88bd;
     font-size: 16px;
 }
 
 .currentDialog:hover {
-    background-color: #5B88BD;
+    background-color: #5b88bd;
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 3fr 9fr;
-}
-
-.dialogs_wrapper {
-    border-right: 1px solid #EDEEF0;
-}
-
-.dialogs_messages_wrapper {
-    padding: 0 20px;
-}
-
-.add_message_wrapper {
-    grid-column-start: 2;
-    display: grid;
-    grid-template-columns: 10fr 2fr;
-}
-
-.add_message_textarea {
-    box-sizing: border-box;
-    margin-right: 20px;
-    height: 52px;
-    padding: 15px;
-    border: 2px solid #d3dae1;
-    font-size: 14px;
-}
-
-.add_message_btn {
-    color: #55677d;
-    border: none;
-    background-color: #dfe6ed;
-    font-size: 14px;
-    border-radius: 10px;
-}
-
-.add_message_btn:hover {
-    cursor: pointer;
-    background-color: #d3dae1;
-}
-
-.dialogs_item {
-    margin: 0;
-    padding: 10px;
-    font-size: 16px;
-    border-bottom: 1px solid #EDEEF0;
-}
-
-.dialogs_item:hover {
-    background-color: #F5F7FA;
-    cursor: pointer;
-}
-
-/*Owner messages */
-.dialogs_owner_message {
-    display: grid;
-    grid-template-columns: 11fr 1fr;
-    align-items: center;
-    grid-column-gap: 10px;
-    margin-bottom: 20px;
-}
-
-.dialogs_owner_name {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
+.newMessagesLabel {
+    color: red;
     font-weight: bold;
-    color: #425884;
 }
 
-.dialogs_owner_img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+/*Owner*/
+.ownerMessagesWrapper {
+    display: grid;
+    align-items: center;
+    margin-bottom: 20px;
+
+    grid-column-gap: 10px;
+    grid-template-columns: 11fr 1fr;
 }
 
-
-.dialogs_owner_messages_content {
+.ownerMessagesContent {
+    position: relative;
+    margin-top: 0;
     padding: 10px 20px;
     border-radius: 10px;
     background-color: #f0f4f8;
-    position: relative;
-    margin-top: 0;
 }
 
-.dialogs_user_messages_content {
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: #F7F9FC;
-    position: relative;
-    margin-top: 0;
-}
-
-
-/*buttons*/
-.dialogs_btn_delete_owner_message {
+.deleteOwnerMessage {
     position: absolute;
     top: 43px;
     left: 0;
-    content: '';
-    background-color: transparent;
+    content: "";
+    color: #5b88bd;
     border: none;
-    color: #5B88BD;
+    background-color: transparent;
     font-size: 12px;
 }
 
-.dialogs_btn_delete_user_message {
-    position: absolute;
-    top: 43px;
-    right: 0;
-    content: '';
-    background-color: transparent;
-    border: none;
-    color: #5B88BD;
-    font-size: 12px;
-}
-
-.dialogs_btn_delete_owner_message:hover,
-.dialogs_btn_delete_user_message:hover{
+.deleteOwnerMessage:hover {
     cursor: pointer;
     color: #425884;
 }
 
-/*User messages */
-.dialogs_user_message {
-    display: grid;
+/*User*/
+.userMessagesWrapper {
+    composes: ownerMessagesWrapper;
     grid-template-columns: 1fr 11fr;
-    align-items: center;
-    grid-column-gap: 10px;
-    margin-bottom: 20px;
 }
 
-.dialogs_messages_img {
+.userMessagesContent {
+    background-color: #f7f9fc;
+
+    composes: ownerMessagesContent;
+}
+
+.deleteUserMessage {
+    right: 0;
+    left: auto;
+
+    composes: deleteOwnerMessage;
+}
+
+/*common*/
+.avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-.btn_delete {
-    background-color: white;
-    border: none;
-    color: #5B88BD;
+.name {
+    margin: 0;
+    padding: 0;
+    color: #425884;
+    font-size: 12px;
+    font-weight: bold;
 }
 
+/*add messages*/
+.addMessagesWrapper {
+    display: grid;
 
-.new_message {
-    color: red;
-    font-weight: bold;
+    grid-column-start: 2;
+    grid-template-columns: 10fr 2fr;
+}
+
+.addMessagesField {
+    box-sizing: border-box;
+    height: 52px;
+    margin-right: 20px;
+    padding: 15px;
+    border: 2px solid #d3dae1;
+    font-size: 14px;
+}
+
+.addMessagesBtn {
+    color: #55677d;
+    border: none;
+    border-radius: 10px;
+    background-color: #dfe6ed;
+    font-size: 14px;
+}
+
+.addMessagesBtn:hover {
+    cursor: pointer;
+    background-color: #d3dae1;
 }

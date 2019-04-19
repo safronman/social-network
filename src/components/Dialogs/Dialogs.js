@@ -8,34 +8,32 @@ let Dialogs = (props) => {
     let messages = props.messages.map(item => {
         if (item.senderId === props.userInfo.userId) {
             return (
-                <div className={styles.dialogs_owner_message} key={item.id}>
-                    <div>
-                        <p className={styles.dialogs_owner_messages_content}>{item.body}
-                            <span className={styles.dialogs_btn_delete_owner_message}
-                                  onClick={() => {
-                                      return onDeleteMessageClick(item.id)
-                                  }}>Delete
+                <div className={styles.ownerMessagesWrapper} key={item.id}>
+                    <p className={styles.ownerMessagesContent}>{item.body}
+                        <span className={styles.deleteOwnerMessage}
+                              onClick={() => {
+                                  return onDeleteMessageClick(item.id)
+                              }}>Delete
                             </span>
-                        </p>
-                    </div>
+                    </p>
                     <div>
-                        <img className={styles.dialogs_messages_img}
+                        <img className={styles.avatar}
                              src={props.avatar ? props.avatar : 'https://www.fillmurray.com/50/50'}
                              alt="avatar"/>
-                        <p className={styles.dialogs_owner_name}>{item.senderName}</p>
+                        <p className={styles.name}>{item.senderName}</p>
                     </div>
                 </div>
             )
         } else {
             return (
-                <div className={styles.dialogs_user_message} key={item.id}>
+                <div className={styles.userMessagesWrapper} key={item.id}>
                     <div>
-                        <img className={styles.dialogs_messages_img} src='https://placecage.com/50/50'
+                        <img className={styles.avatar} src='https://placecage.com/50/50'
                              alt="avatar"/>
-                        <p className={styles.dialogs_owner_name}>{item.senderName}</p>
+                        <p className={styles.name}>{item.senderName}</p>
                     </div>
-                    <p className={styles.dialogs_user_messages_content}>{item.body}
-                        <span className={styles.dialogs_btn_delete_user_message}
+                    <p className={styles.userMessagesContent}>{item.body}
+                        <span className={styles.deleteUserMessage}
                               onClick={() => {
                                   return onDeleteMessageClick(item.id)
                               }}>Delete
@@ -64,11 +62,11 @@ let Dialogs = (props) => {
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.dialogs_wrapper}>
+            <div className={styles.dialogsWrapper}>
                 {
                     props.dialogs.map(item => {
                         let hasNewMessages = item.hasNewMessages ?
-                            <span className={styles.new_message}> NEW</span>
+                            <span className={styles.newMessagesLabel}> NEW</span>
                             : null;
 
                         return (
@@ -78,19 +76,19 @@ let Dialogs = (props) => {
                                 {
                                     String(item.id) === props.currentDialogId ?
                                         <p className={styles.currentDialog}>{item.userName}{hasNewMessages}</p> :
-                                        <p className={styles.dialogs_item}>{item.userName} {hasNewMessages}</p>
+                                        <p className={styles.dialog}>{item.userName} {hasNewMessages}</p>
                                 }
                             </div>
                         )
                     })
                 }
             </div>
-            <div className={styles.dialogs_messages_wrapper}>
+            <div className={styles.messagesWrapper}>
                 {messages}
-                <div className={styles.add_message_wrapper}>
-                    <textarea className={styles.add_message_textarea} ref={newMessageRef}
+                <div className={styles.addMessagesWrapper}>
+                    <textarea className={styles.addMessagesField} ref={newMessageRef}
                               placeholder="Write a message"/>
-                    <button className={styles.add_message_btn} onClick={onSendButtonClick}>Send</button>
+                    <button className={styles.addMessagesBtn} onClick={onSendButtonClick}>Send</button>
                 </div>
             </div>
         </div>
