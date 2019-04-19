@@ -22,8 +22,7 @@ const Users = (props) => {
 };
 
 Users.propTypes = {
-    status: PropTypes.string,
-    users: PropTypes.array
+    status: PropTypes.string
 };
 
 export default Users;

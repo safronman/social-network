@@ -42,7 +42,7 @@ const UserProfile = (props) => {
 
 UserProfile.propTypes = {
     userProfile: PropTypes.object,
-    currentUserId: PropTypes.number
+    currentUserId: PropTypes.string
 };
 
 

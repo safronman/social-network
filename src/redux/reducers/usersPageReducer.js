@@ -16,7 +16,7 @@ const UNSUBSCRIBE = 'social-network/users-page/UNSUBSCRIBE';
 // Initial state
 let initialState = {
     status: statuses.STATUS_NOT_INITIALIZED,
-    users: [],
+    users: {},
     currentUserId: null
 };
 
@@ -24,7 +24,6 @@ let initialState = {
 // Reducer
 const usersPageReducer = (state = initialState, action) => {
     let newState;
-    let subscribedUser;
 
     switch (action.type) {
         case SET_STATUS:
@@ -34,21 +33,15 @@ const usersPageReducer = (state = initialState, action) => {
             };
 
         case SET_USERS:
+            // transform array from Server in object
+            action.users.forEach((item) => {
+                state.users[item.id] = item;
+            });
+
             return {
                 ...state,
-                users: action.users
+                users: state.users
             };
-
-        // case SET_USERS:
-        //     debugger
-        //     action.users.forEach((item) => {
-        //         state.users[item.id] = item;
-        //     });
-        //
-        //     return {
-        //         ...state,
-        //         users: state.users
-        //     };
 
         case SET_CURRENT_USER_ID:
             return {
@@ -56,26 +49,16 @@ const usersPageReducer = (state = initialState, action) => {
                 currentUserId: action.id
             };
 
-
         case SUBSCRIBE:
-            newState = {...state, users: [...state.users]};
-            subscribedUser = newState.users.filter(item => {
-                return item.id === action.id;
-            })[0];
-            subscribedUser.followed = true;
-
+            newState = {...state, users: {...state.users}};
+            newState.users[action.id].followed = true;
             return newState;
 
 
         case UNSUBSCRIBE:
-            newState = {...state, users: [...state.users]};
-            subscribedUser = newState.users.filter(item => {
-                return item.id === action.id;
-            })[0];
-            subscribedUser.followed = false;
-
+            newState = {...state, users: {...state.users}};
+            newState.users[action.id].followed = false;
             return newState;
-
 
         default:
             return state;
@@ -148,15 +131,13 @@ export let removeFromFriendsTC = (id) => (dispatch) => {
 
 
 // Selectors
-// export let usersSelector = (state) => {
-//     // debugger
-//     let users = state.usersPage.users;
-//
-//     let usersAsArray = Object.keys(users).map((key) => {
-//         return users[key]
-//     });
-//
-//     return usersAsArray;
-// };
+export let usersSelector = (state) => {
+    let users = state.usersPage.users;
+
+    // transform object users in array
+    return Object.keys(users).map((key) => {
+        return users[key]
+    });
+};
 
 export default usersPageReducer;
