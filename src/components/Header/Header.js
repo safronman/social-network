@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../img/logo.svg';
-import UnreadMessagesCountContainer from './../UnreadMessagesCount/UnreadMesagesCountContainer'
+import UnreadMessagesCountContainer from './UnreadMessagesCount/UnreadMesagesCountContainer'
 import PropTypes from "prop-types";
 
 const Header = (props) => {
