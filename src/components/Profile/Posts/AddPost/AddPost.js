@@ -26,9 +26,7 @@ const AddPost = (props) => {
 };
 
 AddPost.propTypes = {
-    currentMessage: PropTypes.string,
-    addCurrentMessage: PropTypes.func,
-    addPost: PropTypes.func
+    currentMessage: PropTypes.string
 };
 
 export default AddPost;

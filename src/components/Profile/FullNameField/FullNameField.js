@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './../Profile.module.css';
+import PropTypes from "prop-types";
 
 const FullNameField = (props) => {
 
@@ -20,6 +21,11 @@ const FullNameField = (props) => {
             }
         </div>
     )
+};
+
+FullNameField.propTypes = {
+    editMode: PropTypes.bool,
+    fullName: PropTypes.string
 };
 
 export default FullNameField;

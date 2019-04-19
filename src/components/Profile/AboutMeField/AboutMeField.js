@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './../Profile.module.css';
+import PropTypes from "prop-types";
 
 const AboutMeField = (props) => {
 
@@ -20,6 +21,11 @@ const AboutMeField = (props) => {
             }
         </div>
     )
+};
+
+AboutMeField.propTypes = {
+    editMode: PropTypes.bool,
+    aboutMe: PropTypes.string
 };
 
 export default AboutMeField;

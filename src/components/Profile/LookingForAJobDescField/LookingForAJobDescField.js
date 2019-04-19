@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './../Profile.module.css';
+import PropTypes from "prop-types";
 
 const LookingForAJobDescField = (props) => {
 
@@ -20,6 +21,11 @@ const LookingForAJobDescField = (props) => {
             }
         </div>
     )
+};
+
+LookingForAJobDescField.propTypes = {
+    editMode: PropTypes.bool,
+    lookingForAJobDescription: PropTypes.string
 };
 
 export default LookingForAJobDescField;

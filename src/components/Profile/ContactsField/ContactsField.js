@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './../Profile.module.css';
+import PropTypes from "prop-types";
 
 const ContactsField = (props) => {
 
@@ -40,6 +41,11 @@ const ContactsField = (props) => {
             }
         </div>
     )
+};
+
+ContactsField.propTypes = {
+    editMode: PropTypes.bool,
+    aboutMe: PropTypes.object
 };
 
 export default ContactsField;

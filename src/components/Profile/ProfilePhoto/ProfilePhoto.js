@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './../Profile.module.css';
+import PropTypes from "prop-types";
 
 const ProfilePhoto = (props) => {
 
@@ -15,6 +16,10 @@ const ProfilePhoto = (props) => {
                    onChange={onPhotoChange}/>
         </div>
     );
+};
+
+ProfilePhoto.propTypes = {
+    avatar: PropTypes.string
 };
 
 export default ProfilePhoto;
