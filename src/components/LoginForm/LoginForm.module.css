@@ -46,23 +46,10 @@
 }
 
 .btn {
-    display: block;
-    box-sizing: border-box;
+    composes: commonBtn from '../../index.css';
     margin: 10px;
     padding: 12px 20px;
-    cursor: pointer;
-    text-decoration: none;
     text-transform: uppercase;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    background-color: #4a76a8;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.btn:hover {
-    background-color: #425884;
 }
 
 /*error status*/

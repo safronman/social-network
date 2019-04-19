@@ -20,3 +20,21 @@ h2 {
   font-weight: 100;
   color: #285473;
 }
+
+
+.commonBtn {
+  display: block;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a76a8;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.commonBtn:hover {
+  background-color: #425884;
+}

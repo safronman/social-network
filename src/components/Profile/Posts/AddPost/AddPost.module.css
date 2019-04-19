@@ -1,34 +1,27 @@
 .newPost {
-  margin-bottom: 50px;
+    margin-bottom: 50px;
 }
+
 .heading {
-  margin: 0 0 20px 0;
-  text-align: left;
-  font-size: 22px;
+    margin: 0 0 20px 0;
+    text-align: left;
+    font-size: 22px;
 }
 
 .newPostTextarea {
-  box-sizing: border-box;
-  width: 100%;
-  height: 80px;
-  margin-bottom: 10px;
-  padding: 20px;
-  border: 2px solid #285473;
-  font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 2px solid #285473;
+    font-size: 14px;
 }
 
 .newPostBtn {
-  display: block;
-  margin-right: 0;
-  margin-left: auto;
-  padding: 10px 80px;
-  color: #55677d;
-  border: none;
-  background-color: #dfe6ed;
-  font-size: 14px;
-}
+    margin-right: 0;
+    margin-left: auto;
+    padding: 10px 80px;
 
-.newPostBtn:hover {
-  cursor: pointer;
-  background-color: #d3dae1;
+    composes: commonBtn from "../../../../index.css";
 }

@@ -127,14 +127,5 @@
 }
 
 .addMessagesBtn {
-    color: #55677d;
-    border: none;
-    border-radius: 10px;
-    background-color: #dfe6ed;
-    font-size: 14px;
-}
-
-.addMessagesBtn:hover {
-    cursor: pointer;
-    background-color: #d3dae1;
+    composes: commonBtn from '../../index.css';
 }
