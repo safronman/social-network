@@ -1,7 +1,8 @@
 .userList {
     display: grid;
-    grid-template-columns: 4fr 4fr 4fr;
+    text-align: center;
+
     grid-column-gap: 10px;
     grid-row-gap: 25px;
-    text-align: center;
+    grid-template-columns: 4fr 4fr 4fr;
 }
