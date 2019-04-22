@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import {setOwnerFullNameAC} from "../../../redux/reducers/profilePageReducer";
+import {editModeSelector, fullNameSelector, setOwnerFullNameAC} from "../../../redux/reducers/profilePageReducer";
 import FullNameField from "./FullNameField";
 
 let mapStateToProps = (state) => {
     return {
-        editMode: state.profilePage.editMode,
-        fullName: state.profilePage.fullName
+        editMode: editModeSelector(state),
+        fullName: fullNameSelector(state)
     }
 };
 

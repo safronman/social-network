@@ -13,6 +13,10 @@ let initialState = {
     message: ''
 };
 
+// Selectors
+export const statusSelector = state => state.loginPage.status;
+export const messageSelector = state => state.loginPage.message;
+
 
 // Reducer
 const loginPageReducer = (state = initialState, action) => {

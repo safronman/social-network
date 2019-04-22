@@ -1,8 +1,15 @@
 import React from "react";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {authMeTC, logOutTC, setAuthAC} from "../../redux/reducers/authorizationReducer";
+import {
+    authMeTC,
+    isAuthSelector,
+    logOutTC,
+    setAuthAC,
+    userNameSelector
+} from "../../redux/reducers/authorizationReducer";
 import {withRouter} from "react-router-dom";
+import {avatarSelector} from "../../redux/reducers/profilePageReducer";
 
 let HeaderContainer = class extends React.Component {
     componentDidMount() {
@@ -17,9 +24,9 @@ let HeaderContainer = class extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        isAuth: state.authorization.isAuth,
-        userName: state.authorization.userInfo.userName,
-        avatar: state.profilePage.avatar
+        isAuth: isAuthSelector(state),
+        userName: userNameSelector(state),
+        avatar: avatarSelector(state)
     }
 };
 

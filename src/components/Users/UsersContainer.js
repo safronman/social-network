@@ -3,7 +3,8 @@ import {
     addToFriendsTC,
     getUsersTC,
     removeFromFriendsTC,
-    usersSelector
+    statusSelector,
+    transformedUsersSelector
 } from "../../redux/reducers/usersPageReducer";
 import React from "react";
 import {statuses} from "../../redux/requestStatuses";
@@ -23,8 +24,8 @@ let UsersContainer = class extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        status: state.usersPage.status,
-        users: usersSelector(state)
+        status: statusSelector(state),
+        users: transformedUsersSelector(state)
     }
 };
 

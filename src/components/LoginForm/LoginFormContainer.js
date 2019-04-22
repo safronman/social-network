@@ -1,10 +1,11 @@
 import {connect} from "react-redux";
-import {loginTC} from "../../redux/reducers/loginPageReducer";
+import {loginTC, messageSelector, statusSelector} from "../../redux/reducers/loginPageReducer";
 import LoginForm from "./LoginForm";
 import React from "react";
 import {reduxForm} from "redux-form";
+import {isAuthSelector} from "../../redux/reducers/authorizationReducer";
 
-let LoginFormUnderReduxForm =  reduxForm({
+let LoginFormUnderReduxForm = reduxForm({
     form: 'loginForm'
 })(LoginForm);
 
@@ -14,7 +15,7 @@ let LoginFormContainer = class extends React.Component {
         this.submit = this.submit.bind(this);
     }
 
-    submit(values){
+    submit(values) {
         this.props.login(values.email, values.password, values.saveData);
     };
 
@@ -25,9 +26,9 @@ let LoginFormContainer = class extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        status: state.loginPage.status,
-        message: state.loginPage.message,
-        isAuth: state.authorization.isAuth
+        status: statusSelector(state),
+        message: messageSelector(state),
+        isAuth: isAuthSelector(state)
     }
 };
 

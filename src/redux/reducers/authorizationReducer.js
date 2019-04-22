@@ -15,6 +15,12 @@ let initialState = {
     }
 };
 
+// Selectors
+export const isAuthSelector = state => state.authorization.isAuth;
+export const userIdSelector = state => state.authorization.userInfo.userId;
+export const userNameSelector = state => state.authorization.userInfo.userName;
+
+
 // Reducer
 const authorizationReducer = (state = initialState, action) => {
     switch (action.type) {

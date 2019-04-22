@@ -1,10 +1,14 @@
 import AddPost from "./AddPost";
 import {connect} from "react-redux";
-import {addCurrentMessageActionCreator, addPostActionCreator} from "../../../../redux/reducers/profilePageReducer";
+import {
+    addCurrentMessageActionCreator,
+    addPostActionCreator,
+    currentMessageSelector
+} from "../../../../redux/reducers/profilePageReducer";
 
 let mapStateToProps = (state) => {
     return {
-        currentMessage: state.profilePage.currentMessage
+        currentMessage: currentMessageSelector(state)
     }
 };
 

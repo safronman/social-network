@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
-import {setNewContactsValueAC} from "../../../redux/reducers/profilePageReducer";
+import {editModeSelector, setNewContactsValueAC} from "../../../redux/reducers/profilePageReducer";
 import ContactsField from "./ContactsField";
 
 let mapStateToProps = (state) => {
     return {
-        editMode: state.profilePage.editMode,
+        editMode: editModeSelector(state),
         contacts: state.profilePage.contacts
     }
 };

@@ -1,14 +1,20 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
+    currentDialogIdSelector,
     deleteMessageTC,
+    dialogsSelector,
     getDialogsTC,
     initialRequestsTC,
+    messagesSelector,
     sendMessageTC,
+    unreadMessagesCounterSelector,
     updateUnreadDialogTC
 } from "../../redux/reducers/dialogsPageReducer";
 import Dialogs from "./Dialogs";
 import {withRouter} from "react-router-dom";
+import {userIdSelector} from "../../redux/reducers/authorizationReducer";
+import {avatarSelector} from "../../redux/reducers/profilePageReducer";
 
 
 let DialogsContainer = class extends React.Component {
@@ -42,12 +48,12 @@ let DialogsContainer = class extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        dialogs: state.dialogsPage.dialogs,
-        currentDialogId: state.dialogsPage.currentDialogId,
-        messages: state.dialogsPage.messages,
-        unreadMessagesCounter: state.dialogsPage.unreadMessagesCounter,
-        userInfo: state.authorization.userInfo,
-        avatar: state.profilePage.avatar
+        dialogs: dialogsSelector(state),
+        currentDialogId: currentDialogIdSelector(state),
+        messages: messagesSelector(state),
+        unreadMessagesCounter: unreadMessagesCounterSelector(state),
+        userId: userIdSelector(state),
+        avatar: avatarSelector(state)
     }
 };
 

@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import UserProfile from "./UserProfile";
 import {getUserProfileTC} from "../../redux/reducers/userProfileReducer";
-import {setCurrentUserIdAC} from "../../redux/reducers/usersPageReducer";
+import {currentUserIdSelector, setCurrentUserIdAC} from "../../redux/reducers/usersPageReducer";
 
 
 let UserProfileContainer = class extends React.Component {
@@ -27,7 +27,7 @@ let UserProfileContainer = class extends React.Component {
 let mapStateToProps = (state) => {
     return {
         userProfile: state.userProfile,
-        currentUserId: state.usersPage.currentUserId
+        currentUserId: currentUserIdSelector(state)
     }
 };
 

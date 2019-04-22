@@ -1,10 +1,11 @@
 import {connect} from "react-redux";
 import Posts from "./Posts";
+import {avatarSelector} from "../../../redux/reducers/profilePageReducer";
 
 let mapStateToProps = (state)=> {
     return {
         postsData: state.profilePage.postsData,
-        avatar: state.profilePage.avatar
+        avatar: avatarSelector(state)
     }
 };
 

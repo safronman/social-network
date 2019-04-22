@@ -3,10 +3,9 @@ import styles from './Dialogs.module.css'
 import PropTypes from "prop-types";
 
 let Dialogs = (props) => {
-    // debugger
 
     let messages = props.messages.map(item => {
-        if (item.senderId === props.userInfo.userId) {
+        if (item.senderId === props.userId) {
             return (
                 <div className={styles.ownerMessagesWrapper} key={item.id}>
                     <p className={styles.ownerMessagesContent}>{item.body}
@@ -100,7 +99,7 @@ Dialogs.propTypes = {
     currentDialogId: PropTypes.string,
     messages: PropTypes.array,
     unreadMessagesCounter: PropTypes.number,
-    userInfo: PropTypes.object,
+    userId: PropTypes.string,
     avatar: PropTypes.string
 };
 

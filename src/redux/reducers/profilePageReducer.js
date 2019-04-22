@@ -50,6 +50,16 @@ let initialState = {
 };
 
 
+// Selectors
+export const currentMessageSelector = state => state.profilePage.currentMessage;
+export const editModeSelector = state => state.profilePage.editMode;
+export const fullNameSelector = state => state.profilePage.fullName;
+export const aboutMeSelector = state => state.profilePage.aboutMe;
+export const lookingForAJobSelector = state => state.profilePage.lookingForAJob;
+export const lookingForAJobDescriptionSelector = state => state.profilePage.lookingForAJobDescription;
+export const avatarSelector = state => state.profilePage.avatar;
+
+
 // Reducer
 const profilePageReducer = (state = initialState, action) => {
     switch (action.type) {

@@ -1,6 +1,6 @@
 import {statuses} from "../requestStatuses";
 import axiosInstance from "./../../dal/axiosInstance";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
@@ -18,6 +18,17 @@ let initialState = {
     status: statuses.STATUS_NOT_INITIALIZED,
     users: {},
     currentUserId: null
+};
+
+// Selectors
+export const statusSelector = state => state.usersPage.status;
+export const currentUserIdSelector = state => state.usersPage.currentUserId;
+export const usersSelector = state => state.usersPage.users;
+
+export const transformedUsersSelector = (state) => {
+    let users = usersSelector(state);
+    // transform object users in array
+    return Object.keys(users).map(key => users[key]);
 };
 
 
@@ -127,17 +138,6 @@ export let removeFromFriendsTC = (id) => (dispatch) => {
                 text: response.response.data.message
             })
         })
-};
-
-
-// Selectors
-export let usersSelector = (state) => {
-    let users = state.usersPage.users;
-
-    // transform object users in array
-    return Object.keys(users).map((key) => {
-        return users[key]
-    });
 };
 
 export default usersPageReducer;

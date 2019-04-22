@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import {setOwnerLookingForAJobAC} from "../../../redux/reducers/profilePageReducer";
+import {lookingForAJobSelector, setOwnerLookingForAJobAC} from "../../../redux/reducers/profilePageReducer";
 import LookingForAJobField from "./LookingForAJobField";
 
 
 let mapStateToProps = (state) => {
     return {
-        lookingForAJob: state.profilePage.lookingForAJob
+        lookingForAJob: lookingForAJobSelector(state)
     }
 };
 

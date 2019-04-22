@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import {setOwnerAboutMeAC} from "../../../redux/reducers/profilePageReducer";
+import {aboutMeSelector, editModeSelector, setOwnerAboutMeAC} from "../../../redux/reducers/profilePageReducer";
 import AboutMeField from "./AboutMeField";
 
 let mapStateToProps = (state) => {
     return {
-        editMode: state.profilePage.editMode,
-        aboutMe: state.profilePage.aboutMe
+        editMode: editModeSelector(state),
+        aboutMe: aboutMeSelector(state)
     }
 };
 

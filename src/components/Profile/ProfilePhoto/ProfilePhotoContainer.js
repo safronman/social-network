@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import ProfilePhoto from "./ProfilePhoto";
-import {uploadAvatarTC} from "../../../redux/reducers/profilePageReducer";
+import {avatarSelector, uploadAvatarTC} from "../../../redux/reducers/profilePageReducer";
 
 let mapStateToProps = (state) => {
     return {
-        avatar: state.profilePage.avatar
+        avatar: avatarSelector(state)
     }
 };
 

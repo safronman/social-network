@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import React from "react";
 import UnreadMessagesCount from "./UnreadMesagesCount";
-import {newMessagesCountTC} from "../../../redux/reducers/dialogsPageReducer";
+import {newMessagesCountTC, unreadMessagesCounterSelector} from "../../../redux/reducers/dialogsPageReducer";
 import {withRouter} from "react-router-dom";
 
 let UnreadMessagesCountContainer = class extends React.Component {
@@ -18,7 +18,7 @@ let UnreadMessagesCountContainer = class extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        unreadMessagesCounter: state.dialogsPage.unreadMessagesCounter
+        unreadMessagesCounter: unreadMessagesCounterSelector(state)
     }
 };
 
