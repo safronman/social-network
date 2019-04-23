@@ -7,8 +7,8 @@ import LookingForAJobDescFieldContainer
     from "./LookingForAJobDescField/LookingForAJobDescFieldContainer";
 import FullNameFieldContainer from "./FullNameField/FullNameFieldContainer";
 import AboutMeFieldContainer from "./AboutMeField/AboutMeFieldContainer";
-import {NavLink} from "react-router-dom";
 import ProfilePhotoContainer from "./ProfilePhoto/ProfilePhotoContainer";
+import {NavLink} from "react-router-dom";
 
 const Profile = (props) => {
 
@@ -41,8 +41,8 @@ const Profile = (props) => {
     } else {
         return (
             <>
-                <p className={styles.goToLogin}>Только залогиненный пользователь может увидеть эту страницу.</p>
-                <NavLink to='/' className={styles.goToLogin}>Перейдите на страницу логина</NavLink>
+                <p className={styles.redirectToLoginPage}>Только залогиненный пользователь может увидеть эту страницу.</p>
+                <NavLink to='/' className={styles.redirectToLoginPage}>Перейдите на страницу логина</NavLink>
             </>
         )
     }
