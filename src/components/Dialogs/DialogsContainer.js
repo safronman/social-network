@@ -13,7 +13,7 @@ import {
 } from "../../redux/reducers/dialogsPageReducer";
 import Dialogs from "./Dialogs";
 import {withRouter} from "react-router-dom";
-import {userIdSelector} from "../../redux/reducers/authorizationReducer";
+import {isAuthSelector, userIdSelector} from "../../redux/reducers/authorizationReducer";
 import {avatarSelector} from "../../redux/reducers/profilePageReducer";
 
 
@@ -53,7 +53,8 @@ let mapStateToProps = (state) => {
         messages: messagesSelector(state),
         unreadMessagesCounter: unreadMessagesCounterSelector(state),
         userId: userIdSelector(state),
-        avatar: avatarSelector(state)
+        avatar: avatarSelector(state),
+        isAuth: isAuthSelector(state)
     }
 };
 

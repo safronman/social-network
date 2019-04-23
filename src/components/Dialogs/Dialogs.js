@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Dialogs.module.css'
 import PropTypes from "prop-types";
+import {NavLink} from "react-router-dom";
 
 let Dialogs = (props) => {
 
@@ -59,39 +60,50 @@ let Dialogs = (props) => {
         props.deleteMessage(messageId, props.match.params.userId)
     };
 
-    return (
-        <div className={styles.wrapper}>
-            <div className={styles.dialogsWrapper}>
-                {
-                    props.dialogs.map(item => {
-                        let hasNewMessages = item.hasNewMessages ?
-                            <span className={styles.newMessagesLabel}> NEW</span>
-                            : null;
 
-                        return (
-                            <div key={item.id} onClick={() => {
-                                return onDialogClick(item.id)
-                            }}>
-                                {
-                                    String(item.id) === props.currentDialogId ?
-                                        <p className={styles.currentDialog}>{item.userName}{hasNewMessages}</p> :
-                                        <p className={styles.dialog}>{item.userName} {hasNewMessages}</p>
-                                }
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            <div className={styles.messagesWrapper}>
-                {messages}
-                <div className={styles.addMessagesWrapper}>
+    if (props.isAuth) {
+        return (
+            <div className={styles.wrapper}>
+                <div className={styles.dialogsWrapper}>
+                    {
+                        props.dialogs.map(item => {
+                            let hasNewMessages = item.hasNewMessages ?
+                                <span className={styles.newMessagesLabel}> NEW</span>
+                                : null;
+
+                            return (
+                                <div key={item.id} onClick={() => {
+                                    return onDialogClick(item.id)
+                                }}>
+                                    {
+                                        String(item.id) === props.currentDialogId ?
+                                            <p className={styles.currentDialog}>{item.userName}{hasNewMessages}</p> :
+                                            <p className={styles.dialog}>{item.userName} {hasNewMessages}</p>
+                                    }
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className={styles.messagesWrapper}>
+                    {messages}
+                    <div className={styles.addMessagesWrapper}>
                     <textarea className={styles.addMessagesField} ref={newMessageRef}
                               placeholder="Write a message"/>
-                    <button className={styles.addMessagesBtn} onClick={onSendButtonClick}>Send</button>
+                        <button className={styles.addMessagesBtn} onClick={onSendButtonClick}>Send</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <>
+                <p className={styles.redirectToLoginPage}>Только залогиненный пользователь может увидеть эту
+                    страницу.</p>
+                <NavLink to='/' className={styles.redirectToLoginPage}>Перейдите на страницу логина</NavLink>
+            </>
+        )
+    }
 };
 
 Dialogs.propTypes = {
