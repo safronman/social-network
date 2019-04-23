@@ -60,19 +60,6 @@
     font-size: 16px;
 }
 
-/*go to login*/
-.goToLogin {
-    display: block;
-    text-align: center;
-    color: #285473;
-    font-size: 24px;
-    font-weight: 100;
-}
-
-.goToLogin:hover {
-    text-decoration: none;
-}
-
 /*button*/
 .btn {
     width: 100%;
@@ -80,4 +67,9 @@
     padding: 12px 10px;
 
     composes: commonBtn from "../../index.css";
+}
+
+/*redirect to loginPage*/
+.redirectToLoginPage {
+    composes: redirectToLoginPage from '../../index.css';
 }

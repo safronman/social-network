@@ -129,3 +129,8 @@
 .addMessagesBtn {
     composes: commonBtn from '../../index.css';
 }
+
+/*redirect to loginPage*/
+.redirectToLoginPage {
+    composes: redirectToLoginPage from '../../index.css'
+}
