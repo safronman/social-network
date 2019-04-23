@@ -18,10 +18,15 @@ let LoginForm = (props) => {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Registration page</h2>
+            <div className={styles.testDataWrapper}>
+                <p className={styles.testTitle}>Enter the following values to test the application</p>
+                <p className={styles.testValue}>email: safronmanbox@gmail.com</p>
+                <p className={styles.testValue}>password: 111</p>
+            </div>
             <div className={styles.wrapper}>
                 {errorMessage}
                 <div className={styles.fieldWrapper}>
-                    <label className={styles.fieldLabel} htmlFor="email">Email:</label>
+                    <label className={styles.fieldLabel} htmlFor="email">Email: </label>
                     <Field className={styles.fieldInput} name="email" component="input" type="email"/>
                 </div>
                 <div className={styles.fieldWrapper}>
