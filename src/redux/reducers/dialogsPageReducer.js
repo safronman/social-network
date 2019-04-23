@@ -57,7 +57,6 @@ const dialogsPageReducer = (state = initialState, action) => {
             };
 
         case SET_CURRENT_DIALOG_ID:
-            debugger
             return {
                 ...state,
                 currentDialogId: action.id
