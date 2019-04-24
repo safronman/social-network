@@ -111,7 +111,7 @@ Dialogs.propTypes = {
     currentDialogId: PropTypes.string,
     messages: PropTypes.array,
     unreadMessagesCounter: PropTypes.number,
-    userId: PropTypes.string,
+    userId: PropTypes.number,
     avatar: PropTypes.string
 };
 
