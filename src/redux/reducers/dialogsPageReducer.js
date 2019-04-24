@@ -100,7 +100,7 @@ export const addNewMessageToState = message => ({type: ADD_NEW_MESSAGE_TO_STATE,
 export const initialRequestsTC = (userId) => (dispatch) => {
     updateDialogs(userId)
         .then((res) => {
-            dispatch(setCurrentDialogIdAC(userId))
+            dispatch(setCurrentDialogIdAC(String(userId)))
         })
         .then(() => getDialogs())
         .then((res) => dispatch(setDialogsAC(res)))
