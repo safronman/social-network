@@ -8,7 +8,7 @@ let UnreadMessagesCountContainer = class extends React.Component {
     componentDidMount() {
         setInterval(() => {
             this.props.newMessagesCount();
-        }, 5000)
+        }, 50000)
     }
 
     render() {
