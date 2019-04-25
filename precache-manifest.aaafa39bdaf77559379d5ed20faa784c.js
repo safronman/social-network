@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/projects/social-network/static/js/runtime~main.e947bfa3.js"
   },
   {
-    "revision": "5f18a1f948fa501e49b6",
-    "url": "/projects/social-network/static/js/main.59038364.chunk.js"
+    "revision": "ea3adfbb8d1045fd7d30",
+    "url": "/projects/social-network/static/js/main.a0a2ac6b.chunk.js"
   },
   {
     "revision": "407899a40223393aa74d",
     "url": "/projects/social-network/static/js/2.20344a4a.chunk.js"
   },
   {
-    "revision": "5f18a1f948fa501e49b6",
+    "revision": "ea3adfbb8d1045fd7d30",
     "url": "/projects/social-network/static/css/main.0e7628c0.chunk.css"
   },
   {
-    "revision": "68a852347238e9ad02b41713147c15eb",
+    "revision": "26efd64592e53ef76c85cf47f14f21c5",
     "url": "/projects/social-network/index.html"
   }
 ];
