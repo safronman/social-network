@@ -6,3 +6,9 @@
     grid-row-gap: 25px;
     grid-template-columns: 4fr 4fr 4fr;
 }
+
+.currentPage {
+    color: green;
+    font-weight: bold;
+    font-size: 22px;
+}

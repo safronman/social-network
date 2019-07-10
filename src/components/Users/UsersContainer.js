@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {
-    addToFriendsTC,
+    addToFriendsTC, changeCurrentPageAC,
     getUsersTC,
     removeFromFriendsTC,
     statusSelector,
@@ -25,7 +25,11 @@ let UsersContainer = class extends React.Component {
 let mapStateToProps = (state) => {
     return {
         status: statusSelector(state),
-        users: transformedUsersSelector(state)
+        users: transformedUsersSelector(state),
+        totalCount: state.usersPage.totalCount,
+        pageSize: state.usersPage.pageSize,
+        currentPage: state.usersPage.currentPage
+
     }
 };
 
@@ -39,6 +43,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         removeFromFriends: (userId) => {
             dispatch(removeFromFriendsTC(userId));
+        },
+        changeCurrentPage: (currentPage) => {
+            dispatch(changeCurrentPageAC(currentPage));
         }
     }
 };

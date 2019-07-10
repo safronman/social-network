@@ -11,13 +11,18 @@ const SET_USERS = 'social-network/users-page/SET_USERS';
 const SET_CURRENT_USER_ID = 'social-network/users-page/SET_CURRENT_USER_ID';
 const SUBSCRIBE = 'social-network/users-page/SUBSCRIBE';
 const UNSUBSCRIBE = 'social-network/users-page/UNSUBSCRIBE';
+const SET_USERS_TOTAL_COUNT = 'social-network/users-page/SET_USERS_TOTAL_COUNT';
+const CHANGE_CURRENT_PAGE = 'social-network/users-page/CHANGE_CURRENT_PAGE';
 
 
 // Initial state
 let initialState = {
     status: statuses.STATUS_NOT_INITIALIZED,
     users: {},
-    currentUserId: null
+    currentUserId: null,
+    totalCount: 0,
+    currentPage: 1,
+    pageSize: 9
 };
 
 // Selectors
@@ -71,6 +76,16 @@ const usersPageReducer = (state = initialState, action) => {
             newState.users[action.id].followed = false;
             return newState;
 
+        case SET_USERS_TOTAL_COUNT:
+            return {
+                ...state, totalCount: action.totalCount
+            };
+
+        case CHANGE_CURRENT_PAGE:
+            return {
+                ...state, currentPage: action.currentPage
+            };
+
         default:
             return state;
     }
@@ -82,15 +97,18 @@ export const setUsersAC = users => ({type: SET_USERS, users});
 export const setCurrentUserIdAC = id => ({type: SET_CURRENT_USER_ID, id});
 export const subscribeAC = id => ({type: SUBSCRIBE, id});
 export const unSubscribeAC = id => ({type: UNSUBSCRIBE, id});
+export const setUsersTotalCount = totalCount => ({type: SET_USERS_TOTAL_COUNT, totalCount});
+export const changeCurrentPageAC = currentPage => ({type: CHANGE_CURRENT_PAGE, currentPage});
 
 
 // Thunk Creators
 export let getUsersTC = () => (dispatch) => {
     dispatch(setStatusAC(statuses.STATUS_IN_PROGRESS));
-    axiosInstance.get('users?count=50')
+    axiosInstance.get('users?count=9&page=1')
         .then((response) => {
             dispatch(setUsersAC(response.data.items));
             dispatch(setStatusAC(statuses.STATUS_SUCCESS));
+            dispatch(setUsersTotalCount(response.data.totalCount));
         })
 };
 

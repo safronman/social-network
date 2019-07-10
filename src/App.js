@@ -19,7 +19,7 @@ const App = () => {
             <HeaderContainer/>
             <div className="sidebar">
                 <Navbar/>
-                <UsersContainer/>
+                {/*<UsersContainer/>*/}
             </div>
             <div className="app-wrapper__content">
                 <Switch>
@@ -27,6 +27,7 @@ const App = () => {
                     <Route path='/profile' component={ProfileContainer}/>
                     <Route path='/users/:userId' component={UserProfileContainer}/>
                     <Route path='/dialogs/:userId?' component={DialogsContainer}/>
+                    <Route path='/users' component={UsersContainer}/>
                     <Route path='/settings' component={Settings}/>
                     <Route component={NotFound}/>
                 </Switch>
