@@ -32,10 +32,12 @@ const Users = (props) => {
             <h3>Users</h3>
             <div>
                 {pages.map((item) => {
-                    return <span
-                        className={item === props.currentPage && styles.currentPage}
-                        onClick={()=>{onPageClick(item)}}
-                    >{item} </span>
+                    return (
+                        <span
+                            className={item === props.currentPage && styles.currentPage}
+                            onClick={() => {onPageClick(item)}}
+                        >{item } </span>
+                    )
                 })}
             </div>
             <br/>

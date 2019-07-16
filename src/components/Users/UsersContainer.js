@@ -9,11 +9,18 @@ import {
 import React from "react";
 import {statuses} from "../../redux/requestStatuses";
 import Users from "./Users";
+import {withRouter} from "react-router-dom";
 
 let UsersContainer = class extends React.Component {
     componentDidMount() {
         if (this.props.status === statuses.STATUS_NOT_INITIALIZED) {
-            this.props.getUsers();
+            this.props.getUsers(this.props.pageSize, this.props.currentPage);
+        }
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (this.props.currentPage !== nextProps.currentPage) {
+            this.props.getUsers(this.props.pageSize, nextProps.currentPage);
         }
     }
 
@@ -35,8 +42,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        getUsers: () => {
-            dispatch(getUsersTC());
+        getUsers: (pageSize, currentPage) => {
+            dispatch(getUsersTC(pageSize, currentPage));
         },
         addToFriends: (userId) => {
             dispatch(addToFriendsTC(userId));

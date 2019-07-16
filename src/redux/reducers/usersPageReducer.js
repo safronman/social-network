@@ -56,7 +56,7 @@ const usersPageReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                users: state.users
+                users: action.users
             };
 
         case SET_CURRENT_USER_ID:
@@ -101,10 +101,11 @@ export const setUsersTotalCount = totalCount => ({type: SET_USERS_TOTAL_COUNT, t
 export const changeCurrentPageAC = currentPage => ({type: CHANGE_CURRENT_PAGE, currentPage});
 
 
+
 // Thunk Creators
-export let getUsersTC = () => (dispatch) => {
+export let getUsersTC = (pageSize, currentPage) => (dispatch) => {
     dispatch(setStatusAC(statuses.STATUS_IN_PROGRESS));
-    axiosInstance.get('users?count=9&page=1')
+    axiosInstance.get(`users?count=${pageSize}&page=${currentPage}`)
         .then((response) => {
             dispatch(setUsersAC(response.data.items));
             dispatch(setStatusAC(statuses.STATUS_SUCCESS));

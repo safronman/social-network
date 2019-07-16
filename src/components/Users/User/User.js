@@ -17,7 +17,7 @@ const User = (props) => {
         <>
             <NavLink className={styles.link} to={`/users/${props.item.id}`}>
                 <img className={styles.avatar}
-                     src={props.item.photos.small === null ? 'https://placecage.com/80/80' : props.item.photos.small}
+                     src={props.item.photos.small === null ? 'https://placeimg.com/640/480/any' : props.item.photos.small}
                      alt="avatar"/>
                 <p className={styles.name}>{props.item.name.length > 15 ? `${props.item.name.substring(0, 12)} ...` : props.item.name}</p>
             </NavLink>
