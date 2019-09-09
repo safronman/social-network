@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {loginTC, messageSelector, statusSelector} from "../../redux/reducers/loginPageReducer";
 import LoginForm from "./LoginForm";
 import React from "react";
-import {reduxForm} from "redux-form";
+import {reduxForm, reset} from "redux-form";
 import {isAuthSelector} from "../../redux/reducers/authorizationReducer";
 
 let LoginFormUnderReduxForm = reduxForm({
@@ -35,7 +35,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         login: (mail, password, rememberMe) => {
-            dispatch(loginTC(mail, password, rememberMe))
+            dispatch(loginTC(mail, password, rememberMe));
+            dispatch(reset('loginForm'))
         }
     }
 };

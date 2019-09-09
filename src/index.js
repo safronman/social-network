@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import {BrowserRouter} from "react-router-dom";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import "./index.css";
 import App from "./App";
@@ -15,6 +14,7 @@ import userProfileReducer from "./redux/reducers/userProfileReducer";
 import dialogsPageReducer from "./redux/reducers/dialogsPageReducer";
 import {composeWithDevTools} from "redux-devtools-extension";
 import { reducer as formReducer } from "redux-form";
+import {BrowserRouter} from "react-router-dom";
 
 let combinedReducers = combineReducers({
     profilePage: profilePageReducer,

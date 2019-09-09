@@ -106,11 +106,11 @@ export const changeCurrentPageAC = currentPage => ({type: CHANGE_CURRENT_PAGE, c
 export let getUsersTC = (pageSize, currentPage) => (dispatch) => {
     dispatch(setStatusAC(statuses.STATUS_IN_PROGRESS));
     axiosInstance.get(`users?count=${pageSize}&page=${currentPage}`)
-        .then((response) => {
-            dispatch(setUsersAC(response.data.items));
-            dispatch(setStatusAC(statuses.STATUS_SUCCESS));
-            dispatch(setUsersTotalCount(response.data.totalCount));
-        })
+    .then((response) => {
+        dispatch(setUsersAC(response.data.items));
+        dispatch(setStatusAC(statuses.STATUS_SUCCESS));
+        dispatch(setUsersTotalCount(response.data.totalCount));
+    })
 };
 
 export let addToFriendsTC = (id) => (dispatch) => {

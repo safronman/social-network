@@ -38,7 +38,7 @@ let LoginForm = (props) => {
                     <label className={styles.fieldCheckboxLabel} htmlFor="saveData">Remember me</label>
                 </div>
                 <div className={styles.btnWrapper}>
-                    <button className={styles.btn} type="submit" disabled={pristine || submitting}>Log in</button>
+                    <button className={styles.btn} type="submit" disabled={pristine || submitting} >Log in</button>
                     <button className={styles.btn} type="button" disabled={pristine || submitting} onClick={reset}>
                         Clear Values
                     </button>
